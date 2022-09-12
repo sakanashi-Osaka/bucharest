@@ -53,7 +53,7 @@ int eventbuild_cor(int run){
     ifs >> domain[i] >> p0[i] >> p1[i];
   }
   
-  TFile *fin =new TFile(Form("../sorter_cor/run%d_-1_ssgant1.root",run));
+  TFile *fin =new TFile(Form("../sorter_cor/rootfile/run%d_-1_ssgant1.root",run));
   TTree *tree = (TTree*)fin->Get("tree");
 
   int tmp_domain;
@@ -69,8 +69,8 @@ int eventbuild_cor(int run){
   tree->SetBranchAddress("Amax", &tmp_amax);
   
   
-  TFile *fout =new TFile(Form("test%d.root",run),"recreate");
-  //  TFile *fout =new TFile(Form("event%d.root",run),"recreate");
+  //  TFile *fout =new TFile(Form("test%d.root",run),"recreate");
+  TFile *fout =new TFile(Form("rootfile/event%d.root",run),"recreate");
   TTree *event = new TTree("event","event");
   
   int board=-1;

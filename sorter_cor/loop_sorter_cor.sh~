@@ -1,5 +1,0 @@
-#!/bin/bash
-for i in `seq 2380 2399` #2300-2399 finished
-do
-    root -l -q 'sorter_cor.C+('$i')'
-done

@@ -22,7 +22,7 @@ using namespace std;
 #define SAMPLE 5
 
 int main(int argc, char *argv[]){
-  TFile *f =new TFile(Form("../sorter/run%d_-1_ssgant1.root",atoi(argv[1])));
+  TFile *f =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",atoi(argv[1])));
   TTree *tree = (TTree*)f->Get("tree");  
 
   
