@@ -1,0 +1,16 @@
+-data
+raw data but waveform is suppessed.
+
+ -sorter
+ event was sorted with timestamp.
+
+  -eventbuild
+  event was builded usinf reference triggger.
+
+  -time_cor
+  pattern matching of timestamp.
+
+  -sorter_cor
+   event was corrected using time_cor.
+
+   -eventbuild_cor 

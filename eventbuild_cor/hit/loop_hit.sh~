@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 2327 2329` #2300-2369 finished
+do
+    root -l -q 'hit.C+('$i')'
+done

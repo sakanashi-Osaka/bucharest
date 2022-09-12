@@ -1,0 +1,72 @@
+
+# DO NOT DELETE
+
+./test_cpp.so: TSorter.cpp /saho/sharedAPL/root/6.20.06/include/TFile.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/Compression.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/Rtypes.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/RtypesCore.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/RConfig.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/RVersion.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/RConfigure.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/DllImport.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/snprintf.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/strlcpy.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TGenericClassInfo.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TSchemaHelper.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TIsAProxy.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TVirtualIsAProxy.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TDirectoryFile.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TDirectory.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TBuffer.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TDataType.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TDictionary.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TNamed.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TObject.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TStorage.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TVersionCheck.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/RVersion.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TString.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TMathBase.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/RStringView.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/RWrap_libcpp_string_view.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/libcpp_string_view.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/TypeTraits.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/RSpan.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/span.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ESTLType.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TClass.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TObjArray.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TSeqCollection.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TCollection.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TIterator.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TVirtualRWMutex.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TVirtualMutex.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TObjString.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ThreadLocalStorage.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/Bytes.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TList.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TDatime.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TUUID.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TMap.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/THashTable.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TUrl.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/RConcurrentHashColl.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/TRWSpinLock.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/TSpinMutex.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TTree.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/ROOT/TIOFeatures.hxx
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TBasket.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TKey.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TArrayD.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TArray.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TArrayI.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TAttFill.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TAttLine.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TAttMarker.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TBranch.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TBranchCacheInfo.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TBits.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/TVirtualTreePlayer.h
+./test_cpp.so: TSorter.hpp TreeData.h
+./test_cpp.so: /saho/sharedAPL/root/6.20.06/include/RVersion.h /saho/sharedAPL/root/6.20.06/include/RConfig.h /saho/sharedAPL/root/6.20.06/include/TClass.h /saho/sharedAPL/root/6.20.06/include/TDictAttributeMap.h /saho/sharedAPL/root/6.20.06/include/TInterpreter.h /saho/sharedAPL/root/6.20.06/include/TROOT.h /saho/sharedAPL/root/6.20.06/include/TBuffer.h /saho/sharedAPL/root/6.20.06/include/TMemberInspector.h /saho/sharedAPL/root/6.20.06/include/TError.h /saho/sharedAPL/root/6.20.06/include/RtypesImp.h /saho/sharedAPL/root/6.20.06/include/TIsAProxy.h /saho/sharedAPL/root/6.20.06/include/TFileMergeInfo.h /saho/sharedAPL/root/6.20.06/include/TCollectionProxyInfo.h /usr/local/root/6.20.06/bin/rootcling
+test_cpp__ROOTBUILDVERSION= 6.20/06

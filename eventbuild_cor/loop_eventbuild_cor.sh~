@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 2370 2384` #2300-2384 finished
+do
+    root -l -q 'eventbuild_cor.C+('$i')'
+done

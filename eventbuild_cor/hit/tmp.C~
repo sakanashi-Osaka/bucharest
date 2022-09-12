@@ -1,0 +1,14 @@
+{
+  TCanvas *c = new TCanvas("c","c");
+  TH1D *h=new TH1D("h","",500,-50e3,50e3);
+  TH1D *h1=new TH1D("h1","",500,-50e3,50e3);
+  
+  c->Divide(4,4);
+  c->cd(0);
+  TFile *f0 = TFile::Open("hit2300.root");
+  hit->Draw("ts_diff_f[0]>>h","","",1e5,0);
+  TFile *f1 = TFile::Open("hit2301.root");
+  hit->Draw("ts_diff_f[0]>>h1","","",1e5,0);
+  h->Draw();
+  h1->Draw();
+}

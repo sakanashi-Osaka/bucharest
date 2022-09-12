@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 2300 2300`
+do
+    root -l -q 'test.cpp+('$i')'
+done

@@ -1,0 +1,21 @@
+{
+  TFile *f0 =new TFile("../run2301_-1_ssgant1.root");
+  TTree *tree0 = (TTree*)f0->Get("tree");  
+  TFile *f1 =new TFile("../run2302_-1_ssgant1.root");
+  TTree *tree1 = (TTree*)f1->Get("tree");  
+  TFile *f2 =new TFile("../run2411_-1_ssgant1.root");
+  TTree *tree2 = (TTree*)f2->Get("tree");  
+
+  tree0->Draw("Amax:Energy>>h0(500,0,25,400,0,1)","domain==86","",5e7,0);
+  tree1->Draw("Amax:Energy>>h1(500,0,25,400,0,1)","domain==86","",5e7,0);
+  tree2->Draw("Amax:Energy>>h2(500,0,25,400,0,1)","domain==86","",5e7,0);
+
+  h0->SetMarkerColor(1);
+  h1->SetMarkerColor(4);
+  h2->SetMarkerColor(2);
+
+  h0->Draw();
+  h1->Draw("same");
+  h2->Draw("same");
+}
+ 
