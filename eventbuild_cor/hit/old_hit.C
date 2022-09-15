@@ -31,45 +31,9 @@ int get_ch(int domain);
 float get_front_theta(int front_ch);
 float get_angle(float x, float y, int ch_f, int ch_r);
 float get_front_ex(float theta, float ene);
-void fill_data(int seg, int num_fi, int num_ff, int num_ri, int num_rf);
 
-//branch
-int hit_n[4]={0,0,0,0};
- int ch_f[4][N_HIT_MAX]={};
- int ch_r[4][N_HIT_MAX]={};
- int ch_g[N_HIT_MAX]={};
- int ch_b[N_HIT_MAX]={};
- float Energy_f[4][N_HIT_MAX]={};
- float Energy_r[4][N_HIT_MAX]={};
- float front_ex[4][N_HIT_MAX]={};
- float cor_ex[4][N_HIT_MAX]={};
- double ts_diff_f[4][N_HIT_MAX]={};
- double ts_diff_r[4][N_HIT_MAX]={};
- double ts_diff_g[N_HIT_MAX]={};
- double ts_diff_b[N_HIT_MAX]={};
- float Amax[4][N_HIT_MAX]={};
- float Gamma[N_HIT_MAX]={};
- float BGO[N_HIT_MAX]={};
- int run_n=-1;
 
-//analysis
-int count_f[4]={0,0,0,0};
-int count_r[4]={0,0,0,0};
-int count_g=0;
-int count_b=0;
-float ene_ex[4][N_HIT_MAX]={};
-float ene_f[4][N_HIT_MAX]={};
-float ene_r[4][N_HIT_MAX]={};
-float Amax_f[4][N_HIT_MAX]={};
-float Amax_r[4][N_HIT_MAX]={};
-double ts_f[4][N_HIT_MAX]={};
-double ts_r[4][N_HIT_MAX]={};
-int domain_f[4][N_HIT_MAX]={};
-int domain_r[4][N_HIT_MAX]={};
-int type_f[4][N_HIT_MAX]={};
-int type_r[4][N_HIT_MAX]={};
-
-int hit_new(int run){
+int hit(int run){
 
   ifstream ifs("../timing.prm");
   int domain[10][16];
@@ -99,21 +63,35 @@ int hit_new(int run){
   TFile *fout =new TFile(Form("test%d.root",run),"recreate");
   TTree *hit = new TTree("hit","hit"); 
 
+  //branch
+  int hit_n=-1;
+  int ch_f[N_HIT_MAX]={};
+  int ch_r[N_HIT_MAX]={};
+  float Energy_f[N_HIT_MAX]={};
+  float Energy_r[N_HIT_MAX]={};
+  float front_ex[N_HIT_MAX]={};
+  float cor_ex[N_HIT_MAX]={};
+  double ts_diff_f[N_HIT_MAX]={};
+  double ts_diff_r[N_HIT_MAX]={};
+  double ts_diff_g[N_HIT_MAX]={};
+  double ts_diff_b[N_HIT_MAX]={};
+  float Amax[N_HIT_MAX]={};
+  float Gamma[N_HIT_MAX]={};
+  float BGO[N_HIT_MAX]={};
+  int run_n=-1;
   
-  hit->Branch("hit_n",hit_n,"hit_n[4]/I");
-  hit->Branch("ch_f",ch_f,"ch_f[4][10]/I");
-  hit->Branch("ch_r",ch_r,"ch_r[4][10]/I");
-  hit->Branch("ch_g",ch_g,"ch_g[10]/I");
-  hit->Branch("ch_b",ch_b,"ch_b[10]/I");
-  hit->Branch("Energy_f",Energy_f,"Energy_f[4][10]/F");
-  hit->Branch("Energy_r",Energy_r,"Energy_r[4][10]/F");
-  hit->Branch("front_ex",front_ex,"front_ex[4][10]/F");
-  hit->Branch("cor_ex",cor_ex,"cor_ex[4][10]/F");
-  hit->Branch("ts_diff_f",ts_diff_f,"ts_diff_f[4][10]/D");
-  hit->Branch("ts_diff_r",ts_diff_r,"ts_diff_r[4][10]/D");
+  hit->Branch("hit_n",&hit_n,"hit_n/I");
+  hit->Branch("ch_f",ch_f,"ch_f[10]/I");
+  hit->Branch("ch_r",ch_r,"ch_r[10]/I");
+  hit->Branch("Energy_f",Energy_f,"Energy_f[10]/F");
+  hit->Branch("Energy_r",Energy_r,"Energy_r[10]/F");
+  hit->Branch("front_ex",front_ex,"front_ex[10]/F");
+  hit->Branch("cor_ex",cor_ex,"cor_ex[10]/F");
+  hit->Branch("ts_diff_f",ts_diff_f,"ts_diff_f[10]/D");
+  hit->Branch("ts_diff_r",ts_diff_r,"ts_diff_r[10]/D");
   hit->Branch("ts_diff_g",ts_diff_g,"ts_diff_g[10]/D");
   hit->Branch("ts_diff_b",ts_diff_b,"ts_diff_b[10]/D");
-  hit->Branch("Amax",Amax,"Amax[4][10]/F");
+  hit->Branch("Amax",Amax,"Amax[10]/F");
   hit->Branch("Gamma",Gamma,"Gamma[10]/F");
   hit->Branch("BGO",BGO,"BGO[10]/F");
   hit->Branch("run_n",&run_n,"run_n/I");
@@ -128,45 +106,40 @@ int hit_new(int run){
     if(evtn%10000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
 
     event->GetEntry(evtn); 
+    
+    //analysis
+    int count_f=0;
+    int count_r=0;
+    int count_g=0;
+    int count_b=0;
+    float ene_f[N_HIT_MAX]={};
+    float ene_r[N_HIT_MAX]={};
+    float Amax_f[N_HIT_MAX]={};
+    float Amax_r[N_HIT_MAX]={};
+    double ts_f[N_HIT_MAX]={};
+    double ts_r[N_HIT_MAX]={};
+    int domain_f[N_HIT_MAX]={};
+    int domain_r[N_HIT_MAX]={};
+    int type_f[N_HIT_MAX]={};
+    int type_r[N_HIT_MAX]={};
 
-    for(int i=0; i<4; i++){
-      for(int j=0; j<N_HIT_MAX; j++){
-	ch_f[i][j]=-1;
-	ch_r[i][j]=-1;
-	ch_g[j]=-1;
-	ch_b[j]=-1;
-	Energy_f[i][j]=-1;
-	Energy_r[i][j]=-1;
-	Amax[i][j]=-1;
-	front_ex[i][j]=-1;
-	cor_ex[i][j]=-1; 
-	ts_diff_f[i][j]=-1e6;
-	ts_diff_r[i][j]=-1e6;
-	ts_diff_g[j]=-1e6;
-	ts_diff_b[j]=-1e6;
-	Gamma[i]=-1;
-	BGO[i]=-1;
-	run_n=-1;
-	hit_n[i]=0;
-
-	count_f[i]=0;
-	count_r[i]=0;
-	count_g=0;
-	count_b=0;
-	ene_ex[i][j]=0;
-	ene_f[i][j]=0;
-	ene_r[i][j]=0;
-	Amax_f[i][j]=0;
-	Amax_r[i][j]=0;
-	ts_f[i][j]=0;
-	ts_r[i][j]=0;
-	domain_f[i][j]=0;
-	domain_r[i][j]=0;
-	type_f[i][j]=0;
-	type_r[i][j]=0;
-      }
+    for(int i=0; i<N_HIT_MAX; i++){
+      ch_f[i]=-1;
+      ch_r[i]=-1;
+      Energy_f[i]=-1;
+      Energy_r[i]=-1;
+      Amax[i]=-1;
+      front_ex[i]=-1;
+      cor_ex[i]=-1; 
+      ts_diff_f[i]=-1e6;
+      ts_diff_r[i]=-1e6;
+      ts_diff_g[i]=-1e6;
+      ts_diff_b[i]=-1e6;
+      Gamma[i]=-1;
+      BGO[i]=-1;
+      hit_n=-1;
+      run_n=-1;
     }
-
 
     run_n=run;
     
@@ -175,119 +148,64 @@ int hit_new(int run){
 	int type = entry_type(i,j);
 
 	if(tmp_energy[i][j]>0.3 && tmp_energy[i][j]<30){
-	  
-	  if(abs(type-22)<3){
-	    ene_f[type-20][count_f[type-20]]=tmp_energy[i][j];
-	    ene_ex[type-20][count_f[type-20]]=tmp_front_ex[i][j];
-	    ts_f[type-20][count_f[type-20]]=tmp_ts_diff[i][j]-p1[i][j];
-	    Amax_f[type-20][count_f[type-20]]=tmp_amax[i][j];
-	    domain_f[type-20][count_f[type-20]]=i*16+j;
-	    type_f[type-20][count_f[type-20]]=type;
-	    count_f[type-20]++;
-	  }
-	  if(abs(type-32)<3){
-	    ene_r[type-30][count_r[type-30]]=tmp_energy[i][j];
-	    ts_r[type-30][count_r[type-30]]=tmp_ts_diff[i][j]-p1[i][j];
-	    Amax_r[type-30][count_r[type-30]]=tmp_amax[i][j];
-	    domain_r[type-30][count_r[type-30]]=i*16+j;
-	    type_r[type-30][count_r[type-30]]=type;
-	    count_r[type-30]++;
-	  }
-
 	  if(type==10){
 	    Gamma[count_g]=tmp_energy[i][j];
 	    ts_diff_g[count_g]=tmp_ts_diff[i][j]-p1[i][j];
-	    ch_g[count_g]=i*16+j;
+	    if(tmp_energy[i][j+1]>0.2){
+	      BGO[count_g]=tmp_energy[i][j+1];
+	      ts_diff_b[count_g]=tmp_ts_diff[i][j+1]-p1[i][j+1];
+	    }
 	    count_g++;
 	  }
-	  if(type==11){
-	    BGO[count_b]=tmp_energy[i][j];
-	    ts_diff_b[count_b]=tmp_ts_diff[i][j]-p1[i][j];
-	    ch_b[count_b]=i*16+j;
-	    count_b++;
+	  if(abs(type-22)<3){
+	    ene_f[count_f]=tmp_energy[i][j];
+	    front_ex[count_f]=tmp_front_ex[i][j];
+	    ts_f[count_f]=tmp_ts_diff[i][j]-p1[i][j];
+	    Amax_f[count_f]=tmp_amax[i][j];
+	    domain_f[count_f]=i*16+j;
+	    type_f[count_f]=type;
+	    count_f++;
 	  }
-	  
-	}
-      }
-    }
-
-    for(int seg=0; seg<4; seg++){
-      if(count_f[seg]==0 || count_r[seg]==0) continue;
-
-      if(count_f[seg]==1 && count_r[seg]==1){ //1vs1 event
-	if(abs(ene_f[seg][0]-ene_r[seg][0])<0.5){;
-	  fill_data(seg,0,0,0,0);	  
-	  hit_n[seg]=11;
-	}
-      }
-      if(count_f[seg]==2 && count_r[seg]==1){ //2vs1 event
-	if(abs(ene_f[seg][0]+ene_f[seg][1]-ene_r[seg][0])<1){;
-	  fill_data(seg,0,0,0,0);	  
-	  fill_data(seg,1,1,0,0);	  
-	  hit_n[seg]=21;
-	}
-      }
-      if(count_f[seg]==2 && count_r[seg]==2){ //2vs2 event
-	if(abs(ene_f[seg][0]-ene_r[seg][0])<0.5 && abs(ene_f[seg][1]-ene_r[seg][1])<0.5){;
-	  fill_data(seg,0,0,0,0);	  
-	  fill_data(seg,1,1,1,1);	  
-	  hit_n[seg]=22;
-	}else if(abs(ene_f[seg][0]-ene_r[seg][1])<0.5 && abs(ene_f[seg][1]-ene_r[seg][0])<0.5){;
-	  fill_data(seg,0,0,1,0);	  
-	  fill_data(seg,1,1,0,1);	  
-	  hit_n[seg]=22;
-	}
-      }
-      if(count_f[seg]==3 && count_r[seg]==1){ //3vs1 event
-	if(abs(ene_f[seg][0]+ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0])<1){;
-	  fill_data(seg,0,0,0,0);	  
-	  fill_data(seg,1,1,0,0);	  
-	  fill_data(seg,2,2,0,0);	  
-	  hit_n[seg]=31;
-	}
-      }
-      if(count_f[seg]==3 && count_r[seg]==2){ //3vs2 event
-	if(abs(ene_f[seg][0]+ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0]-ene_r[seg][1])<1){
-	  if(abs(ene_f[seg][0]+ene_f[seg][1]-ene_r[seg][0])<1 && abs(ene_f[seg][2]-ene_r[seg][1])<0.5){
-	    fill_data(seg,0,0,0,0);	  
-	    fill_data(seg,1,1,0,0);	  
-	    fill_data(seg,2,2,1,1);	  
-	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][0]+ene_f[seg][1]-ene_r[seg][1])<1 && abs(ene_f[seg][2]-ene_r[seg][0])<0.5){
-	    fill_data(seg,0,0,1,1);	  
-	    fill_data(seg,1,1,1,1);	  
-	    fill_data(seg,2,2,0,0);	  
-	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][0]+ene_f[seg][2]-ene_r[seg][0])<1 && abs(ene_f[seg][1]-ene_r[seg][1])<0.5){
-	    fill_data(seg,0,0,0,0);	  
-	    fill_data(seg,2,2,0,0);	  
-	    fill_data(seg,1,1,1,1);	  
-	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][0]+ene_f[seg][2]-ene_r[seg][1])<1 && abs(ene_f[seg][1]-ene_r[seg][0])<0.5){
-	    fill_data(seg,0,0,1,1);	  
-	    fill_data(seg,2,2,1,1);	  
-	    fill_data(seg,1,1,0,0);	  
-	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0])<1 && abs(ene_f[seg][0]-ene_r[seg][1])<0.5){
-	    fill_data(seg,1,1,0,0);	  
-	    fill_data(seg,2,2,0,0);	  
-	    fill_data(seg,0,0,1,1);	  
-	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][1])<1 && abs(ene_f[seg][0]-ene_r[seg][0])<0.5){
-	    fill_data(seg,1,1,1,1);	  
-	    fill_data(seg,2,2,1,1);	  
-	    fill_data(seg,0,0,0,0);	  
-	    hit_n[seg]=32;
+	  if(abs(type-32)<3){
+	    ene_r[count_r]=tmp_energy[i][j];
+	    ts_r[count_r]=tmp_ts_diff[i][j]-p1[i][j];
+	    Amax_r[count_r]=tmp_amax[i][j];
+	    domain_r[count_r]=i*16+j;
+	    type_r[count_r]=type;
+	    count_r++;
 	  }
 	}
       }
     }
-    //    cout << hit_n[0] << hit_n[1] << hit_n[2] << hit_n[3] << endl;
+    if(count_f<1 || count_r<1 || count_f!=count_r) continue;
+    
+    bool inv = false;
+    if(type_f[0]-type_r[0]!=-10) inv = true;
+    
+    for(int num=0; num<2; num++){
+      Energy_f[num]=ene_f[num];
+      Amax[num]=Amax_f[num];
+      ts_diff_f[num]=ts_f[num];
+      ch_f[num]=get_ch(domain_f[num]);
+      if(!inv){
+	ch_r[num]=get_ch(domain_r[num]);
+	Energy_r[num]=ene_r[num];
+	ts_diff_r[num]=ts_r[num];
+      }
+      if(inv){
+       	ch_r[num]=get_ch(domain_r[(num+1)%2]);
+	Energy_r[num]=ene_r[(num+1)%2];
+	ts_diff_r[num]=ts_r[(num+1)%2];
+      }
 
-    hit->Fill();
-    
-    /*
-    
+      float tmp_theta;
+      tmp_theta = get_angle(0, 0, ch_f[num], ch_r[num]);
+      front_ex[num] = get_front_ex(tmp_theta, Energy_f[num]);
+      float tmp_theta1;
+      tmp_theta1 = get_angle(0, 2, ch_f[num], ch_r[num]);
+      cor_ex[num] = get_front_ex(tmp_theta1, Energy_f[num]);
+    }
+
     if(count_f==1 && count_r==1){
       hit_n=1;
       hit->Fill();
@@ -301,7 +219,6 @@ int hit_new(int run){
     hit_n=2;
     
     hit->Fill();
-    */
   }
   
   hit->AutoSave();
@@ -469,17 +386,4 @@ float get_angle(float x, float y, int ch_f, int ch_r){
   tmp_theta = acos(tmp_z/pow(pow(tmp_x,2)+pow(tmp_y,2)+pow(tmp_z,2),0.5));
 
   return tmp_theta;
-}
-
-void fill_data(int seg, int num_fi, int num_ff, int num_ri, int num_rf){
-  Energy_f[seg][num_ff]=ene_f[seg][num_fi];
-  Energy_r[seg][num_rf]=ene_r[seg][num_ri];
-  Amax[seg][num_ff]=Amax_f[seg][num_fi];
-  ts_diff_f[seg][num_ff]=ts_f[seg][num_fi];
-  ts_diff_r[seg][num_rf]=ts_r[seg][num_ri];
-  ch_f[seg][num_ff]=get_ch(domain_f[seg][num_fi]);
-  ch_r[seg][num_rf]=get_ch(domain_r[seg][num_ri]);
-
-  double tmp_theta1 = get_angle(0, 2, ch_f[seg][num_ff], ch_r[seg][num_rf]);
-  cor_ex[seg][num_ff] = get_front_ex(tmp_theta1, Energy_f[seg][num_ff]);
 }
