@@ -29,28 +29,30 @@ const float s1_dist = 40;
 int entry_type(int board, int ch);
 int get_ch(int domain);
 float get_front_theta(int front_ch);
-float get_angle(float x, float y, int ch_f, int ch_r);
+std::pair<float,float> get_angle(float x, float y, int ch_f, int ch_r);
 float get_front_ex(float theta, float ene);
 void fill_data(int seg, int num_fi, int num_ff, int num_ri, int num_rf);
+double detect3a(double *enea, int *chfa, int *chra);
 
 //branch
 int hit_n[4]={0,0,0,0};
- int ch_f[4][N_HIT_MAX]={};
- int ch_r[4][N_HIT_MAX]={};
- int ch_g[N_HIT_MAX]={};
- int ch_b[N_HIT_MAX]={};
- float Energy_f[4][N_HIT_MAX]={};
- float Energy_r[4][N_HIT_MAX]={};
- float front_ex[4][N_HIT_MAX]={};
- float cor_ex[4][N_HIT_MAX]={};
- double ts_diff_f[4][N_HIT_MAX]={};
- double ts_diff_r[4][N_HIT_MAX]={};
- double ts_diff_g[N_HIT_MAX]={};
- double ts_diff_b[N_HIT_MAX]={};
- float Amax[4][N_HIT_MAX]={};
- float Gamma[N_HIT_MAX]={};
- float BGO[N_HIT_MAX]={};
- int run_n=-1;
+int ch_f[4][N_HIT_MAX]={};
+int ch_r[4][N_HIT_MAX]={};
+int ch_g[N_HIT_MAX]={};
+int ch_b[N_HIT_MAX]={};
+float Energy_f[4][N_HIT_MAX]={};
+float Energy_r[4][N_HIT_MAX]={};
+float front_ex[4][N_HIT_MAX]={};
+float cor_ex[4][N_HIT_MAX]={};
+double ts_diff_f[4][N_HIT_MAX]={};
+double ts_diff_r[4][N_HIT_MAX]={};
+double ts_diff_g[N_HIT_MAX]={};
+double ts_diff_b[N_HIT_MAX]={};
+float Amax[4][N_HIT_MAX]={};
+float Gamma[N_HIT_MAX]={};
+float BGO[N_HIT_MAX]={};
+int run_n=-1;
+double mex=-1;
 
 //analysis
 int count_f[4]={0,0,0,0};
@@ -68,6 +70,13 @@ int domain_f[4][N_HIT_MAX]={};
 int domain_r[4][N_HIT_MAX]={};
 int type_f[4][N_HIT_MAX]={};
 int type_r[4][N_HIT_MAX]={};
+
+double enea[3]={};
+int chfa[3]={};
+int chra[3]={};
+double tha[3]={};
+double pha[3]={};
+
 
 int hit(int run){
 
@@ -118,6 +127,7 @@ int hit(int run){
   hit->Branch("Gamma",Gamma,"Gamma[10]/F");
   hit->Branch("BGO",BGO,"BGO[10]/F");
   hit->Branch("run_n",&run_n,"run_n/I");
+  hit->Branch("mex",&mex,"mex/D");
 
   
   
@@ -149,7 +159,8 @@ int hit(int run){
 	BGO[i]=-1;
 	run_n=-1;
 	hit_n[i]=0;
-
+	mex=-1;
+	
 	count_f[i]=0;
 	count_r[i]=0;
 	count_g=0;
@@ -249,42 +260,90 @@ int hit(int run){
       }
       if(count_f[seg]==3 && count_r[seg]==2){ //3vs2 event
 	if(abs(ene_f[seg][0]+ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0]-ene_r[seg][1])<1){
-	  if(abs(ene_f[seg][0]+ene_f[seg][1]-ene_r[seg][0])<1 && abs(ene_f[seg][2]-ene_r[seg][1])<0.5){
+	  if(abs(ene_f[seg][0]+ene_f[seg][1]-ene_r[seg][0])<0.5 && abs(ene_f[seg][2]-ene_r[seg][1])<0.5){
 	    fill_data(seg,0,0,0,0);	  
 	    fill_data(seg,1,1,0,1);	  
 	    fill_data(seg,2,2,1,2);	  
 	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][0]+ene_f[seg][1]-ene_r[seg][1])<1 && abs(ene_f[seg][2]-ene_r[seg][0])<0.5){
+	  }else if(abs(ene_f[seg][0]+ene_f[seg][1]-ene_r[seg][1])<0.5 && abs(ene_f[seg][2]-ene_r[seg][0])<0.5){
+	    fill_data(seg,0,0,1,0);	  
+	    fill_data(seg,1,1,1,1);	  
+	    fill_data(seg,2,2,0,2);	  
+	    hit_n[seg]=32;
+	  }else if(abs(ene_f[seg][0]+ene_f[seg][2]-ene_r[seg][0])<0.5 && abs(ene_f[seg][1]-ene_r[seg][1])<0.5){
 	    fill_data(seg,0,0,0,0);	  
-	    fill_data(seg,1,1,0,1);	  
+	    fill_data(seg,2,2,0,2);	  
+	    fill_data(seg,1,1,1,1);	  
+	    hit_n[seg]=32;
+	  }else if(abs(ene_f[seg][0]+ene_f[seg][2]-ene_r[seg][1])<0.5 && abs(ene_f[seg][1]-ene_r[seg][0])<0.5){
+	    fill_data(seg,0,0,1,0);	  
 	    fill_data(seg,2,2,1,2);	  
+	    fill_data(seg,1,1,0,1);	  
 	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][0]+ene_f[seg][2]-ene_r[seg][0])<1 && abs(ene_f[seg][1]-ene_r[seg][1])<0.5){
-	    fill_data(seg,0,0,0,0);	  
-	    fill_data(seg,2,2,0,2);	  
-	    fill_data(seg,1,1,1,1);	  
-	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][0]+ene_f[seg][2]-ene_r[seg][1])<1 && abs(ene_f[seg][1]-ene_r[seg][0])<0.5){
-	    fill_data(seg,0,0,0,0);	  
-	    fill_data(seg,2,2,0,2);	  
-	    fill_data(seg,1,1,1,1);	  
-	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0])<1 && abs(ene_f[seg][0]-ene_r[seg][1])<0.5){
+	  }else if(abs(ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0])<0.5 && abs(ene_f[seg][0]-ene_r[seg][1])<0.5){
 	    fill_data(seg,1,1,0,1);	  
 	    fill_data(seg,2,2,0,2);	  
 	    fill_data(seg,0,0,1,0);	  
 	    hit_n[seg]=32;
-	  }else if(abs(ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][1])<1 && abs(ene_f[seg][0]-ene_r[seg][0])<0.5){
-	    fill_data(seg,1,1,0,1);	  
-	    fill_data(seg,2,2,0,2);	  
-	    fill_data(seg,0,0,1,0);	  
+	  }else if(abs(ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][1])<0.5 && abs(ene_f[seg][0]-ene_r[seg][0])<0.5){
+	    fill_data(seg,1,1,1,1);	  
+	    fill_data(seg,2,2,1,2);	  
+	    fill_data(seg,0,0,0,0);	  
 	    hit_n[seg]=32;
+	  }else{
+	    continue;
+	  }
+	  double tmp_cor_ex =cor_ex[(seg+2)%4][0];
+	  for(int tmp=0; tmp<3; tmp++){
+	    chfa[tmp]=ch_f[seg][tmp];
+	    chra[tmp]=ch_r[seg][tmp];
+	    enea[tmp]=Energy_f[seg][tmp];
+	  }      
+	  double ex12C = detect3a(enea,chfa,chra);
+	  cout << ex12C << " " << tmp_cor_ex  << endl;
+	  cout << endl;
+	  mex=ex12C;
+	}
+      }
+      if(count_f[seg]==3 && count_r[seg]==3){ //3vs3 event
+	if(abs(ene_f[seg][0]+ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0]-ene_r[seg][1]-ene_r[seg][2])<1){
+	  if(abs(ene_f[seg][0]-ene_r[seg][0])<0.5 && abs(ene_f[seg][1]-ene_r[seg][1])<0.5 && abs(ene_f[seg][2]-ene_r[seg][2])<0.5){
+	    fill_data(seg,0,0,0,0);	  
+	    fill_data(seg,1,1,1,1);	  
+	    fill_data(seg,2,2,2,2);	  
+	    hit_n[seg]=33;
+	  }else if(abs(ene_f[seg][0]-ene_r[seg][0])<0.5 && abs(ene_f[seg][1]-ene_r[seg][2])<0.5 && abs(ene_f[seg][2]-ene_r[seg][1])<0.5){
+	    fill_data(seg,0,0,0,0);	  
+	    fill_data(seg,1,1,2,1);	  
+	    fill_data(seg,2,2,1,2);	  
+	    hit_n[seg]=33;
+	  }else if(abs(ene_f[seg][0]-ene_r[seg][1])<0.5 && abs(ene_f[seg][1]-ene_r[seg][0])<0.5 && abs(ene_f[seg][2]-ene_r[seg][2])<0.5){
+	    fill_data(seg,0,0,1,0);	  
+	    fill_data(seg,1,1,0,1);	  
+	    fill_data(seg,2,2,2,2);	  
+	    hit_n[seg]=33;
+	  }else if(abs(ene_f[seg][0]-ene_r[seg][1])<0.5 && abs(ene_f[seg][1]-ene_r[seg][2])<0.5 && abs(ene_f[seg][2]-ene_r[seg][0])<0.5){
+	    fill_data(seg,0,0,1,0);	  
+	    fill_data(seg,1,1,2,1);	  
+	    fill_data(seg,2,2,0,2);	  
+	    hit_n[seg]=33;
+	  }else if(abs(ene_f[seg][0]-ene_r[seg][2])<0.5 && abs(ene_f[seg][1]-ene_r[seg][0])<0.5 && abs(ene_f[seg][2]-ene_r[seg][1])<0.5){
+	    fill_data(seg,0,0,1,2);	  
+	    fill_data(seg,1,1,2,0);	  
+	    fill_data(seg,2,2,0,1);	  
+	    hit_n[seg]=33;
+	  }else if(abs(ene_f[seg][0]-ene_r[seg][2])<0.5 && abs(ene_f[seg][1]-ene_r[seg][1])<0.5 && abs(ene_f[seg][2]-ene_r[seg][0])<0.5){
+	    fill_data(seg,0,0,1,2);	  
+	    fill_data(seg,1,1,2,1);	  
+	    fill_data(seg,2,2,0,0);
+	    hit_n[seg]=33;
 	  }
 	}
       }
+      
     }
     //    cout << hit_n[0] << hit_n[1] << hit_n[2] << hit_n[3] << endl;
-
+    
     hit->Fill();
     
   }
@@ -442,9 +501,11 @@ float get_front_ex(float theta, float ene){
   return ex4;
 }
 
-float get_angle(float x, float y, int ch_f, int ch_r){
 
-  float tmp_x, tmp_y, tmp_z, tmp_theta;
+
+std::pair<float,float> get_angle(float x, float y, int ch_f, int ch_r){
+
+  float tmp_x, tmp_y, tmp_z, tmp_theta, tmp_phi;
   float front_theta = get_front_theta(ch_f);
   float rear_phi = (90 + 22.5/2.0 + 22.5*ch_r)*PI/180;
 
@@ -452,9 +513,14 @@ float get_angle(float x, float y, int ch_f, int ch_r){
   tmp_y = s1_dist * tan(front_theta)*sin(rear_phi) - y;
   tmp_z = s1_dist;
   tmp_theta = acos(tmp_z/pow(pow(tmp_x,2)+pow(tmp_y,2)+pow(tmp_z,2),0.5));
-
-  return tmp_theta;
+  if(tmp_y>=0) tmp_phi = acos(tmp_x/pow(pow(tmp_x,2)+pow(tmp_y,2),0.5));
+  if(tmp_y<0) tmp_phi = -1 * acos(tmp_x/pow(pow(tmp_x,2)+pow(tmp_y,2),0.5));
+  
+  return std::make_pair(tmp_theta,tmp_phi);
 }
+
+
+
 
 void fill_data(int seg, int num_fi, int num_ff, int num_ri, int num_rf){
   Energy_f[seg][num_ff]=ene_f[seg][num_fi];
@@ -465,6 +531,42 @@ void fill_data(int seg, int num_fi, int num_ff, int num_ri, int num_rf){
   ch_f[seg][num_ff]=get_ch(domain_f[seg][num_fi]);
   ch_r[seg][num_rf]=get_ch(domain_r[seg][num_ri]);
 
-  double tmp_theta1 = get_angle(0, 2, ch_f[seg][num_ff], ch_r[seg][num_rf]);
+  double tmp_theta1 = get_angle(0, 2, ch_f[seg][num_ff], ch_r[seg][num_rf]).first;
   cor_ex[seg][num_ff] = get_front_ex(tmp_theta1, Energy_f[seg][num_ff]);
+}
+
+
+double detect3a(double *enea, int *chfa, int *chra){
+
+  double m4He=931.494*4+2.4249;
+  double m12C=931.494*12;
+  double tha[3]={};
+  double pha[3]={};
+  double moma[3][3]={};
+  double mom12C[3]={0,0,0};
+  double total12C=-1;
+  double ex12C=-1;
+  
+  for(int n=0; n<3; n++){
+    tha[n] = get_angle(0,2,chfa[n],chra[n]).first;
+    pha[n] = get_angle(0,2,chfa[n],chra[n]).second;
+    //    cout << tha[n] << " " << pha[n] << endl;
+    //    cout << tha[n]*180/3.14 << " " << pha[n]*180/3.14 << endl;
+    
+    moma[n][0] = pow(2*m4He*enea[n]+enea[n]*enea[n],0.5) * sin(tha[n]) * cos(pha[n]);
+    moma[n][1] = pow(2*m4He*enea[n]+enea[n]*enea[n],0.5) * sin(tha[n]) * sin(pha[n]);
+    moma[n][2] = pow(2*m4He*enea[n]+enea[n]*enea[n],0.5) * cos(tha[n]);
+    //    cout << enea[n] << " " << moma[n][0]  << " " << moma[n][1] << " "  << moma[n][2] << endl;
+    //    cout << m4He+enea[n] << " " << moma[n][0]  << " " << moma[n][1] << " "  << moma[n][2] << endl;
+
+    mom12C[0] += moma[n][0];
+    mom12C[1] += moma[n][1];
+    mom12C[2] += moma[n][2];
+  }
+  //  cout << mom12C[0]  << " " << mom12C[1] << " "  << mom12C[2] << endl;
+
+  total12C = pow(mom12C[0]*mom12C[0]+mom12C[1]*mom12C[1]+mom12C[2]*mom12C[2]+m12C*m12C,0.5);
+  ex12C = enea[0]+enea[1]+enea[2]+m4He*3 - total12C;
+  
+  return ex12C;
 }
