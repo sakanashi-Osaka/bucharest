@@ -46,7 +46,7 @@ int sorter_cor(int run){
 
 
   
-  TFile *fin =new TFile(Form("../sorter/run%d_-1_ssgant1.root",run));
+  TFile *fin =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",run));
   TTree *tree = (TTree*)fin->Get("tree");
 
   int tmp_domain;
@@ -62,7 +62,7 @@ int sorter_cor(int run){
   tree->SetBranchAddress("Amax", &tmp_amax);
   
   
-  TFile *fout =new TFile(Form("run%d_0_ssgant1.root",run),"recreate");
+  TFile *fout =new TFile(Form("rootfile/run%d_0_ssgant1.root",run),"recreate");
   TTree *tout = new TTree("tree","tree");  
   
   int domain;

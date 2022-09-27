@@ -103,4 +103,3 @@
 ./hit_C.so: /saho/sharedAPL/root/6.20.06/include/TMath.h
 ./hit_C.so: /saho/sharedAPL/root/6.20.06/include/TError.h
 ./hit_C.so: /saho/sharedAPL/root/6.20.06/include/RVersion.h /saho/sharedAPL/root/6.20.06/include/RConfig.h /saho/sharedAPL/root/6.20.06/include/TClass.h /saho/sharedAPL/root/6.20.06/include/TDictAttributeMap.h /saho/sharedAPL/root/6.20.06/include/TInterpreter.h /saho/sharedAPL/root/6.20.06/include/TROOT.h /saho/sharedAPL/root/6.20.06/include/TBuffer.h /saho/sharedAPL/root/6.20.06/include/TMemberInspector.h /saho/sharedAPL/root/6.20.06/include/TError.h /saho/sharedAPL/root/6.20.06/include/RtypesImp.h /saho/sharedAPL/root/6.20.06/include/TIsAProxy.h /saho/sharedAPL/root/6.20.06/include/TFileMergeInfo.h /saho/sharedAPL/root/6.20.06/include/TCollectionProxyInfo.h /usr/local/root/6.20.06/bin/rootcling
-hit_C__ROOTBUILDVERSION= 6.20/06

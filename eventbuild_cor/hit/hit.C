@@ -80,7 +80,7 @@ double pha[3]={};
 
 int hit(int run){
 
-  ifstream ifs("../timing.prm");
+  ifstream ifs("../time.prm");
   int domain[10][16];
   double p0[10][16];
   double p1[10][16];
@@ -300,8 +300,8 @@ int hit(int run){
 	    enea[tmp]=Energy_f[seg][tmp];
 	  }      
 	  double ex12C = detect3a(enea,chfa,chra);
-	  cout << ex12C << " " << tmp_cor_ex  << endl;
-	  cout << endl;
+	  //	  cout << ex12C << " " << tmp_cor_ex  << endl;
+	  //	  cout << endl;
 	  mex=ex12C;
 	}
       }
