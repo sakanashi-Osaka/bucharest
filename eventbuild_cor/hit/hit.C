@@ -80,7 +80,7 @@ double pha[3]={};
 
 int hit(int run){
 
-  ifstream ifs("../time.prm");
+  ifstream ifs(Form("/home/sakra/exp/Bucharest2022/calib/timing/time%d.txt",run));
   int domain[10][16];
   double p0[10][16];
   double p1[10][16];
@@ -88,6 +88,7 @@ int hit(int run){
   for(int i=0; i<10; i++){
     for(int j=0; j<16; j++){
     ifs >> domain[i][j] >> p0[i][j]>> p1[i][j] >> p2[i][j];
+    cout << p1[i][j] << endl;
     }
   }
   

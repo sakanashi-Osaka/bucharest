@@ -1,9 +1,30 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <TCanvas.h>
+#include <TEventList.h>
+#include <cstdint>
+#include <vector>
+#include <signal.h>
+#include <map>
+#include <algorithm>
+#include <regex>
+#include <TH1F.h>
+#include <TH2.h>
+#include <TROOT.h>
+#include <TTree.h>
+#include <TFile.h>
+#include <TMath.h>
+
 #define ch 160                           
 #define peak_n 1
 
-int timing()                                                                                                                                            
-{                                                                                                                                                         
- TSpectrum *s[peak_n];                                                                                                                                        
+int timing(int run)                                                                                                                                            
+{
+
+  
+  TSpectrum *s[peak_n];                                                                                                                                   
   TH1F *h[ch];                                                                                                                                            
   TF1 *f[ch][peak_n];                                                                                                                                         
   double *xpeaks[ch];                                                                                                                                     
@@ -12,7 +33,10 @@ int timing()
   double sigma[ch][peak_n];                                                                                                                                   
   int n;                                                                                                                                                  
                                                                                                                                                           
-  ofstream ofs("log.txt",std::ios::app);                                                                                                                  
+  ofstream ofs(Form("time%d.txt",run),std::ios::app);
+
+  TFile *fin =new TFile(Form("../../eventbuild_cor/rootfile/test%d.root",run));
+  TTree *event = (TTree*)fin->Get("event");
                                                                                                                                                           
   for(Int_t i=0;i<ch;i++){                                                                                 
     int Board = (int)((i-i%16)/16);
