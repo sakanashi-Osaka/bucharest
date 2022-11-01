@@ -1,5 +1,0 @@
-#!/bin/bash
-for i in `seq 2200 2249` #2200-2413 finished
-do
-    root -l -q 'eventbuild.C+('$i')'
-done

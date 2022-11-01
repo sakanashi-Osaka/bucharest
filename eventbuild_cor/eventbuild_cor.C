@@ -23,7 +23,8 @@
 //#define Gamma_gate 1e6 //coinsidence window for Gamma [ps]
 //#define Gamma_offset 0 //offset timing, If positive, signal timestamp is faster than reference (ch0)
 
-#define Si_gate 1.5e5 //coinsidence window for Si [ps]
+#define Si_gate 6.0e5 //coinsidence window for Si [ps]
+//#define Si_gate 1.5e5 //coinsidence window for Si [ps]
 #define Si_offset -6.5e5 //coinsidence window for Si [ps]
 #define Gamma_gate 0.75e5 //coinsidence window for Gamma [ps]
 #define Gamma_offset 1.75e5 //offset timing, If positive, signal timestamp is faster than reference (ch0)
@@ -71,9 +72,11 @@ int eventbuild_cor(int run){
   double tmp_ts;
   float tmp_energy;
   float tmp_amax;
+  double tmp_tdc;
   
   tree->SetBranchAddress("domain", &tmp_domain);
   tree->SetBranchAddress("ADC", &tmp_adc);
+  tree->SetBranchAddress("TDC", &tmp_tdc);
   tree->SetBranchAddress("FineTS", &tmp_ts);
   tree->SetBranchAddress("Energy", &tmp_energy);
   tree->SetBranchAddress("Amax", &tmp_amax);
@@ -81,6 +84,7 @@ int eventbuild_cor(int run){
   
   TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/event%d.root",run),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/gomi%d.root",run),"recreate");
   TTree *event = new TTree("event","event");
   
   int board=-1;
@@ -90,6 +94,7 @@ int eventbuild_cor(int run){
   float ADC[N_BOARD][N_CH]={};
   float Energy[N_BOARD][N_CH]={};
   float Amax[N_BOARD][N_CH]={};
+  double TDC[N_BOARD][N_CH]={};
   float Amax_cor[N_BOARD][N_CH]={};
   double ref_ts;
   double pre_ts;
@@ -105,6 +110,7 @@ int eventbuild_cor(int run){
 
   
   event->Branch("ADC",ADC,"ADC[10][16]/F");
+  event->Branch("TDC",TDC,"TDC[10][16]/D");
   event->Branch("Energy",Energy,"Energy[10][16]/F");
   event->Branch("Amax",Amax,"Amax[10][16]/F");
   event->Branch("Amax_cor",Amax_cor,"Amax_cor[10][16]/F");
@@ -117,12 +123,12 @@ int eventbuild_cor(int run){
 
   ULong64_t N=tree->GetEntries();
   cout << "Total entry: " << N << endl;
-  for(ULong64_t evtn=0; evtn<N; evtn++){
-  //  for(ULong64_t evtn=0; evtn<N/10; evtn++){
+  //  for(ULong64_t evtn=0; evtn<N; evtn++){
+  for(ULong64_t evtn=0; evtn<1e7; evtn++){
 
     for(int j=0; j<10; j++){
       for(int k=0; k<16; k++){
-	ts_diff[j][k]=-1e6; ADC[j][k]=0; Energy[j][k]=0; Amax[j][k]=0; Amax_cor[j][k]=0; front_ex[j][k]=0;
+	ts_diff[j][k]=-1e6; ADC[j][k]=0; TDC[j][k]=0; Energy[j][k]=0; Amax[j][k]=0; Amax_cor[j][k]=0; front_ex[j][k]=0;
       }
     }
     board = -1; ch = -1;
@@ -150,13 +156,16 @@ int eventbuild_cor(int run){
 	board = (int)((tmp_domain-ch)/16);
 
 	double tmp_timediff = tmp_ts -ref_ts;
+
+	//	if(board>3) cout << board << " " << ch << " " << tmp_timediff/1e3 <<endl;
 	
 	if(board>3 && abs(tmp_timediff + Si_offset) > Si_gate) continue;
 	if(board<4 && abs(tmp_timediff + Gamma_offset) > Gamma_gate) continue;
-	
+
         ts_diff[board][ch] = tmp_timediff;
 
         ADC[board][ch] = tmp_adc;
+        TDC[board][ch] = tmp_tdc;
 	if(tmp_domain<64) Energy[board][ch] = tmp_energy;
 	if(tmp_domain>63) Energy[board][ch] = p0[tmp_domain-64] + tmp_adc*p1[tmp_domain-64];
         if(entry_type(board,ch)==0 || entry_type(board,ch)==4) Energy[board][ch] = -1;

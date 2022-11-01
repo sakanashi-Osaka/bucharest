@@ -18,12 +18,13 @@ public:
   int domain;
   ULong64_t TS; // for readinng tree
   double FineTS;
+  double TDC;
   int ADC;
   float Amax;
   float Energy;
   uint32_t Extras;
 
-  static const uint16_t OneHitSize = sizeof(domain) + sizeof(FineTS) + sizeof(ADC) + sizeof(Energy) + sizeof(Amax);
+  static const uint16_t OneHitSize = sizeof(domain) + sizeof(FineTS) + sizeof(ADC) + sizeof(Energy) + sizeof(Amax) + sizeof(TDC);
 };
 typedef TreeData TreeData_t;
 

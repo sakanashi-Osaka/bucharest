@@ -46,12 +46,14 @@ int sorter_cor(int run){
 
 
   
-  TFile *fin =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",run));
+  //  TFile *fin =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",run));
+  TFile *fin =new TFile(Form("../sorter_cor/rootfile/run%d_-1_ssgant1.root",run));
   TTree *tree = (TTree*)fin->Get("tree");
 
   int tmp_domain;
   int tmp_adc;
   double tmp_ts;
+  double tmp_tdc;
   float tmp_energy;
   float tmp_amax;
   
@@ -60,6 +62,7 @@ int sorter_cor(int run){
   tree->SetBranchAddress("FineTS", &tmp_ts);
   tree->SetBranchAddress("Energy", &tmp_energy);
   tree->SetBranchAddress("Amax", &tmp_amax);
+  tree->SetBranchAddress("TDC", &tmp_tdc);
   
   
   TFile *fout =new TFile(Form("rootfile/run%d_0_ssgant1.root",run),"recreate");
@@ -68,6 +71,7 @@ int sorter_cor(int run){
   int domain;
   int ADC;
   double FineTS;
+  double TDC;
   float Energy;
   float Amax;
   
@@ -76,6 +80,7 @@ int sorter_cor(int run){
   tout->Branch("ADC",&ADC,"ADC/I");
   tout->Branch("Energy",&Energy,"Energy/F");
   tout->Branch("Amax",&Amax,"Amax/F");
+  tout->Branch("TDC",&TDC,"TDC/D");
 
 
   ULong64_t N=tree->GetEntries();
@@ -89,6 +94,7 @@ int sorter_cor(int run){
     FineTS=-1;
     Energy=-1;
     Amax=-1;
+    TDC=-1;
 
     if(evtn%10000==0) cout << "\rAnalyzed entry:" << evtn << " loop:" << loop; std::cout << flush;
 
@@ -97,7 +103,12 @@ int sorter_cor(int run){
     domain = tmp_domain;
     ADC = tmp_adc;
     FineTS = tmp_ts;
+    TDC = tmp_tdc;
+    //    if(domain>=64) FineTS = tmp_ts - array[loop]*pow(2,31)*1e3;
     if(domain>=64) FineTS = tmp_ts - array[loop]*pow(2,31)*1e3;
+    if(domain>=1 && domain<28) FineTS = tmp_ts - array[loop]*pow(2,31)*1e3; 
+    if(domain>=32 && domain<44) FineTS = tmp_ts - array[loop]*pow(2,31)*1e3;
+    if(domain>=48 && domain<60) FineTS = tmp_ts - array[loop]*pow(2,31)*1e3;
     Energy = tmp_energy;
     Amax = tmp_amax;
 

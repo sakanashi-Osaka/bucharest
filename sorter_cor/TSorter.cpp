@@ -48,6 +48,7 @@ void TSorter::LoadFiles(Int_t runNumber, Int_t start, Int_t stop)
 	tree->SetBranchAddress("ADC", &(treeData.ADC));
 	tree->SetBranchAddress("Energy", &(treeData.Energy));
 	tree->SetBranchAddress("Amax", &(treeData.Amax));
+	tree->SetBranchAddress("TDC", &(treeData.TDC));
 	
 	for(auto iEve = 0; iEve < nEvents; iEve++){
 	  tree->GetEntry(iEve);
@@ -58,6 +59,7 @@ void TSorter::LoadFiles(Int_t runNumber, Int_t start, Int_t stop)
 	  oneHit->ADC = treeData.ADC;
 	  oneHit->Energy = treeData.Energy;
 	  oneHit->Amax = treeData.Amax;
+	  oneHit->TDC = treeData.TDC;
 
 	  fDataVec.push_back(oneHit);
 	}
@@ -85,7 +87,7 @@ void TSorter::WriteData(TString fileName)
   std::cout << "Writing data" << std::endl;
 
   if(fileName == "") {
-    fileName = std::string("run") + std::to_string(fRunNumber) + std::string("_")
+    fileName = std::string("rootfile/run") + std::to_string(fRunNumber) + std::string("_")
       + std::to_string(-1) + std::string("_")
       + fServerName.Data() + std::string(".root");
   }
@@ -95,6 +97,7 @@ void TSorter::WriteData(TString fileName)
     auto tree = new TTree("tree", "tree");
     int domain;
     double FineTS;
+    double TDC;
     int ADC;
     float Energy;
     float Amax;
@@ -104,6 +107,7 @@ void TSorter::WriteData(TString fileName)
     tree->Branch("FineTS", &FineTS, "FineTS/D");
     tree->Branch("Energy", &Energy, "Energy/F");
     tree->Branch("Amax", &Amax, "Amax/F");
+    tree->Branch("TDC", &TDC, "TDC/D");
 
             
     for(auto iEve = 0; iEve < fDataVec.size(); iEve++) {
@@ -113,6 +117,7 @@ void TSorter::WriteData(TString fileName)
       ADC = fDataVec.at(iEve)->ADC;
       Energy = fDataVec.at(iEve)->Energy;
       Amax = fDataVec.at(iEve)->Amax;
+      TDC = fDataVec.at(iEve)->TDC;
 	
       tree->Fill();
     }
