@@ -47,7 +47,8 @@ int sorter_cor(int run){
 
   
   //  TFile *fin =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",run));
-  TFile *fin =new TFile(Form("../sorter_cor/rootfile/run%d_-1_ssgant1.root",run));
+  //  TFile *fin =new TFile(Form("../sorter_cor/rootfile/run%d_-1_ssgant1.root",run));
+  TFile *fin =new TFile(Form("../data/marged%d.root",run));
   TTree *tree = (TTree*)fin->Get("tree");
 
   int tmp_domain;
