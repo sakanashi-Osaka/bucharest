@@ -26,10 +26,8 @@ void TSorter::LoadFiles(Int_t runNumber, Int_t start, Int_t stop)
   if(stop < 0) stop = INT_MAX; 
   //  for(auto version = start; version <= stop; version++) {
   for(auto version = 0; version < 1; version++) {
-    //    std::string fileName = fInputDir.Data() + std:: string("/run") + std::to_string(runNumber) + std::string("_")
-    //      + std::to_string(version) + std::string("_ssgant1.root");
-    std::string fileName = fInputDir.Data() + std:: string("/marged") + std::to_string(runNumber)
-      + std::string(".root");
+    std::string fileName = fInputDir.Data() + std:: string("/run") + std::to_string(runNumber) + std::string("_") + std::to_string(version) + std::string("_ssgant.root");
+    //    std::string fileName = fInputDir.Data() + std:: string("/marged") + std::to_string(runNumber) + std::string(".root");
     
     std::ifstream fin(fileName);
     if(!fin) {
@@ -90,8 +88,8 @@ void TSorter::WriteData(TString fileName)
   std::cout << "Writing data" << std::endl;
 
   if(fileName == "") {
-    fileName = std::string("rootfile/marged") + std::to_string(fRunNumber) + std::string("_")
-      + std::to_string(-1) + std::string(".root");
+    fileName = std::string("rootfile/run") + std::to_string(fRunNumber) + std::string("_") + std::to_string(-1) + std::string(".root");
+    //    fileName = std::string("rootfile/marged") + std::to_string(fRunNumber) + std::string("_") + std::to_string(-1) + std::string(".root");
   }
   
     auto output = new TFile(fileName, "RECREATE");

@@ -1,0 +1,115 @@
+q#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <TCanvas.h>
+#include <TEventList.h>
+#include <cstdint>
+#include <vector>
+#include <signal.h>
+#include <map>
+#include <algorithm>
+#include <regex>
+#include <TH1F.h>
+#include <TH2.h>
+#include <TROOT.h>
+#include <TTree.h>
+#include <TFile.h>
+#include <TMath.h>
+
+using namespace std;
+
+#define SAMPLE 5
+
+int main(int argc, char *argv[]){
+  //  TFile *f =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",atoi(argv[1])));
+  TFile *f =new TFile(Form("../sorter_cor/rootfile/marged%d_-1.root",atoi(argv[1])));
+  TTree *tree = (TTree*)f->Get("tree");  
+
+  
+  
+  ULong64_t N = tree->GetEntries();
+  cout << "Total entry:  " << N << endl;
+
+  double tmp_finets;
+  int tmp_domain;
+
+  tree->SetBranchAddress("FineTS", &tmp_finets);
+  tree->SetBranchAddress("domain", &tmp_domain);
+
+  double ref_time[SAMPLE];
+  double si_time[SAMPLE];
+  double diff_time[SAMPLE];
+
+  double offset_time = 0;
+  ULong64_t offset_evtn1 = 0;
+    
+  for(ULong64_t tmp_loop=0; tmp_loop<200; tmp_loop++){
+  
+    for(int array=0; array<SAMPLE; array++){
+      ref_time[array]=0; si_time[array]=0; diff_time[array]=0;
+    }
+    
+    int count=0;
+    for(ULong64_t evtn=N*tmp_loop/200; evtn<N; evtn++){    
+      tree->GetEntry(evtn);
+      if(tmp_domain==0){
+	ref_time[count]=tmp_finets;
+	//      cout << evtn << " " << ref_time[count] << endl;
+	count++;
+      }
+      if(count > SAMPLE-1) break;
+    }  
+
+    for(ULong64_t loop=N*tmp_loop/200; loop<N; loop++){
+
+      int count1=0;
+      //      for(ULong64_t evtn1=loop + offset_evtn1; evtn1<N; evtn1++){    
+      for(ULong64_t evtn1=loop; evtn1<N; evtn1++){    
+	//	cout << loop << " " << evtn1 << endl;
+	//	if(evtn1%10000==0) cout << "\rAnalyzed entry:" << evtn1 << " " << loop << endl;
+	tree->GetEntry(evtn1);
+	if(tmp_domain<145 && tmp_domain>135){
+	  if(count1>0){
+	    if(abs(si_time[count1-1]-tmp_finets)<1e6) continue;
+	  }
+	  si_time[count1]=tmp_finets;
+	  //      cout << evtn1 << " " << si_time[count1] << endl;
+	  count1++;
+	}
+	if(count1 > SAMPLE-1) break;
+      }
+      
+      for(int i=0; i<SAMPLE; i++){
+	diff_time[i] = si_time[i]-ref_time[i];
+	//    cout << diff_time[i] << endl;
+      }
+      if(diff_time[0]>40e12 + offset_time){
+	cout << "no matching for " << diff_time[0]/1e12 << " sec." << endl;
+       	break;
+      }
+      
+      double max_time=0; 
+      double min_time=0; 
+      double Time;
+      max_time = *max_element(diff_time, diff_time+SAMPLE);
+      min_time = *min_element(diff_time, diff_time+SAMPLE);
+      Time = max_time - min_time;
+      if(Time<1e6){
+
+	offset_time = diff_time[0];
+	//	offset_evtn1 = (loop-N*tmp_loop/200)*0.7;
+       	cout << "offset_time:" << offset_time << " offset_evtn1:" << offset_evtn1 << endl;
+	
+	cout << tmp_loop << " " << Time << " " << diff_time[0]/1e12 << endl;
+	std::ofstream ofs(Form("log/log%d.txt",atoi(argv[1])),std::ios::app);
+	ofs << tmp_loop << " " << Time << " " << diff_time[0]/1e12 << std::endl;
+	break;
+      }
+    }
+
+  }
+  
+  return 0;
+}
+ 

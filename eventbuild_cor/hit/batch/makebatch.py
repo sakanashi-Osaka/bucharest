@@ -1,0 +1,6 @@
+for i in range(2305,2414):
+    f=open("batch"+str(i)+".sh","a")
+    f.write("#! /bin/bash\n")
+    f.write("#PBS -q AL -l select=1:ncpus=1:mem=2gb\n")
+    f.write("cd /home/sakra/exp/Bucharest2022/eventbuild_cor/hit\n")
+    f.write("./test "+str(i))

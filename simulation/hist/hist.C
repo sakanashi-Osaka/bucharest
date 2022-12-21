@@ -1,0 +1,11 @@
+{
+  tree->Draw("sth12C:sth3>>h0(100,20,60,50,20,60)","idp12C==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m12CchR>7 && m12CchR<12","col"); // sim. 12C vs 4He theta (seg 2 & 0)
+  tree->Draw("mth12C:mth4He>>h1(200,20,60,200,20,60)","idp12C==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m12CchR>7 && m12CchR<12","col"); // meas. 12C vs 4He theta (seg2 & 0)
+  tree->Draw("sph12C:sph3>>h2(100,0,90,100,-180,-90)","idp12C==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m12CchR>7 && m12CchR<12","col"); // sim. 12C vs 4He phi (seg2 & 0)
+  tree->Draw("mph12C:mph4He>>h3(100,0,90,100,-180,-90)","idp12C==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m12CchR>7 && m12CchR<12","col"); // meas. 12C vs 4He phi (seg2 & 0)
+  tree->Draw("mK12C:mth12C>>h4(100,40,60,100,0,6)","idp12C[]==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m12CchR>7 && m12CchR<12","col"); // meas. 12C ene vs theta (seg2 & 0) 
+    
+  tree->Draw("mth3a[]:mth4He>>h5(200,20,60,200,20,60)","idp3a[]==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m3achR[]>7 && m3achR[]<12","col"); // meas. 3a vs 4He theta (seg2 & 0)
+  tree->Draw("mph3a[]:mph4He>>h6(100,0,90,100,-180,-90)","idp3a[]==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m3achR[]>7 && m3achR[]<12","col"); // meas. 3a vs 4He phi (seg2 & 0) 
+  tree->Draw("mK3a:mth3a>>h7(100,40,60,100,0,6)","idp3a[]==1&&idp4He==1&& m4HechR>-1 && m4HechR<4 && m3achR>7 && m3achR<12","col"); // meas. 3a ene vs theta (seg2 & 0) 
+}

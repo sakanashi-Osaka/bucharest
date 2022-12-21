@@ -23,10 +23,9 @@
 //#define Gamma_gate 1e6 //coinsidence window for Gamma [ps]
 //#define Gamma_offset 0 //offset timing, If positive, signal timestamp is faster than reference (ch0)
 
-#define Si_gate 6.0e5 //coinsidence window for Si [ps]
-//#define Si_gate 1.5e5 //coinsidence window for Si [ps]
+#define Si_gate 2.5e5 //coinsidence window for Si [ps]
 #define Si_offset -6.5e5 //coinsidence window for Si [ps]
-#define Gamma_gate 0.75e5 //coinsidence window for Gamma [ps]
+#define Gamma_gate 1.50e5 //coinsidence window for Gamma [ps]
 #define Gamma_offset 1.75e5 //offset timing, If positive, signal timestamp is faster than reference (ch0)
 
 #define N_BOARD 10
@@ -64,7 +63,7 @@ int eventbuild_cor(int run){
     ifs2 >> Board >> Ch >> A0[Board][Ch] >> A1[Board][Ch] >> A2[Board][Ch];
   }
   
-  TFile *fin =new TFile(Form("../sorter_cor/rootfile/run%d_-1_ssgant1.root",run));
+  TFile *fin =new TFile(Form("../sorter_cor/rootfile/run%d_-1.root",run));
   TTree *tree = (TTree*)fin->Get("tree");
 
   int tmp_domain;
@@ -73,6 +72,7 @@ int eventbuild_cor(int run){
   float tmp_energy;
   float tmp_amax;
   double tmp_tdc;
+  double tmp_current;
   
   tree->SetBranchAddress("domain", &tmp_domain);
   tree->SetBranchAddress("ADC", &tmp_adc);
@@ -82,8 +82,8 @@ int eventbuild_cor(int run){
   tree->SetBranchAddress("Amax", &tmp_amax);
   
   
-  TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
-  //  TFile *fout =new TFile(Form("rootfile/event%d.root",run),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
+  TFile *fout =new TFile(Form("rootfile/event%d.root",run),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/gomi%d.root",run),"recreate");
   TTree *event = new TTree("event","event");
   
@@ -101,6 +101,7 @@ int eventbuild_cor(int run){
   int count_Si=0; 
   int count_Gamma=0;
   int count_trig=0;
+  int current=0;
   int miss_count=0;
   int fr;
   float rear_phi;
@@ -108,6 +109,7 @@ int eventbuild_cor(int run){
   float front_phi, front_r, front_theta;
   float front_ex[N_BOARD][N_CH];
 
+  bool flag=false;
   
   event->Branch("ADC",ADC,"ADC[10][16]/F");
   event->Branch("TDC",TDC,"TDC[10][16]/D");
@@ -119,12 +121,13 @@ int eventbuild_cor(int run){
   event->Branch("count_Si",&count_Si,"count_Si/I");
   event->Branch("count_Gamma",&count_Gamma,"count_Gamma/I");
   event->Branch("count_trig",&count_trig,"count_trig/I");
+  event->Branch("current",&current,"current/I");
   event->Branch("ref_ts",&ref_ts,"ref_ts/D");
 
   ULong64_t N=tree->GetEntries();
   cout << "Total entry: " << N << endl;
-  //  for(ULong64_t evtn=0; evtn<N; evtn++){
-  for(ULong64_t evtn=0; evtn<1e7; evtn++){
+  for(ULong64_t evtn=0; evtn<N; evtn++){
+  //  for(ULong64_t evtn=0; evtn<1e7; evtn++){
 
     for(int j=0; j<10; j++){
       for(int k=0; k<16; k++){
@@ -142,6 +145,9 @@ int eventbuild_cor(int run){
     ch = tmp_domain%16;
     board = (int)((tmp_domain-ch)/16);
 
+    if(board==3 && ch==13 && flag==true) tmp_current+=1;
+    current = tmp_current;
+    
     if(board==0 && ch==0){
       ref_ts = tmp_ts;
 
@@ -182,13 +188,12 @@ int eventbuild_cor(int run){
 	if(entry_type(board,ch)==1) count_Gamma++; 
 	if(entry_type(board,ch)==0) count_trig++;
       }
-      event->Fill();
-      if(count_Si==0) miss_count++;
-      if(count_Si>0) miss_count=0;
-      //      if(miss_count>10){
-      //      	cout << "build failure at " << ref_ts/1e12 << "(s) " << evtn << endl;
-      //     	break;
-      //    }
+      if(count_Si!=0){
+	flag=true;
+	event->Fill();
+      }else{
+	flag=false;
+      }
     }
   }
   event->AutoSave();

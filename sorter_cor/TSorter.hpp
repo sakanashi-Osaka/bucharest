@@ -28,10 +28,10 @@ public:
   
 private:
   std::vector<TreeData *> fDataVec;
-  //  TString fServerName = "ssgant1";
-  //  TString fInputDir = "/home/sakra/data/Bucharest2022/sorter_cor";
-  TString fServerName = "";
-  TString fInputDir = "/home/sakra/data/Bucharest2022/data";
+  TString fServerName = "ssgant1";
+  TString fInputDir = "/home/sakra/data/Bucharest2022/sorter_cor";
+  //  TString fServerName = "";
+  //  TString fInputDir = "/home/sakra/data/Bucharest2022/data";
   Int_t fRunNumber;
   
 };

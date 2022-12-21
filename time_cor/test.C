@@ -22,7 +22,8 @@ using namespace std;
 #define SAMPLE 5
 
 int main(int argc, char *argv[]){
-  TFile *f =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",atoi(argv[1])));
+  //  TFile *f =new TFile(Form("../sorter/rootfile/run%d_-1_ssgant1.root",atoi(argv[1])));
+  TFile *f =new TFile(Form("../sorter_cor/rootfile/marged%d_-1.root",atoi(argv[1])));
   TTree *tree = (TTree*)f->Get("tree");  
 
   
@@ -83,7 +84,7 @@ int main(int argc, char *argv[]){
 	diff_time[i] = si_time[i]-ref_time[i];
 	//    cout << diff_time[i] << endl;
       }
-      if(diff_time[0]>30e12 + offset_time){
+      if(diff_time[0]>40e12 + offset_time){
 	cout << "no matching for " << diff_time[0]/1e12 << " sec." << endl;
        	break;
       }

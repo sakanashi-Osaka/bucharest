@@ -104,8 +104,8 @@ int hit(int run){
     }
   }
   
-  //TFile *fin =new TFile(Form("../rootfile/event%d.root",run));
-  TFile *fin =new TFile(Form("../rootfile/test%d.root",run));
+  TFile *fin =new TFile(Form("../rootfile/event%d.root",run));
+  //  TFile *fin =new TFile(Form("../rootfile/test%d.root",run));
   TTree *event = (TTree*)fin->Get("event");
 
   float tmp_energy[N_BOARD][N_CH]={};
@@ -120,8 +120,8 @@ int hit(int run){
   event->SetBranchAddress("ts_diff",tmp_ts_diff);
   event->SetBranchAddress("TDC",tmp_tdc);
   
-  //  TFile *fout =new TFile(Form("rootfile/hit%d.root",run),"recreate");
-  TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
+  TFile *fout =new TFile(Form("rootfile/hit%d.root",run),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
   //  TFile *fout =new TFile("rootfile/gomi.root","recreate");
   TTree *hit = new TTree("hit","hit"); 
 
@@ -396,6 +396,7 @@ int hit(int run){
   return 0;
 }
 
+//domain=seg*16+ch
 
 int get_ch(int domain){
 
