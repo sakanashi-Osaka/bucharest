@@ -20,7 +20,9 @@
 #define PI 3.14159265
 #define N_BOARD 10
 #define N_CH 16
-#define N_HIT_MAX 10
+#define N_HIT_MAX 20
+
+using namespace std;
 
 const float s1_r1 = 48/2.0;  // inner radius      
 const float s1_r2 = 96/2.0;  // outer radius
@@ -38,48 +40,167 @@ int ch_r[4][N_HIT_MAX]={};
 float Energy_f[4][N_HIT_MAX]={};
 float Energy_r[4][N_HIT_MAX]={};
 
-double cor_ex[4][1][1]={};
+double cor_ex[4][40][40]={};
+int ch_F[4]={};
+int ch_R[4]={};
+
 
 int position(int run){
   
+  ofstream ofs(Form("log/log%d.txt",run),std::ios::app);
+  
   TFile *fin =new TFile(Form("../rootfile/hit%d.root",run));
   TTree *hit = (TTree*)fin->Get("hit");
-
+  
   TFile *fout =new TFile(Form("rootfile/position%d.root",run),"recreate");
-  TTree *pos = new TTree("pos","pos"); 
+  
+  TH2F *matrix = new TH2F("matrix","matrix",40,0,40,40,0,40);
+  TH1F *matrix_x = new TH1F("matrix_x","matrix_x",40,0,40);
+  TH1F *matrix_y = new TH1F("matrix_y","matrix_y",40,0,40);
+    
+  TH1F *h[3][16][40][40]; //[3]...chf(1,8,14), [8]...ch_r(0,3,4,7,8,11,12,15), [40]...dx, [40]...dy
+  for(Int_t i=0;i<3;i++){
+    for(Int_t z=0;z<16;z++){
+      for(Int_t j=0;j<40;j++){
+	for(Int_t k=0;k<40;k++){   
+	  h[i][z][j][k] = new TH1F(Form("h_%d_%d_%d_%d",i,z,j,k),Form("h_%d_%d_%d_%d",i,z,j,k),100,-2,2);
+	}
+      }
+    }
+  }
   
   hit->SetBranchAddress("hit_n",hit_n);
   hit->SetBranchAddress("ch_f",ch_f);
   hit->SetBranchAddress("ch_r",ch_r);
   hit->SetBranchAddress("Energy_f",Energy_f);
   hit->SetBranchAddress("Energy_r",Energy_r);
-
   
   
   ULong64_t N=hit->GetEntries();
   cout << "Total entry: " << N << endl;
   //  for(ULong64_t evtn=0; evtn<N; evtn++){
-  for(ULong64_t evtn=0; evtn<1000; evtn++){
-
+  for(ULong64_t evtn=0; evtn<200000; evtn++){
+    if(evtn%1000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
+    
+    for(int seg=0; seg<4; seg++){
+      for(int l=0; l<40; l++){
+	for(int m=0; m<40; m++){
+	  cor_ex[seg][l][m] = -10;
+	}
+      }
+    }
+    
     hit->GetEntry(evtn); 
 
     for(int seg=0; seg<4; seg++){
-
-      if(hit_n[seg]==11){
-	double tmp_theta1 = get_angle(0, 0, ch_f[seg][0], ch_r[seg][0]).first;
-	cor_ex[seg][0][0] = get_front_ex(tmp_theta1, Energy_f[seg][0]);
-
-	cout << ch_f[seg][0] << endl;
-	//	cout << cor_ex[seg][0][0] << endl;
-      }
       
+      if(hit_n[seg]==11 && Energy_f[seg][0]>18){
+	for(int l=0; l<40; l++){
+	  for(int m=0; m<40; m++){
+	    double dx = ((double)l-20)/5;
+	    double dy = ((double)m-20)/5;
+	    double tmp_theta1 = get_angle(dx, dy, ch_f[seg][0], ch_r[seg][0]).first;
+	    cor_ex[seg][l][m] = get_front_ex(tmp_theta1, Energy_f[seg][0]);
+	    ch_F[seg]=ch_f[seg][0];
+	    ch_R[seg]=ch_r[seg][0];
+
+	    if(ch_F[seg]==1) h[0][ch_R[seg]][l][m]->Fill((float)cor_ex[seg][l][m]);
+	    if(ch_F[seg]==8) h[1][ch_R[seg]][l][m]->Fill((float)cor_ex[seg][l][m]);
+	    if(ch_F[seg]==14) h[2][ch_R[seg]][l][m]->Fill((float)cor_ex[seg][l][m]);
+	  }
+	}
+      }
+    } 
+  }
+
+  for(Int_t i=0;i<3;i++){
+    for(Int_t z=0;z<16;z++){
+      for(Int_t j=0;j<40;j++){
+	for(Int_t k=0;k<40;k++){   
+	  h[i][z][j][k]->Write();
+	}
+      }
     }
-    
+  }
+
+  TSpectrum *s[3][16][40][40];
+  double *xpeaks[3][16][40][40];
+  double peak[3][16][40][40];
+  double diff[3][4][40][40]={};
+  double sum_diff[3][40][40]={};
+  double sum_sum_diff[40][40]={};
+
+  for(Int_t i=0;i<3;i++){
+    for(Int_t z=0;z<16;z++){
+      for(Int_t j=0;j<40;j++){
+	for(Int_t k=0;k<40;k++){   
+	  diff[i][z][j][k]=0;
+	  sum_diff[i][j][k]=0;
+	  sum_sum_diff[j][k]=0;
+	}
+      }
+    }
+  }
+	  
+  for(Int_t i=0;i<3;i++){
+    for(Int_t z=0;z<16;z++){
+      for(Int_t j=0;j<40;j++){
+	for(Int_t k=0;k<40;k++){   
+	  s[i][z][j][k] = new TSpectrum(1);
+	  s[i][z][j][k]->Search(h[i][z][j][k],1,"n new",0.2);
+	  xpeaks[i][z][j][k]=s[i][z][j][k]->GetPositionX();
+	  peak[i][z][j][k]=xpeaks[i][z][j][k][0];
+	}
+      }
+    }
   }
   
-  hit->AutoSave();
-  fout->Close();
+  for(Int_t i=0;i<3;i++){
+    for(Int_t z=0;z<4;z++){
+      for(Int_t j=0;j<40;j++){
+	for(Int_t k=0;k<40;k++){
+	  diff[i][z][j][k] = abs( peak[i][4*z+3][j][k] - peak[i][4*z+0][j][k] ); 
+	}
+      }
+    }
+  }
   
+  for(Int_t i=0;i<3;i++){
+    for(Int_t z=0;z<4;z++){
+      for(Int_t j=0;j<40;j++){
+	for(Int_t k=0;k<40;k++){
+	  sum_diff[i][j][k] += diff[i][z][j][k]; 
+	}
+      }
+    }
+  }
+  
+  for(Int_t i=0;i<3;i++){
+    for(Int_t j=0;j<40;j++){
+      for(Int_t k=0;k<40;k++){
+	sum_sum_diff[j][k] += sum_diff[i][j][k]; 
+      }
+    }
+  }
+  
+  for(Int_t j=0;j<40;j++){
+    for(Int_t k=0;k<40;k++){
+      ofs << sum_sum_diff[j][k] << " ";
+      for(Int_t tmp=0; tmp<(int)(sum_sum_diff[j][k]*100); tmp++){
+	matrix->Fill(j,k);
+	matrix_x->Fill(j);
+	matrix_y->Fill(k);
+      }
+    }
+    ofs << endl;
+  }
+
+
+  matrix->Write();
+  matrix_x->Write();
+  matrix_y->Write();
+  fout->Close();
+
   return 0;
 }
 

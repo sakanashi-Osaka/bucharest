@@ -1,4 +1,3 @@
-
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,6 +29,7 @@
 #define MAX_STAT 3 // number of state
 #define N_ALPHA 10
 
+using namespace std;
 
 double mexes[N_ALPHA]={  /* Mass excess of 4N nuclei. */
  2.424911, 4.94166, 0.0000, -4.736998, -7.041929, -13.93340, -21.49283,  -26.01694, -30.2305, -34.8461
@@ -129,7 +129,7 @@ struct ssimval {
                          /* [1][] .. 2nd alpha emitted from 8Be */
                          /* [2][] .. 2nd alpha emitted from 8Be */
 
-  double sKaf[3];    /* Energy of alpha particles */
+  double sK3a[3];    /* Energy of alpha particles */
   double sthraf[3]; /* Polar angle of alpha particles in radian */
   double sphraf[3]; /* Azimuthal angle of alpha particles in radian*/
   double sthaf[3];  /* Polar angle of alpha particles in degree */
@@ -182,12 +182,12 @@ struct ssimval {
   double mthyr3a[3]; /* Measured vertical angle of 3a in radian */
   double mthx3a[3];  /* Measured horizontal angle of 3a in degree */
   double mthy3a[3];  /* Measured vertical angle of 3a in degree */
-  double mex3a[1];  /* Measured excitation energy of 3a */
-  double sex3a[1];  /* simutated excitation energy of 3a */
+  double mex3a;  /* Measured excitation energy of 3a */
+  double sex3a;  /* simutated excitation energy of 3a */
   int isx3aSi[3]; /* ID of hit channel of Si (horizontal) */
   int isy3aSi[3]; /* ID of hit channel of Si (vertical) */
+  double svec3a[3][4];  /* Simulated four vector of recoiled 3a */
   double mvec3a[3][4];  /* Measured four vector of recoiled 3a */
-
 
   /* Section 6: In-flight gamma decay of 12C */
   double scvec[MAX_STAT][4]; /* 4 momentum of 12C in the i th state */
@@ -251,6 +251,8 @@ double elossc(double ene,double thick, double tthick);
 double estrac(double ene,double thick, double tthick);
 double astrac(double ene,double thick, double tthick);
 
+double tmp(double thetacm_i, double thetacm_f, int n_div, int i_div);
+
 
 
 int main(int argc, char *argv[]){
@@ -259,8 +261,11 @@ int main(int argc, char *argv[]){
   struct skine kine;
 
 /* Initialization of simulation conditions ***********************/
+  bool flag_ang = true; // true: apply the angular distribution, false: isotropic distribution 
+
   ssim.enepa=25; /* incident energy per */
   ssim.nstat=3; /* number of state */
+  //  ssim.ex_ene[0]=9.64;
   ssim.ex_ene[0]=7.65;  /* default values */
   ssim.ex_ene[1]=4.44;
   ssim.ex_ene[2]=0;
@@ -337,6 +342,9 @@ int main(int argc, char *argv[]){
   for(int i=0;i<ssim.nstat;i++){
     printf("Excitation energy (%d): %7.3f MeV\n",i,ssim.ex_ene[i]);
   }
+  if(flag_ang==1) printf("Angular distribution flag: true\n");
+  if(flag_ang==0) printf("Angular distribution flag: false\n");
+  
   
   std::string check;
   std::cout << "\ncontinue?(y/n) ";
@@ -357,6 +365,8 @@ int main(int argc, char *argv[]){
   fprintf(outputfile2,"  Angle: %6.2f deg\n",ssim.thSi);
   fprintf(outputfile2,"  Distance: %6.1f mm\n",ssim.dSi);
   fprintf(outputfile2,"  Resolution: %6.3f MeV\n",ssim.sigK4);
+  if(flag_ang==1) printf("Angular distribution flag: true\n");
+  if(flag_ang==0) printf("Angular distribution flag: false\n");
   for(int i=0;i<ssim.nstat;i++){
     fprintf(outputfile2,"Excitation energy (%d): %7.3f MeV\n",i,ssim.ex_ene[i]);
   }
@@ -415,13 +425,16 @@ int main(int argc, char *argv[]){
 
   // section 5
   tree->Branch("idp3a",ssim.idp3a,"5_idp3a[3]/I");
+  tree->Branch("sK3a",ssim.sK3a,"5_sK3a[3]/D");
   tree->Branch("mK3a",ssim.mK3a,"5_mK3a[3]/D");
   tree->Branch("mth3a",ssim.mth3a,"5_mth3a[3]/D");
   tree->Branch("mph3a",ssim.mph3a,"5_mph3a[3]/D");
   tree->Branch("s3apos",ssim.s3apos,"5_s3apos[3][3]/D");
-  tree->Branch("m3apos",ssim.m3apos[1],"5_m3apos[3][3]/D");
+  tree->Branch("m3apos",ssim.m3apos[1],"5_m3apos[2][3][3]/D");
   tree->Branch("m3achF",ssim.isx3aSi,"5_m3achF[3]/I");
   tree->Branch("m3achR",ssim.isy3aSi,"5_m3achR[3]/I");
+  tree->Branch("sex3a",&ssim.sex3a,"5_sex3a/D");
+  tree->Branch("mex3a",&ssim.mex3a,"5_mex3a/D");
 
   //section 6
   tree->Branch("sK12C",&ssim.sKC[MAX_STAT-1],"6_sK12C/D");
@@ -438,14 +451,33 @@ int main(int argc, char *argv[]){
   tree->Branch("m12CchF",&ssim.isx12CSi,"7_m12CchF/I");
   tree->Branch("m12CchR",&ssim.isy12CSi,"7_m12CchR/I");
 
-  
-  
 
-  srand48(time(NULL));
-  int nev=100000;
   
-  for(int iev=0;iev<nev;iev++){
-   
+  int nev=500000;
+
+  // angular distribution
+  double thetacm_i = 40.; //*_i < thetacm < *_f
+  double thetacm_f = 75.;
+  const int n_div = 350; 
+  double tmp_array[n_div];
+  double theta_array[n_div];
+  double total=0.;
+  for(int i=0; i<n_div; i++){
+    theta_array[i] = 0;
+    tmp_array[i] = tmp(thetacm_i,thetacm_f,n_div,i);
+    total += tmp_array[i]; 
+  }
+  int loop = (int)((double)nev*(thetacm_f-thetacm_i)/180/total);
+  //  cout << loop * total << endl;
+
+  
+  srand48(time(NULL));  
+  for(int iev=0;iev<nev*2;iev++){
+
+    if(iev%10000==0) {
+      std::cout << iev << " event finished" << endl;
+      std::cout << std::flush; 
+    }
     ssim.sx1=0; ssim.sy1=0;
     ssim.sdep1=0;
     ssim.sthrcm=0; ssim.sphrcm=0;
@@ -495,12 +527,13 @@ int main(int argc, char *argv[]){
 	ssim.idp3a[m]=0;
 	ssim.mK3a[m]=0;	ssim.mthr3a[m]=0; ssim.mphr3a[m]=0; ssim.mth3a[m]=0; ssim.mph3a[m]=0;
 	ssim.mthxr3a[m]=0; ssim.mthyr3a[m]=0; ssim.mthx3a[m]=0; ssim.mthy3a[m]=0;
-	ssim.mex3a[0]=0; ssim.sex3a[0]=0;
+	ssim.mex3a=0; ssim.sex3a=0;
 	ssim.isx3aSi[m]=-1; ssim.isy3aSi[m]=-1;
 	for(int n=0;n<3;n++){
 	  ssim.s3avec[l][m][n]=0; ssim.s3apos[m][n]=-100; ssim.m3apos[l][m][n]=-100;
 	}
 	for(int n=0;n<4;n++){
+	  ssim.svec3a[m][n]=0;	  
 	  ssim.mvec3a[m][n]=0;	  
 	}
       }
@@ -508,10 +541,18 @@ int main(int argc, char *argv[]){
     
     /** Create 4He Beam ***********************************************/
     create4He(&kine,&ssim); /* Up to the collision point */
-    
+
     /** Scattering ***********************************************/
     scatt4He12c(&kine,&ssim); /* 4He + 12C Scattering */
 
+    if(flag_ang==true){
+      int array_n = (ssim.sthrcm*R_TO_D-thetacm_i)/((thetacm_f-thetacm_i)/n_div);
+      //    cout << ssim.sthrcm*R_TO_D << " " << array_n << endl;
+      if(array_n<0 || array_n-1>n_div) continue;
+      theta_array[array_n]+=1;
+      if(theta_array[array_n] > tmp_array[array_n]*loop) continue;
+    }
+    
     /** Decay 12C->3a ***********************************************/
     decay3a(&kine,&ssim);
     
@@ -644,7 +685,7 @@ double scatt4He12c(struct skine *k, struct ssimval *s){
   double v1[3],v2[3];
   double tmpr1,tmpr2,sdep2;
     
-    s->sthrcm=acos(2.0*drand48()-1.0);//%% 0-180 deg
+  s->sthrcm=acos(2.0*drand48()-1.0);//%% 0-180 deg
   //  s->sthrcm=1.6;
   s->sphrcm=drand48()*2.0*M_PI; //0-360 deg
   //  s->sphrcm=1.5; //0-360 deg
@@ -759,7 +800,7 @@ double scatt4He12c(struct skine *k, struct ssimval *s){
                 /* [][0][] .. 1st alpha emitted into a + 8Be channel */
                 /* [][1][] .. 2nd alpha emitted from 8Be */
                 /* [][2][] .. 2nd alpha emitted from 8Be */
-/* s->sKaf[2][3] ... Energy of alpha particle */
+/* s->sK3a[2][3] ... Energy of alpha particle */
 /* s->sthraf[2][3] ... Polar angle of alpha particles in radian */
 /* s->sphraf[2][3] ... Azimuthal angle of alpha particles in radian */
 /* s->sthaf[2][3] ... Polar angle of alpha particles in degree */
@@ -864,20 +905,20 @@ double decay3a(struct skine *k, struct ssimval *s){
     tmpeloss=eloss4He(s->sKa[j],spath,s->tthick);
     
     // Energy straggling 
-    s->sKaf[j]=s->sKa[j]-tmpeloss+tmpr2*estra4He(s->sKa[j]-tmpeloss,spath,s->tthick);
-    //    s->sKaf[j]=s->sKa[j];
-    if(s->sKaf[j]<0){
-      s->sKaf[j]=-10000;
+    s->sK3a[j]=s->sKa[j]-tmpeloss+tmpr2*estra4He(s->sKa[j]-tmpeloss,spath,s->tthick);
+    //    s->sK3a[j]=s->sKa[j];
+    if(s->sK3a[j]<0){
+      s->sK3a[j]=-10000;
       s->sthaf[j]=-10000;
       s->sphaf[j]=-10000;
       s->sthraf[j]=-10000;
       s->sphraf[j]=-10000;
     }else{
       s->sna++;
-      s->stoteaf+=s->sKaf[j];
+      s->stoteaf+=s->sK3a[j];
       
       // Reconstruct 4 momentum 
-      s->safvec[j][0]=s->sKaf[j]+m4he;
+      s->safvec[j][0]=s->sK3a[j]+m4he;
       tmpmom=sqrt(s->safvec[j][0]*s->safvec[j][0]-m4he*m4he);
       for(l=0;l<3;l++) s->safvec[j][l+1]=v2[l]*tmpmom; 
 
@@ -993,8 +1034,8 @@ int detect4He(struct skine *k, struct ssimval *s){
       //      printf("posx, posy, posz : %f, %f %f\n",s->m4Hepos[0][0],s->m4Hepos[0][1],s->m4Hepos[0][2]);
 
       double tmppos[3]; 
-      tmppos[0]=s->m4Hepos[1][0]-s->sx1;
-      tmppos[1]=s->m4Hepos[1][1]-s->sy1;
+      tmppos[0]=s->m4Hepos[1][0]-s->offx1;
+      tmppos[1]=s->m4Hepos[1][1]-s->offy1;
       tmppos[2]=s->m4Hepos[1][2]-0;
      
       s->mth4He=gettheta(tmppos);
@@ -1146,8 +1187,8 @@ int detect12C(struct skine *k, struct ssimval *s){
       //      printf("posx, posy, posz : %f, %f %f\n",s->m12Cpos[0][0],s->m12Cpos[0][1],s->m12Cpos[0][2]);
       
       double tmppos[3]; 
-      tmppos[0]=s->m12Cpos[1][0]-s->sx1;
-      tmppos[1]=s->m12Cpos[1][1]-s->sy1;
+      tmppos[0]=s->m12Cpos[1][0]-s->offx1;
+      tmppos[1]=s->m12Cpos[1][1]-s->offy1;
       tmppos[2]=s->m12Cpos[1][2]-0;
 
       s->mth12C=gettheta(tmppos);
@@ -1242,10 +1283,11 @@ int detect3a(struct skine *k, struct ssimval *s){
     genvthph(s->sthaf[j],s->sphaf[j],s->s3avec[1][j]);
     rotvec(s->s3avec[1][j],s->s3avec[0][j],1,-1.0*s->thrSi);
 
-  
+    //    cout << s->sthaf[j] << " " << s->sphaf[j] << endl;
+   
     genrndg(&tmpr1,&tmpr2);
     //  s->mK12C=s->sK4[1]+tmpr1*s->sigK4-elossc(s->sK4[1]+tmpr1*s->sigK4,s->tdeadSi,s->tthick);
-    s->mK3a[j]=s->sKaf[j]+tmpr1*s->sigK4;
+    s->mK3a[j]=s->sK3a[j]+tmpr1*s->sigK4;
     if(s->s3avec[0][j][2]>0){
       slatex[1][j][0]=s->sx1;
       slatex[1][j][1]=s->sy1;
@@ -1257,6 +1299,7 @@ int detect3a(struct skine *k, struct ssimval *s){
       if(s->s3apos[j][0]>0) tmptheta=atan(s->s3apos[j][1]/s->s3apos[j][0])*R_TO_D;
       if(s->s3apos[j][0]<0) tmptheta=atan(s->s3apos[j][1]/s->s3apos[j][0])*R_TO_D+180;
 
+      
       if((tmpr[j] < s->diaSi/2) && (tmpr[j] > s->innSi/2)){
 	s->idp3a[j]=1;
 	if(s->s3apos[j][0]>0 && s->s3apos[j][1]>0){
@@ -1284,11 +1327,11 @@ int detect3a(struct skine *k, struct ssimval *s){
 	s->m3apos[0][j][0]=(((s->isx3aSi[j]%16+0.5)*((s->diaSi-s->innSi)/2)/(s->nxSi/4))+s->innSi/2) * cos(((s->isy3aSi[j]+0.5)*22.5)*D_TO_R);
 	s->m3apos[0][j][1]=(((s->isx3aSi[j]%16+0.5)*((s->diaSi-s->innSi)/2)/(s->nxSi/4))+s->innSi/2) * sin(((s->isy3aSi[j]+0.5)*22.5)*D_TO_R);
 	rotvec(s->m3apos[0][j],s->m3apos[1][j],1,s->thrSi);
-	//      printf("posx, posy, posz : %f, %f %f\n",s->m3apos[0][0],s->m3apos[0][1],s->m3apos[0][2]);
+	//	printf("posx, posy, posz : %f, %f %f\n",s->m3apos[1][j][0],s->m3apos[1][j][1],s->m3apos[1][j][2]);
       
 	double tmppos[3][3]; 
-	tmppos[j][0]=s->m3apos[1][j][0]-s->sx1;
-	tmppos[j][1]=s->m3apos[1][j][1]-s->sy1;
+	tmppos[j][0]=s->m3apos[1][j][0]-s->offx1;
+	tmppos[j][1]=s->m3apos[1][j][1]-s->offy1;
 	tmppos[j][2]=s->m3apos[1][j][2]-0;
 
 
@@ -1296,7 +1339,7 @@ int detect3a(struct skine *k, struct ssimval *s){
 	s->mph3a[j]=getphi(tmppos[j]);
 	s->mthr3a[j]=s->mth3a[j]*D_TO_R;
 	s->mphr3a[j]=s->mph3a[j]*D_TO_R;
-	//      printf("pos,theta:%f,%f\n",s->m4Hepos[1],s->mth4He);
+	//	printf("%f %f\n",s->mth3a[j], s->mph3a[j]);
       
 	tmpx=sin(s->mthr3a[j])*cos(s->mphr3a[j]);
 	tmpy=sin(s->mthr3a[j])*sin(s->mphr3a[j]);
@@ -1307,41 +1350,75 @@ int detect3a(struct skine *k, struct ssimval *s){
 	s->mthy3a[j]=s->mthyr3a[j]*R_TO_D;
 
 	s->mvec3a[j][0]=m4he+s->mK3a[j];
+	genvthph(s->mth3a[j],s->mph3a[j],&s->mvec3a[j][1]);
+	vecadd(&s->mvec3a[j][1],null,&s->mvec3a[j][1],sqrt(s->mvec3a[j][0]*s->mvec3a[j][0]-m4he*m4he),1);
 
-	//  Opposite direction from 3a
-	genvthph(-1.0*s->mth3a[j],s->mph3a[j],&s->mvec3a[j][1]);
-	vecadd(&s->mvec3a[j][1],null,&s->mvec3a[j][1],
-	       sqrt(s->mvec3a[j][0]*s->mvec3a[j][0]-m4he*m4he),1);
-	vecadd(&s->s3avec[1][j][0],null,&s->s3avec[1][j][0],
-	       sqrt(pow(m4he+s->sKaf[j],2)-m4he*m4he),1);
-	//	printf("%f %f\n",s->mvec3a[j][0],s->s3avec[1][j][0]);
-	s->s3avec[1][j][0]=-1.0*s->s3avec[1][j][0];
-	s->s3avec[1][j][1]=-1.0*s->s3avec[1][j][1];
       }
     }else{
       s->idp3a[j]=0;
     }  
-    if(s->idp3a[0]==1 && s->idp3a[1]==1 && s->idp3a[2]==1){
-      double tmp_num = pow(s->mvec3a[0][1]+s->mvec3a[1][1]+s->mvec3a[2][1],2)+pow(s->mvec3a[0][2]+s->mvec3a[1][2]+s->mvec3a[2][2],2)+pow(s->mvec3a[0][3]+s->mvec3a[1][3]+s->mvec3a[2][3],2)+pow(mgs[2],2);
-      if(tmp_num<0) printf("Error"); continue;
-      double total3a = pow(tmp_num,0.5);
-      s->mex3a[0] = s->mK3a[0]+s->mK3a[1]+s->mK3a[2]+mgs[0]*3-total3a;
-      //      printf("%f %f %f\n",s->mvec3a[0][1],s->mvec3a[0][2],s->mvec3a[0][3]);
-      //      printf("mex3a:%f\n",s->mex3a[0]);
-
-      double tmp_num1 = pow(s->s3avec[1][0][0]+s->s3avec[1][1][0]+s->s3avec[1][2][0],2)+pow(s->s3avec[1][0][1]+s->s3avec[1][1][1]+s->s3avec[1][2][1],2)+pow(s->s3avec[1][0][2]+s->s3avec[1][1][2]+s->s3avec[1][2][2],2)+pow(mgs[2],2);
-      double stotal3a = pow(tmp_num1,0.5);
-      if(tmp_num1<0) printf("Error"); continue;
-      s->sex3a[0] = s->sKaf[0]+s->sKaf[1]+s->sKaf[2]+mgs[0]*3-stotal3a;
-    }
-    
-    
+    s->svec3a[j][0]=m4he+s->sK3a[j];
+    genvthph(s->sthaf[j],s->sphaf[j],&s->svec3a[j][1]);
+    vecadd(&s->svec3a[j][1],null,&s->svec3a[j][1],sqrt(s->svec3a[j][0]*s->svec3a[j][0]-m4he*m4he),1);
+        
   }
+  if(s->idp3a[0]==1 && s->idp3a[1]==1 && s->idp3a[2]==1){
+    double tmp_num = pow(s->mvec3a[0][1]+s->mvec3a[1][1]+s->mvec3a[2][1],2)+pow(s->mvec3a[0][2]+s->mvec3a[1][2]+s->mvec3a[2][2],2)+pow(s->mvec3a[0][3]+s->mvec3a[1][3]+s->mvec3a[2][3],2)+pow(mgs[2],2);
+    if(tmp_num<0) printf("Error");
+    double total3a = pow(tmp_num,0.5);
+    s->mex3a = s->mK3a[0]+s->mK3a[1]+s->mK3a[2]+mgs[0]*3-total3a;      
+  }
+  
+  double tmp_num1 = pow(s->svec3a[0][1]+s->svec3a[1][1]+s->svec3a[2][1],2)+pow(s->svec3a[0][2]+s->svec3a[1][2]+s->svec3a[2][2],2)+pow(s->svec3a[0][3]+s->svec3a[1][3]+s->svec3a[2][3],2)+pow(mgs[2],2);
+  double stotal3a = pow(tmp_num1,0.5);
+  if(tmp_num1<0) printf("Error");
+  s->sex3a = s->sK3a[0]+s->sK3a[1]+s->sK3a[2]+mgs[0]*3-stotal3a;
+
+  
   return(s->idp3a[0]);
 };
 
 
 
+
+
+
+double culc_3a(double *enea, int *tha, int *pha){
+
+  double m4He=931.494*4+2.4249;
+  double m12C=931.494*12;
+  double ene3a[3]={};
+  double th3a[3]={};
+  double ph3a[3]={};
+  double moma[3][3]={};
+  double mom12C[3]={0,0,0};
+  double total12C=-1;
+  double ex12C=-1;
+  
+  for(int n=0; n<3; n++){
+    ene3a[n] = enea[n];
+    th3a[n] = tha[n];
+    ph3a[n] = pha[n];
+    //    cout << tha[n] << " " << pha[n] << endl;
+    //    cout << tha[n]*180/3.14 << " " << pha[n]*180/3.14 << endl;
+    
+    moma[n][0] = pow(2*m4He*ene3a[n]+ene3a[n]*ene3a[n],0.5) * sin(tha[n]) * cos(pha[n]);
+    moma[n][1] = pow(2*m4He*ene3a[n]+ene3a[n]*ene3a[n],0.5) * sin(tha[n]) * sin(pha[n]);
+    moma[n][2] = pow(2*m4He*ene3a[n]+ene3a[n]*ene3a[n],0.5) * cos(tha[n]);
+    //    cout << ene3a[n] << " " << moma[n][0]  << " " << moma[n][1] << " "  << moma[n][2] << endl;
+    //    cout << m4He+ene3a[n] << " " << moma[n][0]  << " " << moma[n][1] << " "  << moma[n][2] << endl;
+
+    mom12C[0] += moma[n][0];
+    mom12C[1] += moma[n][1];
+    mom12C[2] += moma[n][2];
+  }
+  //  cout << mom12C[0]  << " " << mom12C[1] << " "  << mom12C[2] << endl;
+
+  total12C = pow(mom12C[0]*mom12C[0]+mom12C[1]*mom12C[1]+mom12C[2]*mom12C[2]+m12C*m12C,0.5);
+  ex12C = ene3a[0]+ene3a[1]+ene3a[2]+m4He*3 - total12C;
+  
+  return ex12C;
+}
 
 
 
@@ -1647,4 +1724,25 @@ int genalpha(int i, double *p0, double *p1, double *p2){
   lortra(p2c,p2,betag);
 
   return(1);
+}
+
+
+
+
+
+double tmp(double thetacm_i=40., double thetacm_f=75., int n_div=350, int i_div=0){
+  double p0 = -241.512; //fitted using eventbuild_cor/hit/count/hist.C                                                                                                                                                               
+  double p1 = 3.3118;
+  double p2 = 112.729;
+  double p3 = 54.2054;
+  double p4 = 8.41897;
+  double p5 = 130.893;
+  double p6 = 36.5291;
+  double p7 = 5.08719;
+
+  double x = thetacm_i + (thetacm_f-thetacm_i)/n_div * (double)i_div;
+  double num;
+  num = p0 + p1*x + p2*exp(-pow(x-p3,2)/(2*pow(p4,2))) + p5*exp(-pow(x-p6,2)/(2*pow(p7,2)));
+
+  return num;
 }

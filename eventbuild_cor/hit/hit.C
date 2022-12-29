@@ -22,17 +22,25 @@
 #define N_CH 16
 #define N_HIT_MAX 10
 
-const float s1_r1 = 48/2.0;  // inner radius      
-const float s1_r2 = 96/2.0;  // outer radius
-const float s1_dist = 40;
+const double s1_r1 = 48/2.0;  // inner radius      
+const double s1_r2 = 96/2.0;  // outer radius
+const double s1_dist = 40;
 
 int entry_type(int board, int ch);
 int get_ch(int domain);
-float get_front_theta(int front_ch);
-std::pair<float,float> get_angle(float x, float y, int ch_f, int ch_r);
-float get_front_ex(float theta, float ene);
+double get_front_theta(int front_ch);
+std::pair<double,double> get_angle(int ch_f, int ch_r);
+double get_front_ex(double theta, double ene);
 void fill_data(int seg, int num_fi, int num_ff, int num_ri, int num_rf);
 double detect3a(double *enea, int *chfa, int *chra);
+
+int getStrFromText(string filename, vector<string> &vstr){
+  ifstream ifs(filename);
+  string tmp;
+  while (getline(ifs, tmp))
+    vstr.push_back(tmp);
+  return 0;
+}
 
 //branch
 int hit_n[4]={0,0,0,0};
@@ -40,32 +48,30 @@ int ch_f[4][N_HIT_MAX]={};
 int ch_r[4][N_HIT_MAX]={};
 int ch_g[N_HIT_MAX]={};
 int ch_b[N_HIT_MAX]={};
-float Energy_f[4][N_HIT_MAX]={};
-float Energy_r[4][N_HIT_MAX]={};
-float front_ex[4][N_HIT_MAX]={};
-float cor_ex[4][N_HIT_MAX]={};
+double Energy_f[4][N_HIT_MAX]={};
+double Energy_r[4][N_HIT_MAX]={};
+double front_ex[4][N_HIT_MAX]={};
+double cor_ex[4][N_HIT_MAX]={};
 double ts_diff_f[4][N_HIT_MAX]={};
 double ts_diff_r[4][N_HIT_MAX]={};
 double ts_diff_g[N_HIT_MAX]={};
 double ts_diff_b[N_HIT_MAX]={};
 double TDC_f[4][N_HIT_MAX]={};
 double TDC_r[4][N_HIT_MAX]={};
-float Amax[4][N_HIT_MAX]={};
-float Gamma[N_HIT_MAX]={};
-float BGO[N_HIT_MAX]={};
+double Amax[4][N_HIT_MAX]={};
+double Gamma[N_HIT_MAX]={};
+double BGO[N_HIT_MAX]={};
 int run_n=-1;
-double mex=-1;
 
 //analysis
 int count_f[4]={0,0,0,0};
 int count_r[4]={0,0,0,0};
 int count_g=0;
 int count_b=0;
-float ene_ex[4][N_HIT_MAX]={};
-float ene_f[4][N_HIT_MAX]={};
-float ene_r[4][N_HIT_MAX]={};
-float Amax_f[4][N_HIT_MAX]={};
-float Amax_r[4][N_HIT_MAX]={};
+double ene_f[4][N_HIT_MAX]={};
+double ene_r[4][N_HIT_MAX]={};
+double Amax_f[4][N_HIT_MAX]={};
+double Amax_r[4][N_HIT_MAX]={};
 double ts_f[4][N_HIT_MAX]={};
 double ts_r[4][N_HIT_MAX]={};
 double tdc_f[4][N_HIT_MAX]={};
@@ -75,12 +81,13 @@ int domain_r[4][N_HIT_MAX]={};
 int type_f[4][N_HIT_MAX]={};
 int type_r[4][N_HIT_MAX]={};
 
-double enea[3]={};
-int chfa[3]={};
-int chra[3]={};
-double tha[3]={};
-double pha[3]={};
 
+//for beam position correction
+int run_tmp[300]={};
+double px[300]={};
+double py[300]={};
+double beam_x=0;
+double beam_y=0;
 
 int hit(int run){
 
@@ -92,7 +99,6 @@ int hit(int run){
   for(int i=0; i<10; i++){
     for(int j=0; j<16; j++){
     ifs >> domain[i][j] >> p0[i][j]>> p1[i][j] >> p2[i][j];
-    cout << p1[i][j] << endl;
     }
   }
   ifstream ifs2("log/gamma.prm");
@@ -103,6 +109,26 @@ int hit(int run){
       ifs2 >> gch[i][j] >> g0[i][j];
     }
   }
+
+  vector<string> vstr;
+  getStrFromText("beam_pos.prm",vstr);
+  ifstream ifs3("beam_pos.prm");
+  for(int i=0; i<(int)vstr.size(); i++){
+    ifs3 >> run_tmp[i] >> px[i] >> py[i];
+  }
+  for(int i=0; i<(int)vstr.size(); i++){
+    if(run_tmp[i]==run && abs(px[i]-20)<10 && abs(py[i]-30)<10){
+      beam_x = (px[i]-20.0) * 0.2;
+      beam_y = (py[i]-20.0) * 0.2;
+      //      beam_x = 0;
+      //      beam_y = 0;
+      break;
+    }else{
+      beam_x = 0.;
+      beam_y = 2.;
+    }
+  }
+  cout << beam_x << " " << beam_y << endl;
   
   TFile *fin =new TFile(Form("../rootfile/event%d.root",run));
   //  TFile *fin =new TFile(Form("../rootfile/test%d.root",run));
@@ -110,13 +136,11 @@ int hit(int run){
 
   float tmp_energy[N_BOARD][N_CH]={};
   float tmp_amax[N_BOARD][N_CH]={};
-  float tmp_front_ex[N_BOARD][N_CH]={};
   double tmp_ts_diff[N_BOARD][N_CH]={};
   double tmp_tdc[N_BOARD][N_CH]={};
   
   event->SetBranchAddress("Energy",tmp_energy);
   event->SetBranchAddress("Amax_cor",tmp_amax);
-  event->SetBranchAddress("front_ex",tmp_front_ex);
   event->SetBranchAddress("ts_diff",tmp_ts_diff);
   event->SetBranchAddress("TDC",tmp_tdc);
   
@@ -131,28 +155,27 @@ int hit(int run){
   hit->Branch("ch_r",ch_r,"ch_r[4][10]/I");
   hit->Branch("ch_g",ch_g,"ch_g[10]/I");
   hit->Branch("ch_b",ch_b,"ch_b[10]/I");
-  hit->Branch("Energy_f",Energy_f,"Energy_f[4][10]/F");
-  hit->Branch("Energy_r",Energy_r,"Energy_r[4][10]/F");
-  hit->Branch("front_ex",front_ex,"front_ex[4][10]/F");
-  hit->Branch("cor_ex",cor_ex,"cor_ex[4][10]/F");
+  hit->Branch("Energy_f",Energy_f,"Energy_f[4][10]/D");
+  hit->Branch("Energy_r",Energy_r,"Energy_r[4][10]/D");
+  hit->Branch("front_ex",front_ex,"front_ex[4][10]/D");
+  hit->Branch("cor_ex",cor_ex,"cor_ex[4][10]/D");
   hit->Branch("ts_diff_f",ts_diff_f,"ts_diff_f[4][10]/D");
   hit->Branch("ts_diff_r",ts_diff_r,"ts_diff_r[4][10]/D");
   hit->Branch("TDC_f",TDC_f,"TDC_f[4][10]/D");
   hit->Branch("TDC_r",TDC_r,"TDC_r[4][10]/D");
   hit->Branch("ts_diff_g",ts_diff_g,"ts_diff_g[10]/D");
   hit->Branch("ts_diff_b",ts_diff_b,"ts_diff_b[10]/D");
-  hit->Branch("Amax",Amax,"Amax[4][10]/F");
-  hit->Branch("Gamma",Gamma,"Gamma[10]/F");
-  hit->Branch("BGO",BGO,"BGO[10]/F");
+  hit->Branch("Amax",Amax,"Amax[4][10]/D");
+  hit->Branch("Gamma",Gamma,"Gamma[10]/D");
+  hit->Branch("BGO",BGO,"BGO[10]/D");
   hit->Branch("run_n",&run_n,"run_n/I");
-  hit->Branch("mex",&mex,"mex/D");
 
   
   
   ULong64_t N=event->GetEntries();
   cout << "Total entry: " << N << endl;
   for(ULong64_t evtn=0; evtn<N; evtn++){
-  //  for(ULong64_t evtn=0; evtn<10000; evtn++){
+  //  for(ULong64_t evtn=0; evtn<100000; evtn++){
 
     if(evtn%10000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
 
@@ -179,13 +202,11 @@ int hit(int run){
 	BGO[i]=-1;
 	run_n=-1;
 	hit_n[i]=0;
-	mex=-1;
 	
 	count_f[i]=0;
 	count_r[i]=0;
 	count_g=0;
 	count_b=0;
-	ene_ex[i][j]=0;
 	ene_f[i][j]=0;
 	ene_r[i][j]=0;
 	Amax_f[i][j]=0;
@@ -210,7 +231,6 @@ int hit(int run){
 	  
 	  if(abs(type-22)<3){
 	    ene_f[type-20][count_f[type-20]]=tmp_energy[i][j];
-	    ene_ex[type-20][count_f[type-20]]=tmp_front_ex[i][j];
 	    ts_f[type-20][count_f[type-20]]=tmp_ts_diff[i][j]-p1[i][j];
 	    Amax_f[type-20][count_f[type-20]]=tmp_amax[i][j];
 	    tdc_f[type-20][count_f[type-20]]=tmp_tdc[i][j];
@@ -316,18 +336,9 @@ int hit(int run){
 	  }else{
 	    continue;
 	  }
-	  double tmp_cor_ex =cor_ex[(seg+2)%4][0];
-	  for(int tmp=0; tmp<3; tmp++){
-	    chfa[tmp]=ch_f[seg][tmp];
-	    chra[tmp]=ch_r[seg][tmp];
-	    enea[tmp]=Energy_f[seg][tmp];
-	  }      
-	  double ex12C = detect3a(enea,chfa,chra);
-	  //	  cout << ex12C << " " << tmp_cor_ex  << endl;
-	  //	  cout << endl;
-	  mex=ex12C;
 	}
       }
+
       if(count_f[seg]==3 && count_r[seg]==3){ //3vs3 event
 	if(abs(ene_f[seg][0]+ene_f[seg][1]+ene_f[seg][2]-ene_r[seg][0]-ene_r[seg][1]-ene_r[seg][2])<1){
 	  if(abs(ene_f[seg][0]-ene_r[seg][0])<0.5 && abs(ene_f[seg][1]-ene_r[seg][1])<0.5 && abs(ene_f[seg][2]-ene_r[seg][2])<0.5){
@@ -495,33 +506,33 @@ int entry_type(int board, int ch){
   return type_n;
 }; 
 
-float get_front_theta(int front_ch){
+double get_front_theta(int front_ch){
   
-  float strp_wid = (s1_r2 - s1_r1)/16.0;
-  float r=0;  
+  double strp_wid = (s1_r2 - s1_r1)/16.0;
+  double r=0;  
   r = s1_r1 + strp_wid*(0.5) + strp_wid*(15-front_ch);
   
   return atan(r/s1_dist);
 }
 
-float get_front_ex(float theta, float ene){
-  const float beam_ene = 25.0;
-  const float AMU = 931.4943;
-  const float mass_ex_12c = 0;
-  const float mass_ex_4he = 2.425;
-  const float mass_ex_13c = 3.125;    
+double get_front_ex(double theta, double ene){
+  const double beam_ene = 25.0;
+  const double AMU = 931.4943;
+  const double mass_ex_12c = 0;
+  const double mass_ex_4he = 2.425;
+  const double mass_ex_13c = 3.125;    
 
-  float mass_12c = AMU*12 + mass_ex_12c;
-  float mass_4he = AMU*4  + mass_ex_4he;
-  float mass_13c = AMU*13 + mass_ex_13c;  
+  double mass_12c = AMU*12 + mass_ex_12c;
+  double mass_4he = AMU*4  + mass_ex_4he;
+  double mass_13c = AMU*13 + mass_ex_13c;  
   
-  float m1, m2, m3, m4;
-  float E1, E3;
-  float p1, p3;
+  double m1, m2, m3, m4;
+  double E1, E3;
+  double p1, p3;
 
-  float s,t,u;
-  float total_m4;
-  float ex4;
+  double s,t,u;
+  double total_m4;
+  double ex4;
   
   m1 = mass_4he;
   m2 = mass_12c;
@@ -546,14 +557,14 @@ float get_front_ex(float theta, float ene){
 
 
 
-std::pair<float,float> get_angle(float x, float y, int ch_f, int ch_r){
+std::pair<double,double> get_angle(int ch_f, int ch_r){
+  
+  double tmp_x, tmp_y, tmp_z, tmp_theta, tmp_phi;
+  double front_theta = get_front_theta(ch_f);
+  double rear_phi = (90 + 22.5/2.0 + 22.5*ch_r)*PI/180;
 
-  float tmp_x, tmp_y, tmp_z, tmp_theta, tmp_phi;
-  float front_theta = get_front_theta(ch_f);
-  float rear_phi = (90 + 22.5/2.0 + 22.5*ch_r)*PI/180;
-
-  tmp_x = s1_dist * tan(front_theta)*cos(rear_phi) - x;
-  tmp_y = s1_dist * tan(front_theta)*sin(rear_phi) - y;
+  tmp_x = s1_dist * tan(front_theta)*cos(rear_phi) - beam_x;
+  tmp_y = s1_dist * tan(front_theta)*sin(rear_phi) - beam_y;
   tmp_z = s1_dist;
   tmp_theta = acos(tmp_z/pow(pow(tmp_x,2)+pow(tmp_y,2)+pow(tmp_z,2),0.5));
   if(tmp_y>=0) tmp_phi = acos(tmp_x/pow(pow(tmp_x,2)+pow(tmp_y,2),0.5));
@@ -576,7 +587,7 @@ void fill_data(int seg, int num_fi, int num_ff, int num_ri, int num_rf){
   ch_f[seg][num_ff]=get_ch(domain_f[seg][num_fi]);
   ch_r[seg][num_rf]=get_ch(domain_r[seg][num_ri]);
 
-  double tmp_theta1 = get_angle(0, 2, ch_f[seg][num_ff], ch_r[seg][num_rf]).first;
+  double tmp_theta1 = get_angle(ch_f[seg][num_ff], ch_r[seg][num_rf]).first;
   cor_ex[seg][num_ff] = get_front_ex(tmp_theta1, Energy_f[seg][num_ff]);
 }
 
@@ -593,8 +604,8 @@ double detect3a(double *enea, int *chfa, int *chra){
   double ex12C=-1;
   
   for(int n=0; n<3; n++){
-    tha[n] = get_angle(0,2,chfa[n],chra[n]).first;
-    pha[n] = get_angle(0,2,chfa[n],chra[n]).second;
+    tha[n] = get_angle(chfa[n],chra[n]).first;
+    pha[n] = get_angle(chfa[n],chra[n]).second;
     //    cout << tha[n] << " " << pha[n] << endl;
     //    cout << tha[n]*180/3.14 << " " << pha[n]*180/3.14 << endl;
     
