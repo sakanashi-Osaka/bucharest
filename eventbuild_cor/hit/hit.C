@@ -144,8 +144,8 @@ int hit(int run){
   event->SetBranchAddress("ts_diff",tmp_ts_diff);
   event->SetBranchAddress("TDC",tmp_tdc);
   
-  TFile *fout =new TFile(Form("rootfile/hit%d.root",run),"recreate");
-  //  TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/hit%d.root",run),"recreate");
+  TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
   //  TFile *fout =new TFile("rootfile/gomi.root","recreate");
   TTree *hit = new TTree("hit","hit"); 
 
@@ -396,7 +396,7 @@ int hit(int run){
     */
 
     
-    //  if(abs(cor_ex[0][0]-7.65)>1 && abs(cor_ex[1][0]-7.65)>1 && abs(cor_ex[2][0]-7.65)>1 && abs(cor_ex[3][0]-7.65)>1) continue;
+    if(abs(cor_ex[0][0]-7.65)>0.5 && abs(cor_ex[1][0]-7.65)>0.5 && abs(cor_ex[2][0]-7.65)>0.5 && abs(cor_ex[3][0]-7.65)>0.5) continue;
     hit->Fill();
     
   }
