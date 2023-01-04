@@ -49,10 +49,12 @@ int ch_r[4][N_HIT_MAX]={};
 double cor_ex[4][N_HIT_MAX]={};
 
 
-int count(int run){
+//int count(int run){
+int count(){
   
-  ofstream ofs(Form("log%d.txt",run),std::ios::out);
-
+  //  ofstream ofs(Form("log%d.txt",run),std::ios::out);
+  ofstream ofs("log13C_5.txt",std::ios::out); //for 13C
+  
   
   int run_tmp[300];
   double beam_x, beam_y, px[300], py[300];
@@ -63,7 +65,8 @@ int count(int run){
     ifs3 >> run_tmp[i] >> px[i] >> py[i];
   }
   for(int i=0; i<(int)vstr.size(); i++){
-    if(run_tmp[i]==run && abs(px[i]-20)<10 && abs(py[i]-30)<10){
+    //    if(run_tmp[i]==run && abs(px[i]-20)<10 && abs(py[i]-30)<10){ 
+    if(run_tmp[i]==2305 && abs(px[i]-20)<10 && abs(py[i]-30)<10){ //for13C
       beam_x = (px[i]-20.0) * 0.2;
       beam_y = (py[i]-20.0) * 0.2;
       break;
@@ -75,21 +78,23 @@ int count(int run){
   cout <<"beam pos: " << beam_x << " " << beam_y << endl;
 
   
-  TFile *fin =new TFile(Form("../rootfile/hit%d.root",run));
+  //  TFile *fin =new TFile(Form("../rootfile/hit%d.root",run));
+  TFile *fin =new TFile("../rootfile/hit13C_5.root"); //for 13C
   TTree *hit = (TTree*)fin->Get("hit");
   
-  //  TFile *fout =new TFile(Form("rootfile/position%d.root",run),"recreate");
   
   TH1F *h[4][16];
   for(int i=0;i<4;i++){
     for(int j=0;j<16;j++){
-      h[i][j] = new TH1F(Form("h_%d_%d",i,j),Form("h_%d_%d",i,j),100,-1,1);
+      //      h[i][j] = new TH1F(Form("h_%d_%d",i,j),Form("h_%d_%d",i,j),100,-1,1);
+      h[i][j] = new TH1F(Form("h_%d_%d",i,j),Form("h_%d_%d",i,j),100,-0.8,1.2); //for 13C
     }
   }
   TF1 *f[4][16];
   for(int i=0;i<4;i++){
     for(int j=0;j<16;j++){
-      f[i][j] = new TF1(Form("f_%d_%d",i,j),"[0]+[1]*x+[2]*exp(-pow(x-[3],2)/(2*pow([4],2)))",-1,1);
+      //     f[i][j] = new TF1(Form("f_%d_%d",i,j),"[0]+[1]*x+[2]*exp(-pow(x-[3],2)/(2*pow([4],2)))",6.9,7.9);
+      f[i][j] = new TF1(Form("f_%d_%d",i,j),"[0]+[1]*x+[2]*exp(-pow(x-[3],2)/(2*pow([4],2)))+[5]*exp(-pow(x-[6],2)/(2*pow([7],2)))",-1,1); //for 13C
     }
   }
   
@@ -103,33 +108,55 @@ int count(int run){
   ULong64_t N=hit->GetEntries();
   cout << "Total entry: " << N << endl;
   for(ULong64_t evtn=0; evtn<N; evtn++){
-  //  for(ULong64_t evtn=0; evtn<2000000; evtn++){
-    if(evtn%10000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
-    
+  //    for(ULong64_t evtn=0; evtn<2000000; evtn++){
+      if(evtn%10000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
+      
     hit->GetEntry(evtn); 
-
+    
     for(int i=0; i<4; i++){
       
-      if(hit_n[i]==11 && cor_ex[i][0]<10){
+      if(hit_n[i]==11 && cor_ex[i][0]<1.2 && cor_ex[i][0]>-0.8){
 	h[i][ch_f[i][0]]->Fill(cor_ex[i][0]);
       }
     } 
   }
-
+  
   for(int i=0;i<4;i++){
     for(int j=0;j<16;j++){
       double tmp0 = h[i][j]->GetBinContent(1);
       double tmp1 = h[i][j]->GetBinContent(99);
       double tmp2 = h[i][j]->GetMaximum();
+      double tmp3 = h[i][j]->GetMaximumBin();
+      double tmp4 = h[i][j]->GetXaxis()->GetXmin();
+      double tmp5 = h[i][j]->GetXaxis()->GetXmax();
+      double tmp6 = h[i][j]->GetXaxis()->GetNbins();
+      double tmp7 = tmp4 + (tmp5-tmp4)/tmp6*tmp3;
+      
+      /*
       f[i][j]->SetParameter(0,tmp0+(tmp1-tmp0)*4);
       f[i][j]->SetParameter(1,(tmp1-tmp0)/2);
       f[i][j]->SetParameter(2,tmp2-tmp0);
       f[i][j]->SetParLimits(2,(tmp2-tmp0)/2,(tmp2-tmp0)*1.5);
-      f[i][j]->SetParameter(3,0); ///
-      f[i][j]->SetParLimits(3,-1,1); ///
-      f[i][j]->SetParameter(4,0.07);
-      f[i][j]->SetParLimits(4,0.02,0.2);
+      f[i][j]->SetParameter(3,7.2); ///
+      f[i][j]->SetParLimits(3,6.9,7.7); ///
+      f[i][j]->SetParameter(4,0.1);
+      f[i][j]->SetParLimits(4,0.05,0.2);
+      */
 
+      f[i][j]->SetParameter(0,tmp0+(tmp1-tmp0)*4);
+      f[i][j]->SetParameter(1,(tmp1-tmp0)/2);
+      f[i][j]->SetParameter(2,tmp2-tmp0);
+      f[i][j]->SetParLimits(2,(tmp2-tmp0)/2,(tmp2-tmp0)*1.5);
+      f[i][j]->SetParameter(3,tmp7); ///
+      f[i][j]->SetParLimits(3,tmp7-0.05,tmp7+0.05); ///
+      f[i][j]->SetParameter(4,0.1);
+      f[i][j]->SetParLimits(4,0.05,0.2);
+      f[i][j]->SetParameter(5,2000);
+      f[i][j]->SetParLimits(5,0,5000);
+      f[i][j]->SetParameter(6,tmp7+0.3); ///
+      f[i][j]->SetParLimits(6,tmp7+0.1,tmp7+0.8); ///
+      f[i][j]->SetParameter(7,0.1);
+      f[i][j]->SetParLimits(7,0.05,0.2);
       h[i][j]->Fit(f[i][j]);
 
       double p0 = f[i][j]->GetParameter(0);
@@ -137,8 +164,12 @@ int count(int run){
       double p2 = f[i][j]->GetParameter(2);
       double p3 = f[i][j]->GetParameter(3);
       double p4 = f[i][j]->GetParameter(4);
-      double nev = p2 * pow(2*3.1416*p4*p4,0.5) * 50;
-      ofs << i <<" "<< j <<" "<< nev <<" "<< 180.0/3.141592*get_angle(beam_x, beam_y, j, (double)i*4+1.5).first  << " " << p0 <<" "<< p1 <<" "<< p2 <<" "<< p3 <<" "<< p4 << endl;
+      double p5 = f[i][j]->GetParameter(5);
+      double p6 = f[i][j]->GetParameter(6);
+      double p7 = f[i][j]->GetParameter(7);
+      double nev0 = p2 * pow(2*3.1416*p4*p4,0.5) * 50;
+      double nev1 = p5 * pow(2*3.1416*p7*p7,0.5) * 50;
+      ofs << i <<" "<< j <<" "<< nev0 << " " << nev1 <<" "<< 180.0/3.141592*get_angle(beam_x, beam_y, j, (double)i*4+1.5).first  << " " << p0 <<" "<< p1 <<" "<< p2 <<" "<< p3 <<" "<< p4 << " " << p5 << " " << p6 << " " << p7 << endl;
     }
   }
 

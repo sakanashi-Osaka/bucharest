@@ -37,7 +37,7 @@ double detect3a(double *enea, int *chfa, int *chra);
 
 int calib(int run){
   
-  ofstream ofs("log.txt",std::ios::app);
+  ofstream ofs("test.txt",std::ios::app);
   
   TFile *fin =new TFile(Form("../rootfile/position%d.root",run));
   
@@ -65,7 +65,7 @@ int calib(int run){
   double px2 = fx->GetParameter(2);
   double py2 = fy->GetParameter(2);
   
-  ofs << run << " " << px2 << " " << py2 << endl;
+  ofs << run << " " << (px2-20.0)*0.2 << " " << (py2-20.0)*0.2 << endl;
   
   return 0;
 }  

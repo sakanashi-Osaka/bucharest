@@ -230,18 +230,18 @@ int hit(int run){
 	if(tmp_energy[i][j]>1 && tmp_energy[i][j]<30){
 	  
 	  if(abs(type-22)<3){
-	    ene_f[type-20][count_f[type-20]]=tmp_energy[i][j];
+	    ene_f[type-20][count_f[type-20]]=(double)tmp_energy[i][j];
 	    ts_f[type-20][count_f[type-20]]=tmp_ts_diff[i][j]-p1[i][j];
-	    Amax_f[type-20][count_f[type-20]]=tmp_amax[i][j];
+	    Amax_f[type-20][count_f[type-20]]=(double)tmp_amax[i][j];
 	    tdc_f[type-20][count_f[type-20]]=tmp_tdc[i][j];
 	    domain_f[type-20][count_f[type-20]]=i*16+j;
 	    type_f[type-20][count_f[type-20]]=type;
 	    count_f[type-20]++;
 	  }
 	  if(abs(type-32)<3){
-	    ene_r[type-30][count_r[type-30]]=tmp_energy[i][j];
+	    ene_r[type-30][count_r[type-30]]=(double)tmp_energy[i][j];
 	    ts_r[type-30][count_r[type-30]]=tmp_ts_diff[i][j]-p1[i][j];
-	    Amax_r[type-30][count_r[type-30]]=tmp_amax[i][j];
+	    Amax_r[type-30][count_r[type-30]]=(double)tmp_amax[i][j];
 	    tdc_r[type-30][count_r[type-30]]=tmp_tdc[i][j];
 	    domain_r[type-30][count_r[type-30]]=i*16+j;
 	    type_r[type-30][count_r[type-30]]=type;
