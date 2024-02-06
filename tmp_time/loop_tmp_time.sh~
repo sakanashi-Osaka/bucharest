@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 2410 2419` # 2300-2419 finished
+do
+    root -l -q 'tmp_time.C+('$i')'
+done

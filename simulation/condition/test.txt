@@ -1,0 +1,17 @@
+Time: Tue Jun  6 15:26:00 2023
+Output: test
+Number of States: 3
+Mass Number: 4
+Incident energy:    25.0 MeV (  6.2 MeV/u)
+  beam position: x= 0.000 mm, y= 2.400 mm
+  Energy spread:  0.020 MeV
+  Angular spread:  0.003 rad
+  Lateral spread:  0.500 mm
+Target thickness:  50.0 mg/cm2
+Si
+  Angle:   0.00 deg
+  Distance:   41.0 mm
+  Resolution:  0.050 MeV
+Excitation energy (0):   7.650 MeV
+Excitation energy (1):   4.440 MeV
+Excitation energy (2):   0.000 MeV

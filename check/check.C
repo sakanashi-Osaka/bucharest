@@ -1,0 +1,325 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <TCanvas.h>
+#include <TEventList.h>
+#include <cstdint>
+#include <vector>
+#include <signal.h>
+#include <map>
+#include <algorithm>
+#include <regex>
+#include <TH1F.h>
+#include <TH2.h>
+#include <TROOT.h>
+#include <TTree.h>
+#include <TFile.h>
+#include <TMath.h>
+
+
+//#define Si_gate 1e6 //coinsidence window for Si [ps]
+//#define Si_offset 0 //coinsidence window for Si [ps]
+//#define Gamma_gate 1e6 //coinsidence window for Gamma [ps]
+//#define Gamma_offset 0 //offset timing, If positive, signal timestamp is faster than reference (ch0)
+
+#define Si_gate 2.5e5 //coinsidence window for Si [ps]
+#define Si_offset -6.5e5 //coinsidence window for Si [ps]
+#define Gamma_gate 1.50e5 //coinsidence window for Gamma [ps]
+#define Gamma_offset 1.75e5 //offset timing, If positive, signal timestamp is faster than reference (ch0)
+
+#define N_BOARD 10
+#define N_CH 16
+
+const float s1_r1 = 48/2.0;  // inner radius                                                  
+const float s1_r2 = 96/2.0;  // outer radiu                                                   
+const float s1_dist = 40;
+
+int entry_type(int board, int ch);
+int get_front_ch_order(Int_t mod, Int_t ch);
+float get_rear_phi(Int_t mod, Int_t ch);
+float get_front_phi(int front_ch); 
+float get_front_r(int front_ch);
+float get_front_theta(int front_ch);
+float get_front_ex(float theta, float ene);
+
+int check(int run){
+
+  ifstream ifs("ene.prm");  
+  //  ifstream ifs("../calib/tmp_zero.prm");  
+  int domain[92];
+  double p0[92];
+  double p1[92];
+  for(int i=0; i<92; i++){
+    ifs >> domain[i] >> p0[i] >> p1[i];
+  }
+
+  ifstream ifs2("Amax2331.prm");  
+  int Board=-1;
+  int Ch=-1;
+  double A0[10][16]={};
+  double A1[10][16]={};
+  double A2[10][16]={};
+  for(int i=0; i<160; i++){
+    ifs2 >> Board >> Ch >> A0[Board][Ch] >> A1[Board][Ch] >> A2[Board][Ch];
+  }
+  
+  TFile *fin =new TFile(Form("../sorter_cor/rootfile/run%d_-1.root",run));
+  TTree *tree = (TTree*)fin->Get("tree");
+
+  TH1D *h = new TH1D("h","h",200,0,1000);
+  TH1D *h1 = new TH1D("h1","h1",200,0,1000);
+  TH1D *h_multi = new TH1D("h_m","h_m",80,0,80);
+  
+  int tmp_domain;
+  int tmp_adc;
+  double tmp_ts;
+  double pre_ts;
+  float tmp_energy;
+  float tmp_amax;
+  double tmp_tdc;
+  double tmp_current;
+  
+  tree->SetBranchAddress("domain", &tmp_domain);
+  tree->SetBranchAddress("ADC", &tmp_adc);
+  tree->SetBranchAddress("TDC", &tmp_tdc);
+  tree->SetBranchAddress("FineTS", &tmp_ts);
+  tree->SetBranchAddress("Energy", &tmp_energy);
+  tree->SetBranchAddress("Amax", &tmp_amax);
+  
+  
+  //  TFile *fout =new TFile(Form("rootfile/test%d.root",run),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/event%d.root",run),"recreate");
+  TFile *fout =new TFile(Form("gomi%d.root",run),"recreate");
+  TTree *event = new TTree("event","event");
+  
+  int board=-1;
+  int ch=-1;
+  
+  double ts_diff[N_BOARD][N_CH]={};
+  float ADC[N_BOARD][N_CH]={};
+  float Energy[N_BOARD][N_CH]={};
+  float Amax[N_BOARD][N_CH]={};
+  double TDC[N_BOARD][N_CH]={};
+  float Amax_cor[N_BOARD][N_CH]={};
+  double ref_ts=0;
+  int count_Si=0; 
+  int count_Gamma=0;
+  int count_trig=0;
+  int current=0;
+  int miss_count=0;
+  int fr;
+  float rear_phi;
+  int front_ch;
+  float front_phi, front_r, front_theta;
+  float front_ex[N_BOARD][N_CH];
+
+  bool flag=false;
+  int f_seg[2][6]={}; // first : [0]->ch0,[1]->ch2-15, second : board
+  
+  event->Branch("ADC",ADC,"ADC[10][16]/F");
+  event->Branch("TDC",TDC,"TDC[10][16]/D");
+  event->Branch("Energy",Energy,"Energy[10][16]/F");
+  event->Branch("Amax",Amax,"Amax[10][16]/F");
+  event->Branch("Amax_cor",Amax_cor,"Amax_cor[10][16]/F");
+  event->Branch("front_ex",front_ex,"front_ex[10][16]/F");
+  event->Branch("ts_diff",ts_diff,"ts_diff[10][16]/D");
+  event->Branch("count_Si",&count_Si,"count_Si/I");
+  event->Branch("count_Gamma",&count_Gamma,"count_Gamma/I");
+  event->Branch("count_trig",&count_trig,"count_trig/I");
+  event->Branch("current",&current,"current/I");
+  event->Branch("ref_ts",&ref_ts,"ref_ts/D");
+
+  ULong64_t N=tree->GetEntries();
+  cout << "Total entry: " << N << endl;
+  //  for(ULong64_t evtn=0; evtn<N; evtn++){
+  for(ULong64_t evtn=0; evtn<2e6; evtn++){
+
+    for(int j=0; j<10; j++){
+      for(int k=0; k<16; k++){
+	ts_diff[j][k]=-1e6; ADC[j][k]=0; TDC[j][k]=0; Energy[j][k]=0; Amax[j][k]=0; Amax_cor[j][k]=0; front_ex[j][k]=0;
+      }
+    }
+    board = -1; ch = -1;
+    count_Si=0; count_Gamma=0; count_trig=0;
+
+
+    //    if(evtn%10000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
+    
+    tree->GetEntry(evtn);
+    
+    ch = tmp_domain%16;
+    board = (int)((tmp_domain-ch)/16);
+
+    if(tmp_ts-ref_ts>2e6) flag=false;
+    
+    if(flag==false){
+      if(entry_type(board,ch)==2 || entry_type(board,ch)==3 || entry_type(board,ch)==5){
+
+	for(int j=0; j<6; j++){
+	  //	  if(f_seg[0][j]>0 && f_seg[1][j]==0) cout << "%%%% " << j+4 << " %%%%" << endl;
+	  if(f_seg[0][j]==0 && f_seg[1][j]>0) cout << "%%%% " << j+4 << " %%%% " << evtn << endl;
+	  h_multi->Fill(f_seg[1][j]+j*10);
+	}
+	for(int j=0; j<6; j++){
+	  if(f_seg[0][j]>0 && f_seg[1][j]==0) 	h->Fill((ref_ts-pre_ts)/1e6);
+	  h1->Fill((ref_ts-pre_ts)/1e6);
+	}
+	pre_ts = ref_ts;
+	ref_ts = tmp_ts;
+	flag = true;
+	for(int i=0; i<2; i++){
+	  for(int j=0; j<6; j++){
+	    f_seg[i][j]=0;
+	  }
+	}
+	if(ch==0) f_seg[0][board-4]++;
+	if(ch>1) f_seg[1][board-4]++;	
+      }
+      
+    }else{
+      if(entry_type(board,ch)==2 || entry_type(board,ch)==3 ||entry_type(board,ch)==5){	
+	if(ch==0) f_seg[0][board-4]++;
+	if(ch>1) f_seg[1][board-4]++;
+	//	cout << "   board:" << board << " ch:" << ch << " " << (tmp_ts-ref_ts)/1e6 <<endl;
+      }
+    }
+  }
+  h1->Draw();
+  h->Draw("same");
+  h_multi->Draw();
+
+  event->AutoSave();
+  fout->Close();
+
+  return 0;
+}
+
+
+
+int entry_type(int board, int ch){
+  int type_n=-1; // 0:trigger, 1:Gamma_signal, 2:Si_f_signal, 3:Si_r_signal, 4:scaler 5:Si_trigger
+
+  if(board==0 && ch==0) type_n = 0;
+  if(board==0 && ch>1) type_n = 1;
+  if(board==1 || board==2 || board==3){
+    if(ch<12) type_n = 1;
+    if(ch>11) type_n = 4;
+  }
+  if(board==4 || board==5 || board==6 || board==7){
+    if(ch<1) type_n = 5;
+    if(ch>1) type_n = 2;
+  }
+  if(board==8 && ch<1) type_n = 5;
+  if(board==8 && ch>1 && ch<10) type_n = 2;
+  if(board==8 && ch>9) type_n = 3;
+  if(board==9 && ch<1) type_n = 5;
+  if(board==9 && ch>1 && ch<12) type_n = 3;  
+  
+  return type_n;
+}; 
+
+float get_rear_phi(Int_t mod, Int_t ch){
+  int rch=-1;
+  float phi=0;
+  if(mod==8 && ch>=10) rch=ch-10;
+  if(mod==9 && ch>=2 ) rch=ch+4;
+
+  if(rch%2==0 && rch>=0) phi = 180 - 22.5/2.0 - 22.5*(rch+1);
+  if(rch%2==1 && rch>=0) phi = 180 - 22.5/2.0 - 22.5*(rch-1);  
+  return phi*TMath::DegToRad();
+}
+
+int get_front_ch_order(Int_t mod, Int_t ch){
+  if(mod==4 && ch>=2) return ch-2;
+  if(mod==5 && ch>=2) return ch+12;
+  if(mod==6 && ch>=2) return ch+26;    
+  if(mod==7 && ch>=2) return ch+40;
+  if(mod==8 && ch>=2 && ch<=9) return ch+54;      
+  return 100;
+}
+
+float get_front_phi(int front_ch){
+  float phi=0;
+  if(front_ch>=0 && front_ch<64){
+    phi = 135 + 90*((int)(front_ch/16));
+  }
+  return phi*TMath::DegToRad();
+}
+
+float get_front_r(int front_ch){
+  float strp_wid = (s1_r2 - s1_r1)/16.0;
+  int section = (int)(front_ch/16);
+  float r=0;
+  
+  if(section==0 || section==3){
+    if(front_ch%2==0) r = s1_r1 + strp_wid*(1.5) + strp_wid*(front_ch%16);
+    if(front_ch%2==1) r = s1_r1 + strp_wid*(0.5) + strp_wid*((front_ch%16) - 1);    
+  }
+
+  if(section==1 || section==2){
+    if(front_ch%2==0) r = s1_r2 - strp_wid*(1.5) - strp_wid*(front_ch%16);
+    if(front_ch%2==1) r = s1_r2 - strp_wid*(0.5) - strp_wid*((front_ch%16) - 1);    
+  }
+  
+  return r;
+}
+
+float get_front_theta(int front_ch){
+  
+  float strp_wid = (s1_r2 - s1_r1)/16.0;
+  int section = (int)(front_ch/16);
+  float r=0;
+  
+  if(section==0 || section==3){
+    if(front_ch%2==0) r = s1_r1 + strp_wid*(1.5) + strp_wid*(front_ch%16);
+    if(front_ch%2==1) r = s1_r1 + strp_wid*(0.5) + strp_wid*((front_ch%16) - 1);
+  }
+  
+  if(section==1 || section==2){
+    if(front_ch%2==0) r = s1_r2 - strp_wid*(1.5) - strp_wid*(front_ch%16);
+    if(front_ch%2==1) r = s1_r2 - strp_wid*(0.5) - strp_wid*((front_ch%16) - 1);
+  }
+  
+  return atan(r/s1_dist);
+}
+
+float get_front_ex(float theta, float ene){
+  const float beam_ene = 25.0;
+  const float AMU = 931.4943;
+  const float mass_ex_12c = 0;
+  const float mass_ex_4he = 2.425;
+  const float mass_ex_13c = 3.125;    
+
+  float mass_12c = AMU*12 + mass_ex_12c;
+  float mass_4he = AMU*4  + mass_ex_4he;
+  float mass_13c = AMU*13 + mass_ex_13c;  
+  
+  float m1, m2, m3, m4;
+  float E1, E3;
+  float p1, p3;
+
+  float s,t,u;
+  float total_m4;
+  float ex4;
+  
+  m1 = mass_4he;
+  m2 = mass_12c;
+  m3 = mass_4he;
+  m4 = mass_12c;
+
+  E1 = m1 + beam_ene;
+  E3 = m3 + ene;  
+
+  p1 = sqrt(E1*E1-m1*m1);
+  p3 = sqrt(E3*E3-m3*m3);  
+  
+  s = m1*m1 + m2*m2 + 2*m2*E1;
+  t = m1*m1 + m3*m3 + 2*(p1*p3*cos(theta) - E1*E3);
+  u = m2*m2 + m3*m3 - 2*m2*E3;
+
+  total_m4 = sqrt(s+t+u - m1*m1 -m2*m2 - m3*m3);
+  ex4 = total_m4 - m4;
+
+  return ex4;
+}

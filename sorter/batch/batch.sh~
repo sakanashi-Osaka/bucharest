@@ -1,0 +1,10 @@
+#! /bin/bash
+#PBS -q AL -l select=1:ncpus=1:mem=128gb
+#PBS -M sakanashi@ne.phys.sci.osaka-u.ac.jp
+cd /home/sakra/exp/Bucharest2022/sorter
+#2305--2414 sort finished
+./test 2415
+./test 2416
+./test 2417
+./test 2418
+./test 2419

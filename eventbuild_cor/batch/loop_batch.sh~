@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 2390 2399` #run2305-2389,2400-2413 finished
+do
+    qsub "batch"$i".sh"
+done

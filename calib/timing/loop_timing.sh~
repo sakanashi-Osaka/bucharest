@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 2331 2379` #2300-2379 finished
+do
+    root -l -q 'timing.C('$i')'
+done

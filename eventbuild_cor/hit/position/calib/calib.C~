@@ -1,0 +1,143 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <TCanvas.h>
+#include <TEventList.h>
+#include <cstdint>
+#include <vector>
+#include <signal.h>
+#include <map>
+#include <algorithm>
+#include <regex>
+#include <TH1F.h>
+#include <TH2.h>
+#include <TROOT.h>
+#include <TTree.h>
+#include <TFile.h>
+#include <TMath.h>
+
+#define PI 3.14159265
+#define N_BOARD 10
+#define N_CH 16
+#define N_HIT_MAX 20
+
+using namespace std;
+
+const float s1_r1 = 48/2.0;  // inner radius      
+const float s1_r2 = 96/2.0;  // outer radius
+const float s1_dist = 40;
+
+float get_front_theta(int front_ch);
+std::pair<float,float> get_angle(float x, float y, int ch_f, int ch_r);
+float get_front_ex(float theta, float ene);
+double detect3a(double *enea, int *chfa, int *chra);
+
+
+
+int calib(int run){
+  
+  ofstream ofs("log.txt",std::ios::app);
+  
+  TFile *fin =new TFile(Form("../rootfile/position%d.root",run));
+  
+  TH1F *hx = (TH1F*)fin->Get("matrix_x");
+  TH1F *hy = (TH1F*)fin->Get("matrix_y");
+  
+  int mx = hx->GetMinimumBin();
+  int my = hy->GetMinimumBin();
+  int nx = hx->GetBinContent(mx);
+  int ny = hy->GetBinContent(my);
+
+  TF1 *fx = new TF1("fx","[0]+[1]*pow(x-[2],2)",0,40);
+  fx->SetParameter(0,nx);
+  fx->SetParameter(1,20);
+  fx->SetParameter(2,mx);
+  hx->Fit(fx);
+
+  TCanvas *a =new TCanvas("a","a");
+  TF1 *fy = new TF1("fy","[0]+[1]*pow(x-[2],2)",0,40);
+  fy->SetParameter(0,ny);
+  fy->SetParameter(1,20);
+  fy->SetParameter(2,my);
+  hy->Fit(fy);
+
+  double px2 = fx->GetParamater(2);
+  double py2 = fy->GetParamater(2);
+  
+  ofs << run << " " << px2 << " " << py2 << endl;
+  
+  return 0;
+}  
+
+
+
+
+float get_front_theta(int front_ch){
+  
+  float strp_wid = (s1_r2 - s1_r1)/16.0;
+  float r=0;  
+  r = s1_r1 + strp_wid*(0.5) + strp_wid*(15-front_ch);
+  
+  return atan(r/s1_dist);
+}
+
+float get_front_ex(float theta, float ene){
+  const float beam_ene = 25.0;
+  const float AMU = 931.4943;
+  const float mass_ex_12c = 0;
+  const float mass_ex_4he = 2.425;
+  const float mass_ex_13c = 3.125;    
+
+  float mass_12c = AMU*12 + mass_ex_12c;
+  float mass_4he = AMU*4  + mass_ex_4he;
+  float mass_13c = AMU*13 + mass_ex_13c;  
+  
+  float m1, m2, m3, m4;
+  float E1, E3;
+  float p1, p3;
+
+  float s,t,u;
+  float total_m4;
+  float ex4;
+  
+  m1 = mass_4he;
+  m2 = mass_12c;
+  m3 = mass_4he;
+  m4 = mass_12c;
+
+  E1 = m1 + beam_ene;
+  E3 = m3 + ene;  
+
+  p1 = sqrt(E1*E1-m1*m1);
+  p3 = sqrt(E3*E3-m3*m3);  
+  
+  s = m1*m1 + m2*m2 + 2*m2*E1;
+  t = m1*m1 + m3*m3 + 2*(p1*p3*cos(theta) - E1*E3);
+  u = m2*m2 + m3*m3 - 2*m2*E3;
+
+  total_m4 = sqrt(s+t+u - m1*m1 -m2*m2 - m3*m3);
+  ex4 = total_m4 - m4;
+
+  return ex4;
+}
+
+std::pair<float,float> get_angle(float x, float y, int ch_f, int ch_r){
+
+  float tmp_x, tmp_y, tmp_z, tmp_theta, tmp_phi;
+  float front_theta = get_front_theta(ch_f);
+  float rear_phi = (90 + 22.5/2.0 + 22.5*ch_r)*PI/180;
+
+  tmp_x = s1_dist * tan(front_theta)*cos(rear_phi) - x;
+  tmp_y = s1_dist * tan(front_theta)*sin(rear_phi) - y;
+  tmp_z = s1_dist;
+  tmp_theta = acos(tmp_z/pow(pow(tmp_x,2)+pow(tmp_y,2)+pow(tmp_z,2),0.5));
+  if(tmp_y>=0) tmp_phi = acos(tmp_x/pow(pow(tmp_x,2)+pow(tmp_y,2),0.5));
+  if(tmp_y<0) tmp_phi = -1 * acos(tmp_x/pow(pow(tmp_x,2)+pow(tmp_y,2),0.5));
+  
+  return std::make_pair(tmp_theta,tmp_phi);
+}
+
+
+
+

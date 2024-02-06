@@ -1,0 +1,6 @@
+#gamma.prm
+... correct gamma energy using source data(run2061)
+... 1st->domain, 2nd->interseption, 3rd->slope
+
+#tmp.prm
+... result of gamma spectrum fitting with 2+ state in 12C (4.44), this inslude doppler effect

@@ -1,0 +1,87 @@
+#define CH 25
+#define PEAK_N 1
+
+int fit()
+{
+  double ch[CH][PEAK_N];
+  double height[CH][PEAK_N];
+  double mean[CH][PEAK_N];
+  double sigma[CH][PEAK_N];
+
+  //  ifstream ifs("log_2060.txt");
+  ifstream ifs("log_2423.txt");
+  
+  for(int i=0; i<CH; i++){
+    for(int j=0; j<PEAK_N; j++){
+      ifs >> ch[i][j] >> height[i][j] >> mean[i][j] >> sigma[i][j];
+    }
+  }
+
+  double count[5][5];
+  double theta[5][5];
+  double phi[5][5];
+  
+  for(int i=0; i<5; i++){
+    for(int j=0; j<5; j++){
+      count[i][j] = pow(2*3.14159,0.5)*fabs(sigma[i*5+j][0])*1000/20*height[i*5][j];
+      if(i%2==0){
+	if(j==0) phi[i][j]=0;
+	if(j==1) phi[i][j]=72;
+	if(j==2) phi[i][j]=144;
+	if(j==3) phi[i][j]=216;
+	if(j==4) phi[i][j]=288;
+      }
+      if(i%2==1){
+	if(j==0) phi[i][j]=36;
+	if(j==1) phi[i][j]=108;
+	if(j==2) phi[i][j]=180;
+	if(j==3) phi[i][j]=252;
+	if(j==4) phi[i][j]=324;
+      }
+
+      if(i==0) theta[i][j]=37;
+      if(i==1) theta[i][j]=70;
+      if(i==2) theta[i][j]=90;
+      if(i==3) theta[i][j]=110;
+      if(i==4) theta[i][j]=143;
+
+    }
+  }
+
+  double dist[5][5]=
+    {
+     {174.7, 174.0, 202.5, 174.7, 174.0},
+     {181.0, 209.5, 181.7, 181.7, 181.0},
+     {171.7, 200.5, 200.5, 200.5, 200.5},
+     {209.5, 181.0, 181.0, 181.0, 209.5},
+     {202.5, 174.0, 174.0, 202.5, 174.0}
+    };
+  
+  TH2F *h = new TH2F("h","h",20,10,170,20,-10,310);
+  for(int i=0; i<5; i++){
+    for(int j=0; j<5; j++){
+
+      // distance correction
+      //      count[i][j] = (int)((double)count[i][j]*dist[i][j]*dist[i][j]/200.0/200.0);
+      
+      for(int k=0;k<(int)count[i][j];k++) h->Fill(theta[i][j],phi[i][j]);
+      h->Fill(theta[i][j],phi[i][j]);
+    }
+  }
+  h->Draw("colz");
+
+  TH1F *h0 = new TH1F("h0","h0",25,0,25);
+  for(int i=0; i<5; i++){
+    for(int j=0; j<5; j++){
+      for(int k=0;k<(int)count[i][j];k++) h0->Fill(i*5+j);
+    }
+  }
+  TH1F *h1 = new TH1F("h1","h1",25,0,25);
+  for(int i=0; i<5; i++){
+    for(int j=0; j<5; j++){
+      for(int k=0;k<(int)count[i][j];k++) h1->Fill(i+j*5);
+    }
+  }
+
+  return 0;
+}

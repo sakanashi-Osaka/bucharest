@@ -1,0 +1,105 @@
+double connect(double input, double *x_array, double *y_array, int num);
+double culc_omega(int channel);
+
+
+int hist(){
+  
+  int a, b;
+  double c, d, e, f, g, h, i;
+  double j, k, l, m, n, o, p;
+  int pa[64], pb[64];
+  double pc[64], pd[64], pe[64], pf[64], pg[64], ph[64], pi[64];  
+  double pj[90*2+1], pk[90*2+1], pl[90*2+1], pm[90*2+1], pn[90*2+1], po[90*2+1], pp[90*2+1];  
+  //j:theta3lab, k:thetacm, l:k3, m:g-factor, n:not used, o:theta4lab, p:k4
+  
+  ifstream ifs0("./log_count_765.txt");
+  TH2D *h0= new TH2D("h0","h0",100,-2,18,100,0,4000);
+  for(int ch=0;ch<64;ch++){
+    ifs0 >> pa[ch] >> pb[ch] >> pc[ch] >> pd[ch] >> pe[ch] >> pf[ch] >> pg[ch] >> ph[ch] >> pi[ch];
+    h0->Fill(pb[ch],pc[ch]);
+  }
+
+  ifstream ifs1("./culc_765.out");
+  TH2D *h1= new TH2D("h1","h1",100,0,100,100,0,100);
+  for(int ch=0;ch<90*2+1;ch++){
+    ifs1 >> pj[ch] >> pk[ch] >> pl[ch] >> pm[ch] >> pn[ch] >> po[ch] >> pp[ch];
+    h1->Fill(pj[ch],pl[ch]);
+  }
+
+  TH2D *h2= new TH2D("h2","h2",100,20,80,100,0,100);
+  for(int ch=0;ch<64;ch++){
+    double tmp_thetacm;
+    double tmp_count;
+    tmp_thetacm = connect(pd[ch], pj, pk, 90*2+1);
+    tmp_count = pc[ch] * connect(pd[ch], pj, pm, 90*2+1) / culc_omega(ch%16) /1000;
+    //    cout << tmp_thetacm << " " << tmp_count << endl;;
+    h2->Fill(tmp_thetacm,tmp_count);
+  }
+  h2->Draw("col");
+  TF1 *f2;
+  
+  //gaussian
+  f2 = new TF1("f2","[0] + [1]*x + [2]*exp(-pow(x-[3],2)/(2*pow([4],2))) + [5]*exp(-pow(x-[6],2)/(2*pow([7],2)))",45,70);
+  f2->SetParameter(0,-12);
+  f2->SetParameter(1,0.3);
+  f2->SetParameter(2,50);
+  f2->SetParLimits(2,20,100);
+  f2->SetParameter(3,56);
+  f2->SetParLimits(3,50,60);
+  f2->SetParameter(4,5);
+  f2->SetParameter(5,5);
+  f2->SetParLimits(5,3,100);
+  f2->SetParameter(6,36);
+  f2->SetParLimits(6,30,42);
+  f2->SetParameter(7,5);
+  
+  h2->Fit(f2);
+
+  double x[9]={28.5,31.7,35.0,38.4,42.3,48.8,55.4,62.3,68.8};
+  double y[9]={49.84,23.62,8.831,4.429,10.77,22.28,11.82,9.388,13.42};
+  for(int i=0; i<9; i++) y[i]=y[i]*1.5;
+  TGraph *g2 = new TGraph(9,x,y);
+  //  g2->Draw("same");
+  
+  return 0;
+}
+
+
+double connect(double input, double *x_array, double *y_array, int num){
+  int tmp_x = -1;
+  double diff0, diff1;
+  
+  for(int i=0; i<num-1; i++){
+    diff0 = x_array[i] - input;
+    diff1 = x_array[i+1] - input;
+
+    if(diff0==0) tmp_x = i;
+    if(diff0*diff1 < 0) tmp_x = i;
+  }
+
+  if(tmp_x < 0){
+    std::cout << "input value ls wrong!!" << std::endl;
+    return -1;
+  }
+
+  double a, b;
+  double output;
+  a = y_array[tmp_x+1] - y_array[tmp_x];
+  b = y_array[tmp_x] - a*x_array[tmp_x];
+  output = a*input + b;
+
+  return output;
+}
+
+double culc_omega(int channel){
+  double PI = 3.141592;
+  double Si_r1 = 24.;
+  double Si_r2 = 48.;
+  double d_Si = 40.;
+  
+  double omega = -1;
+  omega = (pow(Si_r2-1.5*channel,2) - pow(Si_r2-1.5*channel-1.5,2))*PI/4/(pow(d_Si,2)+pow(Si_r2-1.5*channel-1.5,2));
+    
+  return omega;
+}
+
