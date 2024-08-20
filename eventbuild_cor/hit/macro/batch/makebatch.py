@@ -6,3 +6,4 @@ for i in range(2305,2414):
     f.write("#PBS -M sakanashi@ne.phys.sci.osaka-u.ac.jp\n")
     f.write("cd /home/sakra/exp/Bucharest2022/eventbuild_cor/hit/macro\n")
     f.write("./tmp "+str(i))
+#    f.write("./tmp_gamma "+str(i))

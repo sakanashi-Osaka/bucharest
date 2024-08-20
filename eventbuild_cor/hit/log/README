@@ -1,3 +1,7 @@
+#gamma2423.prm
+... correct gamma energy using source data(run2423)
+... 1st->domain, 2nd->slope, 3rd->interseption
+
 #gamma.prm
 ... correct gamma energy using source data(run2061)
 ... 1st->domain, 2nd->interseption, 3rd->slope

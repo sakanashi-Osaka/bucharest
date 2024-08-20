@@ -43,7 +43,7 @@ int getStrFromText(string filename, vector<string> &vstr){
 
 const double s1_r1 = 48/2.0;  // inner radius      
 const double s1_r2 = 96/2.0;  // outer radius
-double s1_dist = 40;
+double s1_dist = 41;
 
 //for beam position correction
 int run_tmp[300]={};
@@ -59,6 +59,8 @@ int main(int argc, char *argv[]){
   //  TFile *fin =new TFile(Form("../rootfile/acci%d.root",atoi(argv[1])));
   TTree *hit = (TTree*)fin->Get("hit");
 
+  if(atoi(argv[1])>=2236 && atoi(argv[1])<=2286) s1_dist=41.5;
+  if(atoi(argv[1])>=2287 && atoi(argv[1])<=2304) s1_dist=41.0;
   if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=41.0;
   if(atoi(argv[1])>=2319 && atoi(argv[1])<=2327) s1_dist=40.5;
   if(atoi(argv[1])>=2328 && atoi(argv[1])<=2337) s1_dist=40.5;
@@ -105,6 +107,17 @@ int main(int argc, char *argv[]){
     }
   }
 
+  double pg0[50]={};
+  double pg1[50]={};
+  double pg2[50]={};
+  double pg3[50]={};
+  ifstream ifs4(Form("calib_ene_gamma/log/ene%d.txt",atoi(argv[1])));
+  for(int i=0; i<50; i++){
+    ifs4 >> pg0[i] >> pg1[i] >> pg2[i] >> pg3[i];
+  }
+  
+
+  
   vector<string> vstr;
   getStrFromText("../beam_pos.prm",vstr);
   ifstream ifs3("../beam_pos.prm");
@@ -161,13 +174,20 @@ int main(int argc, char *argv[]){
   hit->SetBranchAddress("Amax",Amax);
   hit->SetBranchAddress("Gamma",Gamma);
   hit->SetBranchAddress("BGO",BGO);
-  
+
+  TH1I *h_ng = new TH1I(Form("h_ng_%d",atoi(argv[1])),Form("h_ng_%d",atoi(argv[1])),50,0,50);
+  int array_ng[16][4]={}; // 1st ... chr4He(16ch), 2nd ... th4He(33-45deg.,3deg.step)
+  for(int ch=0;ch<16;ch++){
+    for(int deg=0;deg<4;deg++) array_ng[ch][deg]=0;
+  }
   
   //  TFile *fout =new TFile(Form("rootfile/run%d.root",atoi(argv[1])),"recreate");
-  //  TFile *fout =new TFile(Form("rootfile/test%d.root",atoi(argv[1])),"recreate");
+  TFile *fout =new TFile(Form("rootfile/test%d.root",atoi(argv[1])),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/acci%d.root",atoi(argv[1])),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/gamma%d.root",atoi(argv[1])),"recreate");
-  TFile *fout =new TFile(Form("rootfile/gomi%d.root",atoi(argv[1])),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/single%d.root",atoi(argv[1])),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/gomi%d.root",atoi(argv[1])),"recreate");
+  //  TFile *fout =new TFile("rootfile/gomi.root","recreate");
   TTree *tree = new TTree("tree","tree"); 
 
   //branch
@@ -202,6 +222,7 @@ int main(int argc, char *argv[]){
   double phb;
   double tsb;
   double included_angle;
+  bool flag_g = false;
   
   int C_E=0;
   int C_th=0;
@@ -246,6 +267,7 @@ int main(int argc, char *argv[]){
   tree->Branch("phb",&phb,"phb/D");
   tree->Branch("tsb",&tsb,"tsb/D");
   tree->Branch("included_angle",&included_angle,"included_angle/D");
+  tree->Branch("flag_g",&flag_g,"flag_g/B");
   
   
   tree->Branch("run",&run_n,"run/I");
@@ -261,7 +283,7 @@ int main(int argc, char *argv[]){
     K4He = -100; chf4He = -100; chr4He = -100; tsf4He = -100; tsr4He = -100;
     Amax4He = -100; th4He = -1000; ph4He = -1000; Ex4He = -100; 
     K12C = -100; chf12C = -100; chr12C = -100; tsf12C = -100; tsr12C = -100;
-    Amax12C = -100; th12C = -1000; ph12C = -1000;
+    Amax12C = -100; th12C = -1000; ph12C = -1000; flag_g = false;
     
     for(int i=0; i<2; i++){    
       Kg[i] = -100; chg[i] = -100; thg[i] = -1000; phg[i] = -1000; tsg[i] = -100; Kg_cor = -100;
@@ -301,7 +323,6 @@ int main(int argc, char *argv[]){
       tmp_ene = Energy_f[seg_i][0];
       tmp_ex = get_front_ex(tmp_theta,tmp_ene);
       //      tmp_ex = cor_ex[seg_i][0];
-      if(fabs(cor_ex[seg_i][0]-5)<1) cout << seg_i << " " << get_front_ex(tmp_theta,tmp_ene) << " " << cor_ex[seg_i][0] << endl;
 
     }else if(hit_n[seg_i]==21 && abs(ch_f[seg_i][0]-ch_f[seg_i][1])<=1){
       continue;
@@ -316,10 +337,10 @@ int main(int argc, char *argv[]){
       continue;
     }
 
-    //    if(6 < tmp_ex && tmp_ex<9){  // selected leading alpha //run*.root
-    //    if(6 < tmp_ex && tmp_ex<9){  // selected leading alpha //test*.root
-    if(1 < tmp_ex && tmp_ex<8){  // selected leading alpha //gomi*.root
-      //    if(4 < tmp_ex && tmp_ex<5){  // selected leading alpha //gamma*.root
+    //    if(-1 < tmp_ex && tmp_ex<9){  // selected leading alpha //run*.root
+    if(6 < tmp_ex && tmp_ex<9){  // selected leading alpha //test*.root
+    //      if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //gomi*.root
+    //    if(3 < tmp_ex && tmp_ex<6){  // selected leading alpha //gamma*.root
       Ex4He = tmp_ex;
       K4He = tmp_ene; 
       chf4He = tmp_chf;
@@ -344,8 +365,22 @@ int main(int argc, char *argv[]){
       phb = get_g_angle(chb).second;
       tsb = ts_diff_b[0]/1e3;
 	
-      included_angle = get_included_angle(75.-th4He/2.,ph4He+180.,thg[0],phg[0]);
+      //      included_angle = get_included_angle(75.-th4He/2.,ph4He+180.,thg[0],phg[0]);
+      double xtotalE_12C = (25.0-4.44-K4He)+AMU*12+4.44;
+      double xtmpmom = sqrt(xtotalE_12C*xtotalE_12C-(AMU*12+4.44)*(AMU*12+4.44));
+      double xtmpgam = pow(1+pow(xtmpmom/(AMU*12),2),0.5);
+      double xtmpbeta = pow(1-1/pow(xtmpgam,2),0.5);
+      //      Kg_cor = Kg[0]*(1-cos(included_angle*PI/180.)*xtmpbeta)/pow(1-pow(xtmpbeta,2),0.5);
+      //      Kg_cor = 4.44 * Kg_cor/pg2[chg[0]];
       
+      int tmp_j = (int)th4He;
+      if(tmp_j>32 && tmp_j<45 && (int)chr4He>-1){
+	if(fabs(Ex4He-4.44)<0.3 && Kg[0]>4.28 && array_ng[(int)chr4He][tmp_j]<150){
+	  h_ng->Fill(chg[0]);
+	  array_ng[(int)chr4He][tmp_j]++;
+	  flag_g = true;
+	}
+      }
 
       int seg_j = (seg_i+2)%4; // opposite segment
 
@@ -377,9 +412,10 @@ int main(int argc, char *argv[]){
 	double tmpmom = sqrt(totalE_12C*totalE_12C-(AMU*12+7.65)*(AMU*12+7.65));
 	double tmpgam = pow(1+pow(tmpmom/(AMU*12),2),0.5);
 	double tmpbeta = pow(1-1/pow(tmpgam,2),0.5);
-	//       	cout << K12C << " " << tmpbeta << endl;
-	Kg_cor = Kg[0]*(1-ang_cos*tmpbeta)/pow(1-pow(tmpbeta,2),0.5);
-	//	cout << acos(ang_cos)*180/PI << " " << Kg << " " << Kg_cor << endl;
+	//	Kg_cor = Kg[0]*(1-ang_cos*tmpbeta)/pow(1-pow(tmpbeta,2),0.5);
+	included_angle = get_included_angle(th12C,ph12C,thg[0],phg[0]);
+	Kg_cor = Kg[0]*(1-cos(included_angle*PI/180.)*xtmpbeta)/pow(1-pow(xtmpbeta,2),0.5);
+	Kg_cor = 4.44 * Kg_cor/pg2[chg[0]];
 	
 	
 	//C_flag
@@ -389,13 +425,15 @@ int main(int argc, char *argv[]){
 	if(abs(tsf12C)<30 && abs(tsr12C)<30 && abs(tsr4He)<3) C_ts=1;
       }
       //      if(C_th==1 && C_ph==1 && C_E==1 && C_ts==1) tree->Fill(); //run*.root
-      //      if(C_th==1 && C_ph==1 && C_ts==1) tree->Fill(); //test*.root
-      //      tree->Fill(); //gamma*.root 
-      tree->Fill(); //gomi*.root 
+      if(C_th==1 && C_ph==1 && C_ts==1) tree->Fill(); //test*.root
+      //      tree->Fill(); //gomi*.root 
+      //      tree->Fill(); //gomi*.root 
     }
   }
+
   
   tree->AutoSave();
+  h_ng->Write();
   fout->Close();
   
   return 0;
@@ -518,8 +556,10 @@ double get_front_ex(double theta, double ene){
   
   m1 = mass_4he;
   m2 = mass_12c;
+  //  m2 = mass_13c;
   m3 = mass_4he;
   m4 = mass_12c;
+  //  m4 = mass_13c;
 
   E1 = m1 + beam_ene;
   E3 = m3 + ene;  

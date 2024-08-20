@@ -42,7 +42,7 @@ int calib(int run, int fch, int rch){
   TFile *fin =new TFile(Form("../../rootfile/gomi%d.root",run));
   TTree *tree = (TTree*)fin->Get("tree");
 
-  TH1D *hAmax = new TH1D("hAmax","hAmax",200,-0.05,0.10);
+  TH1D *hAmax = new TH1D("hAmax","hAmax",100,-0.05,0.10);
 
   double chf4He;
   double chr4He;
@@ -60,13 +60,13 @@ int calib(int run, int fch, int rch){
     if(evtn%100000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
 
     tree->GetEntry(evtn);
-    if(chf4He==fch && chr4He==rch && Amax4He>0){
-      if(abs(Ex4He-9.64)<0.15) hAmax->Fill(Amax4He);
+    if(chf4He==fch && chr4He==rch && Amax4He>-0.05){
+      if(abs(Ex4He-9.64)<0.2) hAmax->Fill(Amax4He);
     }
   }
 
   int nbin = hAmax->GetMaximumBin();
-  double m = -0.05+0.15/200*(double)nbin;
+  double m = -0.05+0.15/100*(double)nbin;
   int n = hAmax->GetBinContent(nbin);
 
   TF1 *f = new TF1("f","[0]*exp(-pow(x-[1],2)/pow([2],2)/2)");

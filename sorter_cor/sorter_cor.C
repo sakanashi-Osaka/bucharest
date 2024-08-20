@@ -673,6 +673,13 @@ int sorter_cor(int run){
       }
     }
 
+
+    if(domain==20||domain==34||domain==42||domain==52||domain==58){
+      if(run==2411){
+	if(tmp_ts > 0*1e12) FineTS = tmp_ts + pow(2,31)*1e3 * 0;  
+      }
+    }	
+    
     if(domain==0){
       if(run==2392){
 	if(tmp_ts > 0*1e12) FineTS = tmp_ts - pow(2,31)*1e3 * 2;      

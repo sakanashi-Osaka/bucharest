@@ -1,6 +1,6 @@
-#for i in range(2305,2414):
+for i in range(2305,2414):
 #for i in range(2287,2305):
-for i in range(2236,2287):
+#for i in range(2236,2287):
     f=open("batch"+str(i)+".sh","a")
     f.write("#! /bin/bash\n")
     f.write("#PBS -q AL -l select=1:ncpus=1:mem=2gb\n")

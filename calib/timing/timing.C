@@ -45,7 +45,7 @@ int timing(int run){
     s[i] = new TSpectrum(peak_n);
     if(i<64) h[i] = new TH1F(Form("h_%d",i),Form("h_%d",i),500,-600e3,-100e3);
     if(i>63) h[i] = new TH1F(Form("h_%d",i),Form("h_%d",i),500,400e3,900e3);
-    event->Draw(Form("ts_diff[%d][%d]>>h_%d",Board,Ch,i),Form("Energy[%d][%d]>1",Board,Ch),"",5e6);
+    event->Draw(Form("ts_diff[%d][%d]>>h_%d",Board,Ch,i),Form("Energy[%d][%d]>1",Board,Ch),"",1e6);
     s[i]->Search(h[i],1,"new",0.1);
     xpeaks[i]=s[i]->GetPositionX();
 

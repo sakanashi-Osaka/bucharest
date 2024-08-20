@@ -107,13 +107,15 @@ int main(int argc, char *argv[]){
     ifs >> domain[i][j] >> p0[i][j]>> p1[i][j] >> p2[i][j];
     }
   }
-  ifstream ifs2("log/gamma.prm");
+  //  ifstream ifs2("log/gamma.prm");
+  ifstream ifs2("log/gamma2423.prm"); // 1st is slope
   int gch[4][16];
   double g0[4][16];
   double g1[4][16];
   for(int i=0; i<4; i++){
     for(int j=0; j<16; j++){
-      ifs2 >> gch[i][j] >> g0[i][j] >> g1[i][j];
+      //      ifs2 >> gch[i][j] >> g0[i][j] >> g1[i][j];
+      ifs2 >> gch[i][j] >> g1[i][j] >> g0[i][j];
     }
   }
 

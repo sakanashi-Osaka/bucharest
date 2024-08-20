@@ -45,14 +45,15 @@ int  ch_F[4]={};
 int ch_R[4]={};
 
 
-int position(int run){
+//int position(int run){
+int main(int argc, char *argv[]){
   
-  ofstream ofs(Form("log/log%d.txt",run),std::ios::out);
+  ofstream ofs(Form("log/log%d.txt",atoi(argv[1])),std::ios::out);
   
-  TFile *fin =new TFile(Form("../rootfile/hit%d.root",run));
+  TFile *fin =new TFile(Form("../rootfile/run%d.root",atoi(argv[1])));
   TTree *hit = (TTree*)fin->Get("hit");
   
-  TFile *fout =new TFile(Form("rootfile/position%d.root",run),"recreate");
+  TFile *fout =new TFile(Form("rootfile/position%d.root",atoi(argv[1])),"recreate");
   
   TH2D *matrix = new TH2D("matrix","matrix",40,0,40,40,0,40);
   TH1D *matrix_x = new TH1D("matrix_x","matrix_x",40,0,40);
