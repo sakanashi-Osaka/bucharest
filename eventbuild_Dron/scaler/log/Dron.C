@@ -1,0 +1,82 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+// 指定された行番号の値を取得する関数
+int extractLine(const std::string& fileName, int lineNumber) {
+    std::ifstream file(fileName);
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file " << fileName << std::endl;
+        return 0; // エラー時は0を返す
+    }
+
+    std::string line;
+    int currentLine = 0;
+
+    while (std::getline(file, line)) {
+        currentLine++;
+        if (currentLine == lineNumber) { // 指定された行番号を取得
+            file.close();
+            try {
+                return std::stoi(line); // 数値に変換して返す
+            } catch (std::invalid_argument&) {
+                std::cerr << "Error: Invalid number format in file " << fileName << std::endl;
+                return 0;
+            }
+        }
+    }
+
+    file.close();
+    std::cerr << "Error: File " << fileName << " does not contain " << lineNumber << " lines!" << std::endl;
+    return 0;
+}
+
+void Dron() {
+    // 各ファイルグループを定義 (4桁の数字のみ)
+    std::vector<std::vector<std::string>> fileGroups = {
+        {"2236", "2237", "2238", "2239"},
+        {"2243", "2244", "2245", "2246", "2247"},
+        {"2250", "2257", "2258", "2259", "2260", "2262", "2264", "2267", "2269"},
+        {"2287", "2288", "2289", "2292", "2293", "2294"},
+        {"2297", "2299", "2300", "2301", "2304", "2305", "2306"},
+        {"2310", "2311", "2313", "2314", "2316", "2317", "2318"},
+        {"2322", "2323", "2324", "2325", "2326", "2327"},
+        {"2330", "2331", "2332", "2333", "2334", "2335", "2336", "2337"},
+        {"2340", "2341", "2342", "2343", "2344", "2345"},
+        {"2349", "2350", "2351", "2352", "2353", "2354"},
+        {"2357", "2358", "2359", "2360", "2361", "2362"},
+        {"2371", "2372", "2373", "2374", "2375", "2376"},
+        {"2379", "2380", "2381", "2382", "2383", "2384", "2385", "2386"},
+        {"2389", "2390", "2391", "2392", "2393", "2394"},
+        {"2404", "2405", "2406", "2407", "2408", "2410", "2411"},
+        {"2242", "2249", "2296", "2309", "2321", "2329", "2339", "2348", "2356", "2364", "2378", "2388", "2403", "2413"},
+        {"2241", "2248", "2271", "2295", "2307", "2320", "2328", "2338", "2347", "2355", "2363", "2377", "2387", "2402", "2412"}
+    };
+
+    // 各行の積算結果を出力
+    for (size_t i = 0; i < fileGroups.size(); ++i) {
+        int sum45 = 0, sum46 = 0, sum62 = 0;
+        size_t count = fileGroups[i].size();
+
+        for (const auto& file : fileGroups[i]) {
+            std::string fileName = "log" + file + ".txt"; // ファイル名を生成
+
+            // 各行番号の値を取得して積算
+            sum45 += extractLine(fileName, 45); // 45行目
+            sum46 += extractLine(fileName, 46); // 46行目
+            sum62 += extractLine(fileName, 62); // 62行目
+        }
+
+        // 平均を計算
+        double avg45 = static_cast<double>(sum45) / count;
+        double avg46 = static_cast<double>(sum46) / count;
+        double avg62 = static_cast<double>(sum62) / count;
+
+        // 結果を出力
+        std::cout << "Group " << (i + 1) << ":" << std::endl;
+        std::cout << "  Sum of 45th lines: " << sum45 << ", Average: " << avg45 << std::endl;
+        std::cout << "  Sum of 46th lines: " << sum46 << ", Average: " << avg46 << std::endl;
+        std::cout << "  Sum of 62nd lines: " << sum62 << ", Average: " << avg62 << std::endl;
+    }
+}

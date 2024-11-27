@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 3614460 3614580`
+do
+    qdel $i
+done

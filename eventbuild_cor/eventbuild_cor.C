@@ -25,8 +25,10 @@ using namespace std;
 //#define Gamma_offset 0 //offset timing, If positive, signal timestamp is faster than reference (ch0)
 
 #define Si_gate 2.5e5 //coinsidence window for Si [ps]
+//#define Si_gate 10e6 //coinsidence window for Si [ps]
 #define Si_offset -6.5e5 //coinsidence window for Si [ps]
 #define Gamma_gate 1.50e5 //coinsidence window for Gamma [ps]
+//#define Gamma_gate 1e6 //coinsidence window for Gamma [ps]
 #define Gamma_offset 1.75e5 //offset timing, If positive, signal timestamp is faster than reference (ch0)
 
 #define N_BOARD 10

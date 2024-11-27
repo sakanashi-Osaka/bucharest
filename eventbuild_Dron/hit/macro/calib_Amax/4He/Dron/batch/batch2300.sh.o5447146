@@ -1,0 +1,2276 @@
+Running: ../calib 2300 0 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.85164 FROM MIGRAD    STATUS=CONVERGED      76 CALLS          77 TOTAL
+                     EDM=6.61711e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.15642e+01   2.33953e+00   2.54751e-03   1.17690e-04
+   2  p1          -3.45236e-02   1.11473e-03   9.33680e-07   2.08964e-01
+   3  p2           5.14005e-03   1.15769e-03   8.44289e-07   1.10812e-01
+Running: ../calib 2300 0 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.14624 FROM MIGRAD    STATUS=CONVERGED      87 CALLS          88 TOTAL
+                     EDM=7.58435e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.99067e+01   3.04435e+00   2.38557e-03  -3.80229e-05
+   2  p1          -3.05309e-02   8.53092e-04   6.96966e-07   9.97495e-02
+   3  p2           5.37361e-03   1.23567e-03   7.73845e-07  -2.29781e-02
+Running: ../calib 2300 0 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=10.6378 FROM MIGRAD    STATUS=CONVERGED     101 CALLS         102 TOTAL
+                     EDM=1.23012e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.53765e+01   3.75474e+00   4.37419e-03   9.24787e-05
+   2  p1          -3.53110e-02   3.33548e-04   4.84383e-07  -3.93187e-01
+   3  p2           3.28763e-03   3.59671e-04   3.87454e-07   1.66406e+00
+Running: ../calib 2300 0 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000Running: ../calib 2300 0 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000Running: ../calib 2300 0 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.99852 FROM MIGRAD    STATUS=CONVERGED     153 CALLS         154 TOTAL
+                     EDM=1.7416e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.37015e+01   2.52995e+00   2.65549e-03   1.66387e-04
+   2  p1          -3.35212e-02   1.07196e-03   9.53201e-07  -3.92822e-01
+   3  p2          -5.29238e-03   1.26425e-03   9.32793e-07   2.92451e-01
+Running: ../calib 2300 0 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.11282 FROM MIGRAD    STATUS=CALL LIMIT   1349 CALLS        1350 TOTAL
+                     EDM=6.31559e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  45.6 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.41182e+03   6.36452e+03   4.57802e+01  -9.01492e-05
+   2  p1           2.25694e-01   4.15709e-01   3.42007e-03   3.75238e+00
+   3  p2           9.41042e-02   1.02020e-01   8.14960e-04  -1.06426e+01
+Running: ../calib 2300 0 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.60811 FROM MIGRAD    STATUS=CONVERGED     123 CALLS         124 TOTAL
+                     EDM=1.06203e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.10379e+01   2.53575e+00   1.98366e-03  -3.51264e-07
+   2  p1          -4.45896e-02   1.48390e-03   1.46197e-06  -3.21130e-04
+   3  p2           7.17318e-03   3.17864e-03   2.23516e-06  -1.71483e-03
+Running: ../calib 2300 0 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.350169 FROM MIGRAD    STATUS=CALL LIMIT   1351 CALLS        1352 TOTAL
+                     EDM=2.29839e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  36.7 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.70699e+03   1.35964e+04   4.42472e+01  -1.89166e-05
+   2  p1          -1.00634e-01   6.09429e-02  -3.09138e-04  -9.48480e+00
+   3  p2           1.65790e-02   1.16243e-02   6.97127e-05  -3.00308e+01
+Running: ../calib 2300 0 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.304281 FROM MIGRAD    STATUS=CONVERGED     142 CALLS         143 TOTAL
+                     EDM=1.39006e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.14826e+01   2.50651e+00   1.05720e-03  -1.22700e-04
+   2  p1          -4.87845e-02   1.90898e-03   3.46227e-07  -2.29198e-01
+   3  p2           2.96751e-03   1.29181e-03   2.51781e-07   8.85711e-02
+Running: ../calib 2300 0 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.78645 FROM MIGRAD    STATUS=CONVERGED      89 CALLS          90 TOTAL
+                     EDM=5.86712e-07    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   3.7 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.08744e+01   2.97408e+00   5.41579e-03   1.18087e-04
+   2  p1          -4.83479e-02   1.59542e-03  -8.10527e-06  -1.71841e+00
+   3  p2           3.35881e-03   1.55767e-03   7.42319e-06  -2.01851e+00
+Running: ../calib 2300 0 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000Running: ../calib 2300 0 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000Running: ../calib 2300 0 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.27891 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=2.56008e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.60003e+01   2.95170e+00   1.83051e-03   2.92277e-04
+   2  p1          -3.41815e-02   5.35423e-04   4.50517e-07   2.57854e-01
+   3  p2           4.43418e-03   7.70492e-04   4.61497e-07   3.34729e-01
+Running: ../calib 2300 0 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.93133 FROM MIGRAD    STATUS=CONVERGED      66 CALLS          67 TOTAL
+                     EDM=2.84138e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.47160e+01   2.75092e+00   2.30207e-03  -3.07098e-05
+   2  p1          -3.00989e-02   7.38300e-04   8.36946e-07   8.96713e-01
+   3  p2           5.34645e-03   1.22176e-03   9.87777e-07  -5.43067e-01
+Running: ../calib 2300 0 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.24135 FROM MIGRAD    STATUS=CONVERGED      91 CALLS          92 TOTAL
+                     EDM=1.10044e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.44296e+01   1.92397e+00   2.33027e-03  -2.44813e-04
+   2  p1          -2.51059e-02   1.84321e-03   1.62616e-06   9.37408e-01
+   3  p2           6.04632e-03   2.18646e-03   1.70056e-06  -2.00078e-01
+Running: ../calib 2300 1 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.25596 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=7.44775e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.91087e+01   3.49456e+00   3.04160e-03   1.12365e-04
+   2  p1          -3.65681e-02   4.74946e-04   5.63845e-07   2.93159e-01
+   3  p2           4.74348e-03   6.98583e-04   5.97299e-07   1.09904e-01
+Running: ../calib 2300 1 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.339372 FROM MIGRAD    STATUS=CONVERGED      78 CALLS          79 TOTAL
+                     EDM=6.492e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.14311e+01   4.44985e+00   1.81285e-03   5.55389e-05
+   2  p1          -3.87016e-02   3.42634e-04   1.78322e-07   8.32712e-02
+   3  p2           4.28635e-03   4.47020e-04   1.71571e-07  -3.35740e-01
+Running: ../calib 2300 1 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.4931 FROM MIGRAD    STATUS=CONVERGED      62 CALLS          63 TOTAL
+                     EDM=5.00536e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.40625e+01   4.06429e+00   2.22064e-03   7.78909e-05
+   2  p1          -4.19543e-02   5.47493e-04   3.58117e-07   5.51904e-01
+   3  p2           5.29879e-03   8.35420e-04   4.04661e-07   5.01176e-01
+Running: ../calib 2300 1 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.16312 FROM MIGRAD    STATUS=CALL LIMIT   1353 CALLS        1354 TOTAL
+                     EDM=1.04861e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  25.6 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.34151e+02   7.17423e+03   2.57448e+01  -3.12130e-05
+   2  p1          -2.11741e-01   4.59659e-01  -1.83497e-03  -1.23355e+00
+   3  p2           5.16889e-02   9.28187e-02   3.54185e-04  -4.12284e+00
+Running: ../calib 2300 1 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.43979 FROM MIGRAD    STATUS=CONVERGED     117 CALLS         118 TOTAL
+                     EDM=3.8342e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.78228e+00   1.19493e+00   7.25551e-04   7.57929e-04
+   2  p1          -3.93203e-02   1.22765e-03   1.26295e-06   4.49488e-01
+   3  p2           3.75103e-03   2.16072e-03   1.31351e-06   5.34531e-01
+Running: ../calib 2300 1 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.92293 FROM MIGRAD    STATUS=CONVERGED      98 CALLS          99 TOTAL
+                     EDM=3.11856e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.54634e+01   3.41042e+00   2.84168e-03   2.74221e-04
+   2  p1          -4.25060e-02   1.10175e-03   1.39699e-06  -3.58043e-01
+   3  p2           7.59138e-03   2.93478e-03   2.43032e-06   3.73258e-01
+Running: ../calib 2300 1 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.70143 FROM MIGRAD    STATUS=CALL LIMIT   1346 CALLS        1347 TOTAL
+                     EDM=0.000824946    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  37.7 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.99598e+04   8.17306e+04   1.33091e+02  -5.09114e-06
+   2  p1          -1.40001e-01   6.95117e-02  -9.03519e-05  -1.25418e+01
+   3  p2           2.60734e-02   1.32055e-02   1.14036e-05  -4.42926e+01
+Running: ../calib 2300 1 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.914137 FROM MIGRAD    STATUS=CONVERGED     128 CALLS         129 TOTAL
+                     EDM=2.09212e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.17727e+01   2.23083e+01   2.51180e-03  -2.90689e-05
+   2  p1          -5.09751e-02   9.36506e-03   4.61672e-07  -2.16712e-01
+   3  p2           5.52075e-03   6.48272e-03   4.95833e-07  -2.35934e-01
+Running: ../calib 2300 1 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.01067 FROM MIGRAD    STATUS=CONVERGED     107 CALLS         108 TOTAL
+                     EDM=1.27315e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.63131e+01   4.11790e+00   2.61867e-03   9.98003e-05
+   2  p1          -4.85784e-02   1.63076e-03   4.16322e-07  -1.52567e+00
+   3  p2           3.87584e-03   1.51969e-03   3.96952e-07  -2.08857e+00
+Running: ../calib 2300 1 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.113252 FROM MIGRAD    STATUS=CALL LIMIT   1349 CALLS        1350 TOTAL
+                     EDM=0.000138893    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  53.0 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.28761e+04   6.51967e+04   5.92167e+02  -7.86681e-06
+   2  p1          -8.80935e-02   3.46045e-02  -3.38987e-04  -3.12285e+01
+   3  p2           1.11177e-02   5.50364e-03   5.33336e-05  -1.11190e+02
+Running: ../calib 2300 1 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.444859 FROM MIGRAD    STATUS=CONVERGED     100 CALLS         101 TOTAL
+                     EDM=8.43995e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.48960e+01   7.06760e+00   2.22194e-03  -9.57786e-05
+   2  p1          -4.93719e-02   2.66524e-03   2.94700e-07  -3.95773e-01
+   3  p2           3.87830e-03   2.27259e-03   2.99201e-07  -2.23712e-01
+Running: ../calib 2300 1 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.36811e-06 FROM MIGRAD    STATUS=CONVERGED     103 CALLS         104 TOTAL
+                     EDM=9.14886e-07    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  10.5 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00102e+00   7.41779e-01  -1.76175e-03  -2.97900e-03
+   2  p1          -4.76469e-02   1.34136e-01   3.32345e-04   4.39236e-03
+   3  p2           2.22711e-02   1.73917e+00   6.55089e-03  -1.08247e-03
+Running: ../calib 2300 1 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.00157667 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=1.24173e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.12269e+00   1.28640e+00   5.08339e-04  -4.51074e-05
+   2  p1          -4.55760e-02   3.00589e-03   5.73260e-07   1.96519e-01
+   3  p2           2.52018e-03   2.54572e-03   4.74092e-07   4.71635e-02
+Running: ../calib 2300 1 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.98493 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=9.71434e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.91533e+01   4.15126e+00   3.07030e-03   1.47032e-04
+   2  p1          -3.90288e-02   3.94762e-04   4.26687e-07   3.26044e+00
+   3  p2           4.59679e-03   6.35354e-04   4.66164e-07   2.49832e-01
+Running: ../calib 2300 1 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.283143 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=2.27373e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.28585e+01   3.71089e+00   1.43803e-03   5.26632e-05
+   2  p1          -3.62475e-02   4.54399e-04   2.49261e-07  -2.00401e-01
+   3  p2           4.80666e-03   7.12253e-04   2.74438e-07   1.13051e+00
+Running: ../calib 2300 1 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.61822 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=3.3315e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.97502e+01   3.20506e+00   3.19998e-03   2.00489e-04
+   2  p1          -2.37361e-02   8.98162e-04   6.19534e-07   1.41698e+00
+   3  p2           5.10657e-03   9.02007e-04   5.51741e-07   1.85435e+00
+Running: ../calib 2300 2 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.45822 FROM MIGRAD    STATUS=CONVERGED      97 CALLS          98 TOTAL
+                     EDM=8.86621e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.35736e+01   3.21021e+00   3.44031e-03  -5.89799e-05
+   2  p1          -4.10051e-02   9.13917e-04   1.43262e-06   3.10474e-02
+   3  p2           6.76486e-03   2.03525e-03   2.16991e-06  -7.68824e-02
+Running: ../calib 2300 2 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=11.2382 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=1.77247e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.83816e+01   4.36658e+00   5.44274e-03   1.01697e-05
+   2  p1          -3.72444e-02   2.98143e-04   4.99018e-07   1.54395e-01
+   3  p2           3.98888e-03   3.72163e-04   4.57615e-07   8.49458e-02
+Running: ../calib 2300 2 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.42988 FROM MIGRAD    STATUS=CONVERGED      62 CALLS          63 TOTAL
+                     EDM=5.47559e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.04464e+01   3.80214e+00   3.23718e-03   5.17902e-05
+   2  p1          -3.98747e-02   4.93184e-04   4.66370e-07  -3.22227e-01
+   3  p2           4.79120e-03   6.17925e-04   4.55968e-07  -1.08273e-01
+Running: ../calib 2300 2 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.74603 FROM MIGRAD    STATUS=CONVERGED     467 CALLS         468 TOTAL
+                     EDM=8.12709e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.39758e+01   1.86246e+00   1.43050e-03  -1.47805e-04
+   2  p1          -3.60341e-02   1.73744e-03   8.09289e-07   8.11232e-02
+   3  p2          -5.25998e-03   1.63775e-03   7.03827e-07  -1.71041e-01
+Running: ../calib 2300 2 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.71225 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=1.02546e-07    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   1.9 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.42035e+01   1.92300e+00  -4.33017e-04  -1.73141e-04
+   2  p1          -4.10478e-02   1.84101e-03   4.66963e-06   4.06434e-02
+   3  p2           6.40668e-03   2.66523e-03  -2.04741e-06   1.11643e-01
+Running: ../calib 2300 2 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.85634 FROM MIGRAD    STATUS=CONVERGED     109 CALLS         110 TOTAL
+                     EDM=4.18419e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.31283e+01   3.43687e+00   3.10646e-03   7.30223e-05
+   2  p1          -4.66116e-02   1.87589e-03   1.10725e-06   1.80221e-01
+   3  p2           7.10412e-03   2.90000e-03   1.50959e-06   2.06998e-01
+Running: ../calib 2300 2 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.335477 FROM MIGRAD    STATUS=CONVERGED     114 CALLS         115 TOTAL
+                     EDM=3.37754e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.00408e+01   6.03912e+00   1.87861e-03   7.61724e-05
+   2  p1          -4.92848e-02   2.34721e-03   2.69318e-07   3.43724e-01
+   3  p2           4.18439e-03   1.73903e-03   2.38055e-07   3.23005e-01
+Running: ../calib 2300 2 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.310166 FROM MIGRAD    STATUS=CONVERGED     129 CALLS         130 TOTAL
+                     EDM=1.12116e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.49419e+01   1.01367e+02   4.10445e-03  -1.78390e-04
+   2  p1          -5.25416e-02   7.46595e-03   1.50785e-07  -5.35273e+00
+   3  p2           3.61930e-03   2.63469e-03   9.67349e-08  -8.28096e+00
+Running: ../calib 2300 2 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.2309 FROM MIGRAD    STATUS=CONVERGED     127 CALLS         128 TOTAL
+                     EDM=5.37062e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.61499e+01   3.96828e+01   3.71068e-03   5.91881e-05
+   2  p1          -5.17196e-02   1.59333e-02   6.76244e-07   7.02957e-01
+   3  p2          -6.96710e-03   1.16272e-02   8.14749e-07  -7.20679e-01
+Running: ../calib 2300 2 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.747018 FROM MIGRAD    STATUS=CALL LIMIT   1349 CALLS        1350 TOTAL
+                     EDM=3.82916e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  28.9 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.79266e+03   2.05145e+04   1.02111e+02  -2.66694e-05
+   2  p1          -1.06462e-01   7.11417e-02  -3.22288e-04  -1.57000e+01
+   3  p2           1.90829e-02   1.29236e-02   4.90843e-05  -4.78995e+01
+Running: ../calib 2300 2 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.55128 FROM MIGRAD    STATUS=CALL LIMIT   1345 CALLS        1346 TOTAL
+                     EDM=0.000323488    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  20.7 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.73092e+04   6.61313e+04   6.87476e+02  -1.25495e-05
+   2  p1          -1.23815e-01   3.72456e-02  -3.14352e-04  -5.52076e+01
+   3  p2           2.14359e-02   7.50400e-03   4.43186e-05  -1.97293e+02
+Running: ../calib 2300 2 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.683045 FROM MIGRAD    STATUS=CONVERGED     136 CALLS         137 TOTAL
+                     EDM=8.36948e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.76338e+01   2.95591e+00   1.46241e-03   1.69914e-05
+   2  p1          -4.80601e-02   8.61725e-04   2.83774e-07   2.75651e-01
+   3  p2           2.60481e-03   7.78782e-04   2.28005e-07   3.21748e-01
+Running: ../calib 2300 2 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.03834 FROM MIGRAD    STATUS=CONVERGED      74 CALLS          75 TOTAL
+                     EDM=6.05905e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.66528e+01   2.35153e+00   1.59983e-03   5.64578e-04
+   2  p1          -4.16644e-02   7.20489e-04   6.91353e-07  -5.89464e-01
+   3  p2           4.72519e-03   1.11548e-03   7.56126e-07   4.33797e-01
+Running: ../calib 2300 2 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.21121 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=9.21816e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.54004e+01   4.49791e+00   4.30830e-03   1.87083e-05
+   2  p1          -4.06931e-02   3.07501e-04   4.29284e-07   2.57052e+00
+   3  p2           4.05799e-03   4.45086e-04   4.25617e-07  -2.41477e+00
+Running: ../calib 2300 2 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.04765 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=2.93894e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.26455e+01   4.24331e+00   4.44048e-03   1.20672e-04
+   2  p1          -3.69729e-02   4.54359e-04   6.56284e-07  -1.46792e+00
+   3  p2           4.94320e-03   7.49758e-04   7.48584e-07  -5.92397e-02
+Running: ../calib 2300 2 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.21657 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=1.17256e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.11148e+01   3.45483e+00   3.21368e-03   2.05344e-04
+   2  p1          -3.11800e-02   7.55499e-04   5.36018e-07   2.45649e+00
+   3  p2           4.77016e-03   7.95768e-04   4.81993e-07  -1.45148e+00
+Running: ../calib 2300 3 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.51473 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=5.96186e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.28578e+01   3.58895e+00   2.12705e-03  -1.74217e-05
+   2  p1          -4.19977e-02   5.34568e-04   2.89702e-07  -7.06381e-02
+   3  p2           4.26313e-03   5.53079e-04   2.47488e-07   1.37797e-01
+Running: ../calib 2300 3 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.77194 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.66111e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.11951e+01   4.34165e+00   3.57696e-03   3.75372e-05
+   2  p1          -4.07978e-02   3.61119e-04   2.92514e-07  -4.15306e-01
+   3  p2           3.84263e-03   3.51438e-04   2.32452e-07   2.12749e+00
+Running: ../calib 2300 3 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.773 FROM MIGRAD    STATUS=CONVERGED      61 CALLS          62 TOTAL
+                     EDM=1.79115e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.05871e+01   3.90328e+00   1.85534e-03  -1.16845e-04
+   2  p1          -4.11927e-02   5.03980e-04   2.67020e-07   3.14172e-01
+   3  p2           4.81007e-03   6.59024e-04   2.68824e-07  -1.33600e+00
+Running: ../calib 2300 3 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.86586 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=8.01429e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.06685e+01   3.25678e+00   3.23440e-03  -4.29028e-04
+   2  p1          -3.62238e-02   5.02024e-04   7.14650e-07   3.39146e-01
+   3  p2           4.56765e-03   7.73223e-04   7.64059e-07  -2.34060e+00
+Running: ../calib 2300 3 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.08267 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.2497e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.88675e+01   3.56361e+00   3.31414e-03  -1.67678e-04
+   2  p1          -3.95485e-02   5.32556e-04   5.50849e-07  -1.14190e-01
+   3  p2           4.49517e-03   6.82130e-04   5.37800e-07  -1.00199e+00
+Running: ../calib 2300 3 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.5704 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=1.12198e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.21688e+01   3.80784e+00   3.29299e-03  -2.32005e-05
+   2  p1          -4.54138e-02   5.90113e-04   5.22926e-07  -6.63290e-02
+   3  p2           5.19710e-03   7.58885e-04   5.35694e-07   5.14130e-01
+Running: ../calib 2300 3 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.34199 FROM MIGRAD    STATUS=CONVERGED     128 CALLS         129 TOTAL
+                     EDM=7.99534e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.25750e+01   3.12765e+01   3.22999e-03   3.13660e-05
+   2  p1          -5.13936e-02   9.08047e-03   4.09667e-07   1.12389e-02
+   3  p2           5.35063e-03   5.75235e-03   4.10478e-07  -1.75944e-01
+Running: ../calib 2300 3 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.0624736 FROM MIGRAD    STATUS=CALL LIMIT   1353 CALLS        1354 TOTAL
+                     EDM=5.88208e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  25.0 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.64648e+04   8.18195e+04   6.01250e+02  -7.49086e-06
+   2  p1          -9.12163e-02   3.58354e-02  -2.49836e-04  -3.52033e+01
+   3  p2           1.21085e-02   5.57052e-03   3.40924e-05  -1.26191e+02
+Running: ../calib 2300 3 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.87586 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=4.72256e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.50186e+01   4.52701e+00   4.74961e-03  -2.27979e-04
+   2  p1          -4.34490e-02   3.00166e-04   4.55689e-07   2.32876e+00
+   3  p2           3.95520e-03   4.26293e-04   4.43826e-07  -1.47119e+00
+Running: ../calib 2300 3 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.66162 FROM MIGRAD    STATUS=CONVERGED      87 CALLS          88 TOTAL
+                     EDM=2.63582e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.77210e+01   5.60285e+00   3.73390e-03  -2.93120e-05
+   2  p1          -4.56378e-02   2.44845e-04   2.07740e-07   7.26127e-01
+   3  p2           3.32686e-03   2.99164e-04   1.85921e-07  -4.15067e-01
+Running: ../calib 2300 3 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.59812 FROM MIGRAD    STATUS=CONVERGED      99 CALLS         100 TOTAL
+                     EDM=2.07669e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.46197e+01   4.58293e+00   4.60080e-03   1.02975e-05
+   2  p1          -4.60841e-02   4.99953e-04   4.97005e-07   5.43035e-01
+   3  p2          -4.45906e-03   6.30541e-04   5.01201e-07  -3.62627e-01
+Running: ../calib 2300 3 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.5582 FROM MIGRAD    STATUS=CONVERGED      93 CALLS          94 TOTAL
+                     EDM=1.44077e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.48879e+01   4.39892e+00   2.81013e-03  -1.27999e-05
+   2  p1          -4.46757e-02   4.93863e-04   3.86064e-07   4.27727e-02
+   3  p2           3.84707e-03   7.66016e-04   4.35622e-07  -1.90289e-02
+Running: ../calib 2300 3 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.39386 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=6.43176e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.72969e+01   3.57505e+00   2.48282e-03   2.28985e-05
+   2  p1          -4.37827e-02   3.86544e-04   2.94697e-07  -1.30656e-02
+   3  p2           3.37552e-03   3.88195e-04   2.36830e-07   1.04742e+00
+Running: ../calib 2300 3 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.96879 FROM MIGRAD    STATUS=CONVERGED      86 CALLS          87 TOTAL
+                     EDM=3.13055e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.90051e+01   5.31509e+00   3.74560e-03   9.77084e-07
+   2  p1          -4.31614e-02   2.18453e-04   2.07599e-07  -4.59884e-02
+   3  p2           3.52528e-03   2.56048e-04   1.77470e-07   1.10481e-01
+Running: ../calib 2300 3 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.59386 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=2.4921e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.66249e+01   4.25087e+00   4.21326e-03  -2.19827e-04
+   2  p1          -4.08698e-02   4.08384e-04   4.36121e-07   9.77623e-02
+   3  p2           4.25334e-03   4.78153e-04   3.97471e-07  -1.36213e+00
+Running: ../calib 2300 3 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.15837 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=7.0117e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.91986e+01   3.82424e+00   3.96478e-03  -8.07401e-05
+   2  p1          -3.50816e-02   3.83691e-04   3.72417e-07   6.05436e-01
+   3  p2           3.64534e-03   3.28468e-04   2.67499e-07  -2.47646e-01
+Running: ../calib 2300 4 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.81717 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.90071e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.16531e+01   4.33219e+00   3.25555e-03  -8.05428e-05
+   2  p1          -3.82063e-02   3.39777e-04   3.25130e-07   9.69128e-01
+   3  p2           3.91018e-03   4.35457e-04   3.01752e-07  -2.03764e+00
+Running: ../calib 2300 4 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.91953 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=3.35628e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.08076e+01   4.34349e+00   2.64286e-03   4.76827e-05
+   2  p1          -3.58084e-02   3.64003e-04   2.74758e-07   2.17687e+00
+   3  p2           4.39089e-03   4.64322e-04   2.63320e-07  -1.09963e+00
+Running: ../calib 2300 4 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.76637 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=1.62633e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.31698e+01   3.77506e+00   3.24952e-03   8.63086e-06
+   2  p1          -3.66186e-02   7.77967e-04   4.12430e-07  -1.45871e-01
+   3  p2           4.82666e-03   6.88177e-04   3.39521e-07   1.64405e-01
+Running: ../calib 2300 4 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=10.7461 FROM MIGRAD    STATUS=CONVERGED     116 CALLS         117 TOTAL
+                     EDM=1.50824e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.90966e+01   3.04293e+00   3.75502e-03  -2.22803e-05
+   2  p1          -3.05095e-02   6.16099e-04   7.46211e-07   1.21642e+00
+   3  p2          -4.20559e-03   6.77608e-04   6.52412e-07   7.83668e-01
+Running: ../calib 2300 4 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=14.0533 FROM MIGRAD    STATUS=CONVERGED     604 CALLS         605 TOTAL
+                     EDM=2.49399e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.28128e+01   4.34730e+00   5.33775e-03   3.63319e-05
+   2  p1          -3.53516e-02   3.30681e-04   5.75091e-07  -2.11579e+00
+   3  p2          -3.64351e-03   4.72089e-04   5.47974e-07  -1.79216e-01
+Running: ../calib 2300 4 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.67801 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=5.58772e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.38589e+01   4.19248e+00   4.35253e-03  -1.74348e-05
+   2  p1          -4.09595e-02   4.61863e-04   7.01192e-07  -1.63209e-01
+   3  p2           5.23530e-03   8.17055e-04   8.48090e-07  -1.72655e-03
+Running: ../calib 2300 4 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.34173 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=2.10058e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.69175e+01   4.19471e+00   2.20956e-03   1.52760e-04
+   2  p1          -4.65244e-02   1.12919e-03   5.80149e-07   7.24360e-01
+   3  p2           5.65577e-03   2.14275e-03   8.56342e-07   5.30778e-01
+Running: ../calib 2300 4 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.01426 FROM MIGRAD    STATUS=CONVERGED      91 CALLS          92 TOTAL
+                     EDM=5.17678e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.65299e+01   4.45064e+00   2.40319e-03   9.08430e-05
+   2  p1          -4.78499e-02   7.56690e-04   2.68866e-07   5.37582e-01
+   3  p2           3.38836e-03   8.03313e-04   2.55782e-07   6.27972e-01
+Running: ../calib 2300 4 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.15786 FROM MIGRAD    STATUS=CONVERGED     108 CALLS         109 TOTAL
+                     EDM=5.30721e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.81143e+01   4.70848e+00   2.86158e-03  -5.63460e-06
+   2  p1          -4.70332e-02   8.01797e-04   5.49447e-07   1.28099e-02
+   3  p2           4.42915e-03   1.55920e-03   8.00028e-07   6.70318e-03
+Running: ../calib 2300 4 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.28625 FROM MIGRAD    STATUS=CONVERGED     112 CALLS         113 TOTAL
+                     EDM=4.20757e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.29828e+01   4.22106e+00   4.30034e-03  -3.45226e-05
+   2  p1          -4.71047e-02   9.96553e-04   6.57530e-07  -4.30287e-01
+   3  p2           4.65126e-03   1.20664e-03   7.01068e-07  -5.17287e-01
+Running: ../calib 2300 4 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.0214251 FROM MIGRAD    STATUS=CALL LIMIT   1350 CALLS        1351 TOTAL
+                     EDM=1.62244e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  31.4 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.19349e+03   4.74982e+03  -3.42330e-03   2.65897e-07
+   2  p1          -1.42998e-01   1.29194e-01  -8.43635e-07   4.98219e-02
+   3  p2           3.86933e-02   3.15727e-02   1.44424e-06   2.98282e-02
+Running: ../calib 2300 4 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.50114 FROM MIGRAD    STATUS=CONVERGED     102 CALLS         103 TOTAL
+                     EDM=6.78417e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.02387e+01   4.06810e+00   3.10166e-03  -1.61994e-04
+   2  p1          -4.69049e-02   5.98279e-04   3.88762e-07  -1.00061e+00
+   3  p2           3.47986e-03   6.75605e-04   3.58941e-07   2.57991e-01
+Running: ../calib 2300 4 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.99068 FROM MIGRAD    STATUS=CONVERGED      92 CALLS          93 TOTAL
+                     EDM=3.33411e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.11307e+01   3.02867e+00   2.20296e-03   3.56451e-04
+   2  p1          -4.29806e-02   8.81035e-04   5.19514e-07   4.69854e-01
+   3  p2           4.92271e-03   1.00361e-03   4.91767e-07   1.08881e+00
+Running: ../calib 2300 4 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.09657 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=5.48384e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.56757e+01   4.86238e+00   3.79984e-03  -4.59993e-05
+   2  p1          -4.24400e-02   2.49273e-04   2.70725e-07  -1.00196e-02
+   3  p2           3.67475e-03   3.11145e-04   2.41280e-07  -1.43984e+00
+Running: ../calib 2300 4 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.82772 FROM MIGRAD    STATUS=CONVERGED     100 CALLS         101 TOTAL
+                     EDM=2.56659e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.09751e+01   4.81816e+00   4.24640e-03   3.63027e-05
+   2  p1          -3.89660e-02   2.64904e-04   2.82143e-07   8.31683e-01
+   3  p2           3.69243e-03   2.86612e-04   2.34044e-07   7.97764e-01
+Running: ../calib 2300 4 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.50419 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=3.59086e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.83993e+01   3.87618e+00   2.22901e-03  -1.80460e-05
+   2  p1          -3.60781e-02   3.92543e-04   2.61017e-07   1.40086e-01
+   3  p2           4.13484e-03   4.52436e-04   2.32228e-07  -1.19256e-01
+Running: ../calib 2300 5 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.5879 FROM MIGRAD    STATUS=CONVERGED      87 CALLS          88 TOTAL
+                     EDM=5.10421e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.39617e+01   4.20066e+00   2.83722e-03  -7.57462e-07
+   2  p1          -3.80714e-02   2.95051e-04   2.72889e-07   3.31930e-02
+   3  p2           3.91159e-03   3.66062e-04   2.47303e-07  -4.63485e-03
+Running: ../calib 2300 5 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.72951 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=3.20773e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.50479e+01   4.54348e+00   2.63618e-03  -7.47729e-05
+   2  p1          -3.70911e-02   3.61368e-04   2.64906e-07   2.32401e-01
+   3  p2           4.49335e-03   4.88112e-04   2.64078e-07  -6.56098e-01
+Running: ../calib 2300 5 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.25369 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=4.75957e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.52998e+01   4.15538e+00   4.73245e-03   3.05954e-05
+   2  p1          -3.92801e-02   4.15217e-04   5.58368e-07   1.24415e-02
+   3  p2           4.50715e-03   5.34365e-04   5.44653e-07   2.11059e-01
+Running: ../calib 2300 5 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.84997 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=7.62419e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.33208e+01   3.03143e+00   2.36680e-03   9.99395e-05
+   2  p1          -2.90452e-02   9.41231e-04   4.26913e-07  -2.02098e-01
+   3  p2           4.47815e-03   7.82807e-04   3.30909e-07   1.89002e+00
+Running: ../calib 2300 5 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.13975 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=5.93554e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.19974e+01   3.52935e+00   2.88922e-03  -1.98338e-04
+   2  p1          -4.46398e-02   4.54555e-04   4.62469e-07  -2.41941e+00
+   3  p2           4.55346e-03   5.85626e-04   4.50841e-07  -1.47058e+00
+Running: ../calib 2300 5 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.66611 FROM MIGRAD    STATUS=CONVERGED      86 CALLS          87 TOTAL
+                     EDM=1.07588e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.01281e+01   4.31829e+00   2.48174e-03   1.20697e-05
+   2  p1          -4.65404e-02   7.75089e-04   4.62133e-07   6.45651e-02
+   3  p2           4.87672e-03   1.28678e-03   5.95974e-07   5.05354e-02
+Running: ../calib 2300 5 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.73315 FROM MIGRAD    STATUS=CALL LIMIT   1352 CALLS        1353 TOTAL
+                     EDM=8.14605e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  37.5 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.20998e+03   4.69620e+04   3.93864e+02  -1.03681e-05
+   2  p1          -1.11233e-01   5.87183e-02  -5.61432e-04  -1.86812e+01
+   3  p2           1.76718e-02   1.00109e-02   9.53673e-05  -6.72754e+01
+Running: ../calib 2300 5 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.48546e-09 FROM MIGRAD    STATUS=CONVERGED     300 CALLS         301 TOTAL
+                     EDM=2.97154e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.00000e+00   1.41472e+00   4.88476e-04  -3.91031e-05
+   2  p1          -4.77500e-02   7.65101e-04   3.73420e-07  -7.21457e-02
+   3  p2           1.27397e-03   9.19276e-04   3.16818e-07  -8.27807e-02
+Running: ../calib 2300 5 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.21 FROM MIGRAD    STATUS=CONVERGED      87 CALLS          88 TOTAL
+                     EDM=1.03491e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.90099e+01   3.88542e+00   2.18619e-03  -7.36121e-06
+   2  p1          -4.67611e-02   7.61924e-04   3.12377e-07  -7.93912e-02
+   3  p2           4.58434e-03   8.24623e-04   2.94479e-07  -1.10072e-01
+Running: ../calib 2300 5 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.98899 FROM MIGRAD    STATUS=CONVERGED      74 CALLS          75 TOTAL
+                     EDM=5.80116e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.42209e+01   4.48145e+00   3.90545e-03   4.83127e-07
+   2  p1          -4.38282e-02   3.07806e-04   3.67672e-07  -8.11223e-01
+   3  p2           4.27525e-03   4.07803e-04   3.55516e-07   2.59280e+00
+Running: ../calib 2300 5 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.11471 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.0219e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.40934e+01   4.62326e+00   4.92375e-03  -1.60519e-04
+   2  p1          -4.32583e-02   2.84012e-04   4.09570e-07   3.44907e+00
+   3  p2           3.97508e-03   3.60488e-04   3.78990e-07   1.40977e+00
+Running: ../calib 2300 5 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.34392 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=1.00075e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.81988e+01   4.85982e+00   3.07744e-03  -2.03574e-04
+   2  p1          -4.59888e-02   3.87046e-04   3.27731e-07  -6.96450e-01
+   3  p2           3.17324e-03   6.05255e-04   3.68915e-07   9.49313e-01
+Running: ../calib 2300 5 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.11887 FROM MIGRAD    STATUS=CONVERGED     104 CALLS         105 TOTAL
+                     EDM=1.09136e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.51507e+01   3.82784e+00   2.30520e-03  -5.71759e-06
+   2  p1          -4.45967e-02   6.84622e-04   4.48763e-07   2.14121e-02
+   3  p2           4.08749e-03   1.03929e-03   5.13292e-07   1.84779e-02
+Running: ../calib 2300 5 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.90818 FROM MIGRAD    STATUS=CONVERGED     111 CALLS         112 TOTAL
+                     EDM=1.88267e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.02336e+01   4.69776e+00   3.70595e-03  -7.23959e-07
+   2  p1          -4.43696e-02   8.04662e-04   5.51695e-07  -4.24507e-03
+   3  p2           4.79016e-03   1.19801e-03   6.65268e-07  -3.56467e-03
+Running: ../calib 2300 5 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.99357 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=3.27878e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.28014e+01   4.63153e+00   4.74962e-03   2.36870e-05
+   2  p1          -4.19884e-02   3.24700e-04   4.50727e-07   7.69610e-01
+   3  p2           4.24660e-03   4.51002e-04   4.45624e-07   1.11505e-02
+Running: ../calib 2300 5 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.06361 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=5.69756e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.90504e+01   3.94921e+00   3.08280e-03  -1.18957e-04
+   2  p1          -3.60776e-02   4.97609e-04   4.54956e-07  -2.75999e-01
+   3  p2           4.77894e-03   6.89273e-04   4.69598e-07  -5.97326e-01
+Running: ../calib 2300 6 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.42811 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=2.80459e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.13669e+01   4.42982e+00   4.46569e-03  -6.04072e-05
+   2  p1          -3.80448e-02   3.44515e-04   4.87401e-07  -4.11450e-01
+   3  p2           4.53501e-03   5.02416e-04   5.05709e-07  -3.25746e-01
+Running: ../calib 2300 6 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.25871 FROM MIGRAD    STATUS=CONVERGED      64 CALLS          65 TOTAL
+                     EDM=1.45219e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.96442e+01   4.55544e+00   2.57117e-03   6.50336e-05
+   2  p1          -3.75659e-02   4.25802e-04   2.12659e-07  -1.76392e+00
+   3  p2           4.21501e-03   4.26972e-04   1.77469e-07   2.00736e+00
+Running: ../calib 2300 6 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.61279 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=4.64399e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.69182e+01   3.61606e+00   2.50856e-03  -3.40574e-05
+   2  p1          -3.92788e-02   7.84451e-04   4.68763e-07   6.01102e-01
+   3  p2           5.41784e-03   9.78860e-04   4.80854e-07  -4.49086e-01
+Running: ../calib 2300 6 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.24132 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.92211e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.61194e+01   2.94757e+00   1.90185e-03  -6.70696e-06
+   2  p1          -2.86685e-02   6.01343e-04   3.95219e-07   1.50107e-02
+   3  p2           4.05646e-03   6.70219e-04   3.46758e-07  -1.17268e-01
+Running: ../calib 2300 6 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.33388 FROM MIGRAD    STATUS=CONVERGED      73 CALLS          74 TOTAL
+                     EDM=6.82611e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.76325e+01   4.07852e+00   3.58508e-03   7.06977e-06
+   2  p1          -3.79362e-02   4.12230e-04   3.99443e-07   3.83284e-05
+   3  p2           3.98655e-03   4.85339e-04   3.57749e-07   2.44724e+00
+Running: ../calib 2300 6 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.68457 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.16061e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.44832e+01   4.16772e+00   3.76282e-03  -8.60455e-05
+   2  p1          -3.94675e-02   5.20875e-04   4.90464e-07   1.19063e+00
+   3  p2           4.76564e-03   6.77757e-04   4.91547e-07  -9.43138e-01
+Running: ../calib 2300 6 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.4604 FROM MIGRAD    STATUS=CONVERGED     126 CALLS         127 TOTAL
+                     EDM=9.88066e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.42576e+01   1.97287e+01   3.78390e-03   9.97570e-06
+   2  p1          -5.18448e-02   1.28736e-02   1.06866e-06  -2.11456e-01
+   3  p2           7.30791e-03   8.85554e-03   1.15186e-06  -4.67817e-01
+Running: ../calib 2300 6 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.4344 FROM MIGRAD    STATUS=CALL LIMIT   1351 CALLS        1352 TOTAL
+                     EDM=0.00169871    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  35.4 per cent
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.02056e+05   2.61507e+05   4.66926e+03  -3.18853e-06
+   2  p1          -9.86940e-02   2.14149e-02  -3.53255e-04  -1.02757e+02
+   3  p2           1.24101e-02   3.78592e-03   5.12789e-05  -4.18279e+02
+Running: ../calib 2300 6 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.87374 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=1.02173e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.90090e+01   4.13915e+00   2.81435e-03  -3.48370e-05
+   2  p1          -4.06901e-02   3.13703e-04   2.96261e-07  -2.18406e-01
+   3  p2           3.89869e-03   4.10533e-04   2.75728e-07  -3.87522e-01
+Running: ../calib 2300 6 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.38146 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=2.41819e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.66120e+01   3.75882e+00   3.17155e-03   2.02775e-04
+   2  p1          -4.06689e-02   7.69316e-04   9.30017e-07  -4.17836e-01
+   3  p2           6.69033e-03   1.66082e-03   1.38212e-06   5.91178e-01
+Running: ../calib 2300 6 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.81207 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=3.47536e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.54395e+01   4.54546e+00   3.22491e-03  -2.05784e-05
+   2  p1          -3.77864e-02   2.70691e-04   2.54118e-07   1.26552e-01
+   3  p2           3.89654e-03   3.18161e-04   2.23384e-07  -1.10204e-01
+Running: ../calib 2300 6 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.31202 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=2.31136e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.55711e+01   4.44430e+00   3.62625e-03   1.06425e-04
+   2  p1          -4.16907e-02   2.76841e-04   2.88680e-07   2.06521e+00
+   3  p2           3.55001e-03   3.15264e-04   2.43264e-07  -1.05297e-01
+Running: ../calib 2300 6 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.19304 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=1.09819e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.62181e+01   2.94543e+00   3.74926e-03  -9.36169e-05
+   2  p1          -3.69571e-02   1.28214e-03   9.07112e-07   3.09914e-01
+   3  p2           5.60136e-03   1.23125e-03   8.14105e-07  -3.00976e-02
+Running: ../calib 2300 6 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=12.0213 FROM MIGRAD    STATUS=CONVERGED      89 CALLS          90 TOTAL
+                     EDM=1.72944e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.20911e+01   4.63376e+00   5.75161e-03   5.42990e-05
+   2  p1          -4.33704e-02   3.06674e-04   5.13270e-07   1.85269e+00
+   3  p2           4.07085e-03   4.10136e-04   4.90565e-07   1.02767e-01
+Running: ../calib 2300 6 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.10183 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=8.96195e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.84027e+01   5.09266e+00   3.66969e-03   3.04112e-04
+   2  p1          -3.93424e-02   2.40214e-04   2.37629e-07   5.36382e-01
+   3  p2           3.85834e-03   2.96207e-04   2.13975e-07   1.20659e+00
+Running: ../calib 2300 6 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.81135 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=1.83022e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.86016e+01   4.26568e+00   2.07208e-03  -3.41887e-05
+   2  p1          -3.68063e-02   3.76870e-04   2.10906e-07   3.21597e-01
+   3  p2           4.26622e-03   4.49257e-04   1.93575e-07  -4.87602e-02
+Running: ../calib 2300 7 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.18887 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.712e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.95657e+01   5.54721e+00   5.74403e-03   6.45932e-05
+   2  p1          -3.94127e-02   2.54078e-04   3.73596e-07  -2.01485e+00
+   3  p2           4.18671e-03   3.59563e-04   3.70599e-07   4.36620e-01
+Running: ../calib 2300 7 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.45946 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=1.22403e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.17333e+01   4.99518e+00   3.24704e-03  -8.75310e-06
+   2  p1          -3.88844e-02   3.67671e-04   3.10069e-07   5.44222e-02
+   3  p2           4.95276e-03   5.44981e-04   3.36043e-07  -1.33348e-01
+Running: ../calib 2300 7 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.96186 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=2.49807e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.81089e+01   3.80990e+00   3.16746e-03   1.66244e-04
+   2  p1          -3.71376e-02   7.13148e-04   7.30038e-07   4.55849e-01
+   3  p2           6.03354e-03   1.25855e-03   9.37510e-07  -9.67698e-02
+Running: ../calib 2300 7 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.776 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=2.31802e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.58234e+01   3.26308e+00   3.18068e-03   1.62643e-04
+   2  p1          -3.28360e-02   6.92970e-04   7.96061e-07  -7.97020e-01
+   3  p2           5.36636e-03   1.03977e-03   8.95061e-07   2.41826e-01
+Running: ../calib 2300 7 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.16339 FROM MIGRAD    STATUS=CONVERGED     100 CALLS         101 TOTAL
+                     EDM=1.67277e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.58820e+01   4.79276e+00   5.08694e-03  -4.34475e-04
+   2  p1          -3.58056e-02   2.20353e-04   3.07317e-07  -2.74945e+00
+   3  p2           2.97023e-03   2.34261e-04   2.38849e-07  -2.98695e+00
+Running: ../calib 2300 7 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.56647 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=8.62058e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.18019e+01   3.91297e+00   3.82857e-03  -3.57608e-05
+   2  p1          -3.76021e-02   5.06734e-04   5.89422e-07  -1.66819e-01
+   3  p2           5.05115e-03   7.13891e-04   6.27106e-07  -9.61271e-02
+Running: ../calib 2300 7 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.0935774 FROM MIGRAD    STATUS=CONVERGED      97 CALLS          98 TOTAL
+                     EDM=2.01252e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.07538e+01   5.02806e+00   1.96536e-03  -1.88208e-05
+   2  p1          -4.81966e-02   1.11477e-03   2.58523e-07  -1.14309e+00
+   3  p2           3.52328e-03   1.48466e-03   3.09304e-07  -7.90821e-01
+Running: ../calib 2300 7 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.74011 FROM MIGRAD    STATUS=CONVERGED      85 CALLS          86 TOTAL
+                     EDM=2.61862e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.77788e+01   5.32708e+00   3.59608e-03   4.97956e-05
+   2  p1          -4.65197e-02   3.19764e-04   2.93930e-07   4.40238e-01
+   3  p2           3.03027e-03   4.82147e-04   3.19001e-07   5.27100e-01
+Running: ../calib 2300 7 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.96556 FROM MIGRAD    STATUS=CONVERGED     230 CALLS         231 TOTAL
+                     EDM=1.17268e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.19944e+01   4.24162e+00   3.37012e-03  -4.09586e-05
+   2  p1          -3.97198e-02   3.75276e-04   2.34764e-07  -3.15821e-02
+   3  p2          -3.01960e-03   2.83657e-04   1.55503e-07   3.52317e-01
+Running: ../calib 2300 7 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.35824 FROM MIGRAD    STATUS=CONVERGED      97 CALLS          98 TOTAL
+                     EDM=4.31532e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.49739e+01   4.89740e+00   4.37317e-03   5.10711e-05
+   2  p1          -4.41509e-02   2.88279e-04   3.36856e-07   5.76636e-01
+   3  p2           3.62842e-03   3.68678e-04   3.16861e-07   7.27634e-01
+Running: ../calib 2300 7 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.02099 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=3.30495e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.61885e+01   4.58679e+00   3.41153e-03  -2.91254e-05
+   2  p1          -3.90408e-02   3.83428e-04   2.67234e-07   1.78701e-01
+   3  p2           3.94376e-03   3.85794e-04   2.19553e-07   2.81383e-01
+Running: ../calib 2300 7 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.78083 FROM MIGRAD    STATUS=CONVERGED      78 CALLS          79 TOTAL
+                     EDM=2.07508e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.69461e+01   4.16113e+00   4.00244e-03  -2.93053e-05
+   2  p1          -4.17428e-02   3.28866e-04   3.75419e-07   5.30382e-01
+   3  p2           3.98280e-03   3.60575e-04   3.19910e-07  -1.30662e-01
+Running: ../calib 2300 7 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=12.5985 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=1.28917e-07    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.2 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.77997e+01   4.27209e+00   4.14698e-04  -1.23902e-04
+   2  p1          -3.60758e-02   2.77357e-04   7.76974e-07   4.39164e-01
+   3  p2           3.54170e-03   3.54847e-04  -5.11707e-07   5.56439e-01
+Running: ../calib 2300 7 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=13.3004 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=1.59835e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.25900e+01   4.64095e+00   6.28655e-03   3.07976e-04
+   2  p1          -4.24424e-02   4.57257e-04   6.69175e-07   2.32042e+00
+   3  p2           5.00871e-03   6.04689e-04   6.88809e-07   1.87296e+00
+Running: ../calib 2300 7 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.48208 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=2.89874e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.80954e+01   5.68729e+00   4.25256e-03  -2.05910e-05
+   2  p1          -3.88208e-02   2.34259e-04   2.36626e-07   2.17627e-01
+   3  p2           4.03364e-03   2.99891e-04   2.20688e-07  -1.03873e+00
+Running: ../calib 2300 7 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.31005 FROM MIGRAD    STATUS=CONVERGED      86 CALLS          87 TOTAL
+                     EDM=2.4781e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.77103e+01   5.91073e+00   6.62540e-03   3.31751e-06
+   2  p1          -3.59261e-02   2.00227e-04   3.12956e-07  -2.96139e-01
+   3  p2           3.64466e-03   2.46126e-04   2.76411e-07   2.01100e-01
+Running: ../calib 2300 8 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.97953 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=4.40365e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.02878e+02   5.68617e+00   4.96075e-03  -6.14203e-06
+   2  p1          -3.55928e-02   2.58773e-04   2.86554e-07  -2.77492e-01
+   3  p2           4.23922e-03   3.25198e-04   2.68884e-07  -3.47770e-01
+Running: ../calib 2300 8 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.84375 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=8.58927e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.12585e+02   5.94998e+00   4.58001e-03   9.02002e-05
+   2  p1          -3.59464e-02   3.11838e-04   2.84302e-07   7.26034e-01
+   3  p2           4.66522e-03   4.18881e-04   2.86753e-07   9.48853e-01
+Running: ../calib 2300 8 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.24304 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=3.09202e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.91268e+01   4.16097e+00   2.92227e-03   7.67483e-05
+   2  p1          -2.96583e-02   7.84513e-04   3.59880e-07  -5.29584e-01
+   3  p2           5.45160e-03   8.04844e-04   3.32138e-07   1.51236e+00
+Running: ../calib 2300 8 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.56472 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=2.21986e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.77012e+01   3.97841e+00   3.77876e-03  -6.76772e-05
+   2  p1          -2.96609e-02   3.78411e-04   4.95825e-07   1.17187e-01
+   3  p2           4.37732e-03   5.35330e-04   5.01165e-07  -5.31541e-01
+Running: ../calib 2300 8 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.91633 FROM MIGRAD    STATUS=CONVERGED     206 CALLS         207 TOTAL
+                     EDM=7.3851e-10    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.1 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.92604e+01   4.73549e+00   3.35637e-03   1.29187e-05
+   2  p1          -3.34444e-02   2.56014e-04  -1.76093e-07  -9.23424e-02
+   3  p2          -3.63207e-03   3.33452e-04   3.17874e-07  -1.85579e-01
+Running: ../calib 2300 8 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.97521 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=8.37388e-10    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.0 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.01791e+01   3.94816e+00  -1.67528e-03  -7.46757e-06
+   2  p1          -4.08650e-02   7.17978e-04   6.79030e-07  -1.23095e-02
+   3  p2           6.61052e-03   1.58641e-03  -2.01495e-07   1.86510e-02
+Running: ../calib 2300 8 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=10.1192 FROM MIGRAD    STATUS=CONVERGED     105 CALLS         106 TOTAL
+                     EDM=4.66507e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.45716e+01   4.84358e+00   5.72806e-03  -4.51762e-05
+   2  p1          -4.55762e-02   3.68944e-04   4.70927e-07   1.14828e-01
+   3  p2           3.76294e-03   4.30321e-04   4.26496e-07   3.05853e-01
+Running: ../calib 2300 8 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.91771 FROM MIGRAD    STATUS=CONVERGED     229 CALLS         230 TOTAL
+                     EDM=1.77452e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.26957e+01   4.75614e+00   4.09165e-03   1.06234e-05
+   2  p1          -4.41116e-02   2.34760e-04   2.72722e-07   5.39691e-01
+   3  p2          -3.42616e-03   2.66834e-04   2.26766e-07  -7.46176e-01
+Running: ../calib 2300 8 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=13.6469 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=1.24944e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.92997e+01   4.32017e+00   5.60707e-03  -1.53385e-04
+   2  p1          -4.22476e-02   2.82109e-04   5.22185e-07  -4.50416e-01
+   3  p2          -3.63505e-03   3.67753e-04   4.73175e-07   5.34520e+00
+Running: ../calib 2300 8 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.305146 FROM MIGRAD    STATUS=CONVERGED      92 CALLS          93 TOTAL
+                     EDM=9.74491e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.70984e+01   5.08426e+00   2.07728e-03  -2.36892e-05
+   2  p1          -4.67088e-02   5.17656e-04   2.04241e-07   9.50543e-01
+   3  p2           4.05012e-03   6.96265e-04   2.18566e-07   1.14326e-01
+Running: ../calib 2300 8 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.6754 FROM MIGRAD    STATUS=CONVERGED      91 CALLS          92 TOTAL
+                     EDM=3.31753e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.52936e+01   4.93299e+00   3.95635e-03  -6.84706e-05
+   2  p1          -4.47751e-02   3.63441e-04   4.22663e-07   2.35935e-01
+   3  p2           4.36681e-03   6.07696e-04   4.88412e-07  -2.99006e-01
+Running: ../calib 2300 8 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.16267 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=5.53601e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.07048e+01   4.31887e+00   3.57946e-03  -2.32792e-04
+   2  p1          -4.45052e-02   3.08227e-04   3.25078e-07  -1.83860e+00
+   3  p2           4.05456e-03   3.62448e-04   2.89781e-07  -7.70457e-01
+Running: ../calib 2300 8 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.28618 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=5.23245e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.11579e+01   4.06787e+00   3.33976e-03   4.69172e-06
+   2  p1          -3.81091e-02   4.36758e-04   3.73647e-07  -2.93854e-01
+   3  p2           4.17099e-03   4.95844e-04   3.31648e-07   1.28505e-01
+Running: ../calib 2300 8 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.97472 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=1.82573e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.44699e+01   4.83520e+00   5.39621e-03   1.93627e-04
+   2  p1          -3.74296e-02   5.99657e-04   7.69762e-07  -3.19960e+00
+   3  p2           6.32247e-03   1.01206e-03   9.83459e-07  -1.95642e-01
+Running: ../calib 2300 8 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.18497 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=4.08265e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.36328e+02   6.44545e+00   7.95633e-03  -1.73670e-05
+   2  p1          -4.00906e-02   2.85264e-04   2.90300e-07   1.07397e+00
+   3  p2           3.85505e-03   2.54382e-04   2.22563e-07  -2.97602e-01
+Running: ../calib 2300 8 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.32155 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=1.04642e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.12113e+02   6.34092e+00   5.80658e-03  -1.73892e-05
+   2  p1          -3.42944e-02   2.25519e-04   2.84332e-07  -3.75952e-02
+   3  p2           4.04794e-03   3.11010e-04   2.75725e-07  -6.37842e-01
+Running: ../calib 2300 9 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.78728 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=4.23393e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.43017e+02   6.69763e+00   5.89466e-03   3.06357e-05
+   2  p1          -3.64717e-02   2.56042e-04   2.27018e-07  -1.34381e+00
+   3  p2           4.07902e-03   2.73293e-04   1.93454e-07   9.37144e-01
+Running: ../calib 2300 9 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.26128 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=1.14912e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.29750e+02   6.25370e+00   4.75790e-03  -2.20131e-04
+   2  p1          -3.23471e-02   2.45388e-04   2.09461e-07   3.38892e+00
+   3  p2           4.15386e-03   2.73191e-04   1.83272e-07  -1.21631e+00
+Running: ../calib 2300 9 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.56153 FROM MIGRAD    STATUS=CONVERGED      74 CALLS          75 TOTAL
+                     EDM=1.30618e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.02652e+02   5.93203e+00   5.84860e-03   7.49535e-06
+   2  p1          -2.99956e-02   2.90960e-04   2.91203e-07   3.23925e-03
+   3  p2           3.90797e-03   3.17693e-04   2.50698e-07  -3.13291e-02
+Running: ../calib 2300 9 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.48904 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=2.58005e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.49724e+01   4.76146e+00   4.23294e-03  -4.41759e-06
+   2  p1          -2.91959e-02   3.30912e-04   3.38598e-07   6.62781e-01
+   3  p2           3.92716e-03   3.91474e-04   3.01781e-07   6.63468e-03
+Running: ../calib 2300 9 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.08003 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=6.056e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.91691e+01   4.87661e+00   3.91536e-03  -7.54928e-05
+   2  p1          -2.58554e-02   2.39177e-04   2.57258e-07   6.96645e-01
+   3  p2           3.61037e-03   2.76761e-04   2.19179e-07  -1.59731e+00
+Running: ../calib 2300 9 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.46821 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=8.11027e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.63375e+01   4.10003e+00   3.60899e-03   1.00014e-04
+   2  p1          -3.43077e-02   9.31643e-04   5.96696e-07  -4.65678e-02
+   3  p2           6.27899e-03   1.16744e-03   6.52080e-07   3.88577e-01
+Running: ../calib 2300 9 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.60225 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=2.57765e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.56419e+01   5.17139e+00   4.14678e-03  -1.96282e-05
+   2  p1          -3.61518e-02   2.71042e-04   3.08118e-07   4.49580e-02
+   3  p2           4.10043e-03   3.82117e-04   3.03023e-07  -2.26179e-01
+Running: ../calib 2300 9 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.47137 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=3.39698e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.67228e+01   3.95457e+00   3.08851e-03  -3.24243e-07
+   2  p1          -3.83215e-02   4.48282e-04   5.08710e-07   5.82002e-01
+   3  p2           4.90398e-03   7.48650e-04   5.82270e-07   3.30998e-03
+Running: ../calib 2300 9 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.68919 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=2.85238e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.18243e+01   3.83257e+00   3.66512e-03   1.95676e-06
+   2  p1          -3.88997e-02   4.41071e-04   3.37492e-07   1.71257e+00
+   3  p2           3.73397e-03   3.51913e-04   2.35962e-07   5.38877e-03
+Running: ../calib 2300 9 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.87024 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=2.40551e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.72565e+01   5.26526e+00   5.57518e-03   4.50567e-05
+   2  p1          -3.92989e-02   2.65646e-04   3.98928e-07   1.34579e+00
+   3  p2           4.06239e-03   3.73754e-04   3.90191e-07   1.80113e+00
+Running: ../calib 2300 9 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.636672 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=3.1133e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.06723e+01   5.38571e+00   2.43903e-03   7.82288e-05
+   2  p1          -4.29536e-02   2.98614e-04   1.63478e-07   2.21684e+00
+   3  p2           4.31092e-03   3.78098e-04   1.55319e-07  -9.42227e-01
+Running: ../calib 2300 9 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=11.6421 FROM MIGRAD    STATUS=CONVERGED     117 CALLS         118 TOTAL
+                     EDM=5.15617e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.13813e+01   5.39337e+00   6.63341e-03   2.36201e-04
+   2  p1          -3.86054e-02   2.41616e-04   4.02283e-07  -4.69633e-01
+   3  p2          -3.79510e-03   3.07121e-04   3.67115e-07  -4.51267e+00
+Running: ../calib 2300 9 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.06583 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=3.43568e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.57999e+01   4.78392e+00   3.30810e-03   5.07740e-05
+   2  p1          -4.00405e-02   3.82831e-04   2.03468e-07  -2.89313e-01
+   3  p2           3.68198e-03   3.14245e-04   1.46301e-07   1.04699e-01
+Running: ../calib 2300 9 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.13027 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=3.20444e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.19853e+02   6.17650e+00   3.13998e-03   1.54137e-04
+   2  p1          -3.52623e-02   2.46817e-04   1.74781e-07   1.84940e+00
+   3  p2           4.52450e-03   3.56436e-04   1.80437e-07   2.09549e+00
+Running: ../calib 2300 9 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.85681 FROM MIGRAD    STATUS=CONVERGED      78 CALLS          79 TOTAL
+                     EDM=1.13636e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.61841e+02   7.13250e+00   5.09656e-03  -7.46123e-05
+   2  p1          -3.83914e-02   1.98527e-04   1.70917e-07   1.69970e+00
+   3  p2           4.02779e-03   2.29490e-04   1.51198e-07  -1.63015e+00
+Running: ../calib 2300 9 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.74804 FROM MIGRAD    STATUS=CONVERGED      73 CALLS          74 TOTAL
+                     EDM=1.80307e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.57956e+02   7.11280e+00   4.50890e-03   3.93827e-05
+   2  p1          -3.73646e-02   2.18676e-04   1.28454e-07   1.57458e+00
+   3  p2           3.58353e-03   1.98033e-04   9.69999e-08   1.97274e+00
+Running: ../calib 2300 10 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.48597 FROM MIGRAD    STATUS=CONVERGED      62 CALLS          63 TOTAL
+                     EDM=1.07543e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.55784e+02   7.10520e+00   7.05696e-03   2.73927e-04
+   2  p1          -3.64089e-02   2.32212e-04   3.31588e-07   2.03161e+00
+   3  p2           4.75142e-03   3.63831e-04   3.64634e-07   4.44748e+00
+Running: ../calib 2300 10 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.38421 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=5.03922e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.77972e+02   7.63161e+00   4.92713e-03  -4.17475e-05
+   2  p1          -3.02787e-02   1.76956e-04   1.58565e-07  -1.02728e+00
+   3  p2           4.14487e-03   2.36240e-04   1.52297e-07  -1.36134e+00
+Running: ../calib 2300 10 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.313 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.42026e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.15189e+02   5.59587e+00   3.08996e-03  -2.40964e-04
+   2  p1          -3.67729e-02   5.90106e-04   2.81939e-07   2.36168e-01
+   3  p2           6.04608e-03   8.16053e-04   3.19851e-07  -2.41746e+00
+Running: ../calib 2300 10 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=17.6234 FROM MIGRAD    STATUS=CONVERGED      83 CALLS          84 TOTAL
+                     EDM=1.52703e-08    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.2 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           6.51250e+01   4.55162e+00  -2.66385e-03  -3.78428e-05
+   2  p1          -3.39898e-02   3.09043e-04  -5.04184e-07  -1.13338e-01
+   3  p2           4.10846e-03   3.80683e-04  -8.74620e-07   1.69895e-01
+Running: ../calib 2300 10 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.13245 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=2.20875e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.82082e+01   3.91998e+00   3.68474e-03   3.96210e-05
+   2  p1          -3.35588e-02   1.18691e-03   5.89501e-07  -4.29556e-01
+   3  p2           5.93816e-03   1.25047e-03   5.79954e-07   4.12539e-01
+Running: ../calib 2300 10 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.01654 FROM MIGRAD    STATUS=CONVERGED     103 CALLS         104 TOTAL
+                     EDM=1.94466e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.86545e+01   5.15203e+00   4.28114e-03  -2.96370e-05
+   2  p1          -4.10167e-02   3.36812e-04   2.80803e-07   3.00406e-01
+   3  p2           4.21949e-03   3.59688e-04   2.41585e-07   2.33945e-01
+Running: ../calib 2300 10 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.72371 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=2.73832e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.44245e+01   4.45546e+00   3.42766e-03   3.60192e-05
+   2  p1          -4.07440e-02   7.93498e-04   3.12033e-07  -1.59399e-01
+   3  p2           4.93111e-03   6.31119e-04   2.44814e-07   5.28204e-01
+Running: ../calib 2300 10 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.0115458 FROM MIGRAD    STATUS=CONVERGED     116 CALLS         117 TOTAL
+                     EDM=5.04634e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.87010e+01   4.56844e+01   2.15990e-03  -7.01361e-05
+   2  p1          -5.20357e-02   1.65049e-02   3.52997e-07  -3.85103e-01
+   3  p2          -6.94133e-03   1.15010e-02   4.09269e-07   2.76258e-01
+Running: ../calib 2300 10 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.29533 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.87902e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.81331e+01   3.78632e+00   2.01049e-03   6.82135e-07
+   2  p1          -4.10117e-02   6.91980e-04   3.82108e-07  -7.08674e-01
+   3  p2           5.50886e-03   1.00205e-03   4.27985e-07  -1.71146e-01
+Running: ../calib 2300 10 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.06185 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=4.13635e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.57183e+01   5.26467e+00   5.94966e-03  -2.23611e-06
+   2  p1          -3.75719e-02   2.48819e-04   3.77370e-07   7.91097e-02
+   3  p2           4.02196e-03   3.12073e-04   3.47325e-07   2.45959e-01
+Running: ../calib 2300 10 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.6099 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=2.50216e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.08962e+01   5.38930e+00   4.36799e-03   8.96431e-05
+   2  p1          -4.25262e-02   3.17268e-04   3.64178e-07  -1.18446e+00
+   3  p2           4.86042e-03   5.00821e-04   4.03798e-07  -3.88999e-01
+Running: ../calib 2300 10 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.03277 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=5.36579e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.10736e+01   5.29645e+00   4.70478e-03   5.23925e-06
+   2  p1          -3.86466e-02   2.65252e-04   3.00763e-07  -6.04568e-02
+   3  p2           4.19042e-03   3.25848e-04   2.77638e-07  -1.56941e-02
+Running: ../calib 2300 10 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.55555 FROM MIGRAD    STATUS=CONVERGED      89 CALLS          90 TOTAL
+                     EDM=9.56556e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.82431e+01   5.60054e+00   5.76787e-03   1.85559e-06
+   2  p1          -4.13935e-02   2.43810e-04   3.03059e-07   4.63488e-02
+   3  p2           3.65316e-03   2.77232e-04   2.58194e-07   1.92363e-02
+Running: ../calib 2300 10 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.71587 FROM MIGRAD    STATUS=CONVERGED      74 CALLS          75 TOTAL
+                     EDM=5.26336e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.21461e+02   5.89312e+00   4.47481e-03  -7.49254e-05
+   2  p1          -3.77355e-02   5.24894e-04   4.21705e-07   5.65584e-01
+   3  p2           6.19233e-03   8.47351e-04   5.23971e-07   9.55415e-01
+Running: ../calib 2300 10 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.969898 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=3.05801e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.00788e+02   8.12119e+00   4.02417e-03   4.12542e-05
+   2  p1          -3.18684e-02   1.59432e-04   1.09036e-07   2.80990e-01
+   3  p2           4.02158e-03   2.05739e-04   1.01833e-07   1.12644e+00
+Running: ../calib 2300 10 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.25291 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=1.39572e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.10698e+02   8.48048e+00   6.32899e-03  -3.64263e-06
+   2  p1          -3.37569e-02   1.53495e-04   1.35954e-07   2.63107e-01
+   3  p2           3.59675e-03   1.65505e-04   1.12164e-07  -4.45559e-01
+Running: ../calib 2300 11 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.690749 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=4.13896e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.53523e+02   9.12680e+00   4.20471e-03  -1.08878e-04
+   2  p1          -3.02111e-02   1.40929e-04   8.84437e-08  -2.60236e+00
+   3  p2           3.97517e-03   1.78139e-04   8.14136e-08  -5.72527e+00
+Running: ../calib 2300 11 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=11.6061 FROM MIGRAD    STATUS=CONVERGED      87 CALLS          88 TOTAL
+                     EDM=9.54049e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.52041e+02   9.11097e+00   1.17309e-02   4.36708e-06
+   2  p1          -3.38499e-02   1.41744e-04   2.26500e-07   1.45629e-01
+   3  p2           3.76659e-03   1.60207e-04   1.94095e-07   2.50632e-01
+Running: ../calib 2300 11 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.45184 FROM MIGRAD    STATUS=CONVERGED      78 CALLS          79 TOTAL
+                     EDM=1.6369e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.95607e+02   7.63211e+00   6.27376e-03  -5.24410e-05
+   2  p1          -3.39381e-02   2.71325e-04   1.66438e-07  -7.88144e-01
+   3  p2           3.98469e-03   2.36549e-04   1.27429e-07   1.48619e+00
+Running: ../calib 2300 11 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.22624 FROM MIGRAD    STATUS=CONVERGED     369 CALLS         370 TOTAL
+                     EDM=2.86937e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.01561e+02   5.60138e+00   4.30997e-03   1.66594e-05
+   2  p1          -3.18204e-02   2.58095e-04   2.10394e-07  -4.99827e-01
+   3  p2          -3.81326e-03   2.57990e-04   1.68542e-07  -6.98458e-01
+Running: ../calib 2300 11 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.57684 FROM MIGRAD    STATUS=CONVERGED      68 CALLS          69 TOTAL
+                     EDM=1.89462e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.07598e+01   5.22567e+00   4.45449e-03  -1.18541e-05
+   2  p1          -3.15451e-02   3.48068e-04   4.24132e-07   5.29639e-02
+   3  p2           4.90588e-03   5.79573e-04   4.84884e-07  -1.58164e-01
+Running: ../calib 2300 11 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.50203 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=5.65357e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.27824e+02   6.35274e+00   5.11073e-03  -3.98246e-05
+   2  p1          -3.49056e-02   2.14601e-04   1.80742e-07  -6.96122e-01
+   3  p2           3.59258e-03   2.03273e-04   1.38731e-07   7.16401e-01
+Running: ../calib 2300 11 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.08588 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=5.85207e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.40550e+01   4.82489e+00   4.54469e-03   2.01356e-05
+   2  p1          -3.85003e-02   5.58611e-04   7.29993e-07  -1.47927e-01
+   3  p2           6.22597e-03   1.12083e-03   1.01285e-06   4.31136e-02
+Running: ../calib 2300 11 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.39331 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=2.97774e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           7.67585e+01   5.06342e+00   3.24902e-03  -1.49010e-05
+   2  p1          -4.35207e-02   2.68549e-04   2.39956e-07  -1.34622e-01
+   3  p2           4.12329e-03   3.61731e-04   2.31205e-07  -3.19743e-02
+Running: ../calib 2300 11 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.65563 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=3.74577e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.42700e+01   5.26009e+00   3.59726e-03  -1.36327e-05
+   2  p1          -3.80807e-02   2.94563e-04   2.32021e-07  -1.18656e-01
+   3  p2           4.04184e-03   3.44961e-04   2.07733e-07   7.15330e-02
+Running: ../calib 2300 11 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.73747 FROM MIGRAD    STATUS=CONVERGED      86 CALLS          87 TOTAL
+                     EDM=1.80137e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.17915e+02   6.51773e+00   6.24726e-03   2.16849e-05
+   2  p1          -3.46588e-02   1.89583e-04   2.54755e-07  -4.62517e-01
+   3  p2           3.73739e-03   2.43628e-04   2.31731e-07   1.03063e+00
+Running: ../calib 2300 11 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.32027 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=1.21228e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.16441e+02   5.64312e+00   3.90282e-03   8.15280e-06
+   2  p1          -3.56329e-02   5.00229e-04   2.51687e-07  -7.20796e-02
+   3  p2           5.05641e-03   5.24032e-04   2.30204e-07   3.44627e-02
+Running: ../calib 2300 11 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.07371 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=9.32327e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.20292e+02   6.24156e+00   5.51032e-03  -2.93696e-04
+   2  p1          -3.57089e-02   2.25743e-04   2.43673e-07   1.54801e+00
+   3  p2           3.97465e-03   2.64334e-04   2.15759e-07  -4.56691e+00
+Running: ../calib 2300 11 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.47828 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=2.12993e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.14480e+02   6.22927e+00   4.10985e-03   6.84585e-06
+   2  p1          -3.84073e-02   2.21026e-04   1.84151e-07  -1.60406e+00
+   3  p2           3.89127e-03   2.67380e-04   1.65244e-07   2.72342e+00
+Running: ../calib 2300 11 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.50576 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.13772e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.46506e+02   9.06537e+00   8.30366e-03   3.11701e-05
+   2  p1          -3.88100e-02   1.34173e-04   1.61950e-07   5.10920e-03
+   3  p2           3.73497e-03   1.56857e-04   1.40470e-07   3.94695e+00
+Running: ../calib 2300 11 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=12.7983 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=1.23285e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.41372e+02   8.61168e+00   1.15239e-02   4.64248e-07
+   2  p1          -3.38433e-02   2.02977e-04   2.98133e-07   3.62065e-02
+   3  p2           4.38467e-03   2.40880e-04   2.74917e-07  -6.40330e-02
+Running: ../calib 2300 11 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.78167 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=5.89364e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.69312e+02   9.60884e+00   1.03617e-02   6.20418e-06
+   2  p1          -2.67564e-02   1.22650e-04   1.61895e-07   1.44759e-01
+   3  p2           3.43750e-03   1.27265e-04   1.28442e-07  -4.05634e-01
+Running: ../calib 2300 12 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.98462 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=3.99954e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.55121e+02   8.44650e+00   1.08019e-02   1.69982e-05
+   2  p1          -3.05598e-02   3.70857e-04   2.88762e-07  -9.26338e-02
+   3  p2           4.87588e-03   3.44384e-04   2.46486e-07  -4.90359e-01
+Running: ../calib 2300 12 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.16548 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=2.73545e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.35027e+02   8.47461e+00   5.96502e-03   1.57282e-05
+   2  p1          -2.87210e-02   2.24630e-04   2.20931e-07  -5.34482e-01
+   3  p2           5.24831e-03   3.71192e-04   2.58825e-07  -1.65009e+00
+Running: ../calib 2300 12 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.03994 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=2.60925e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.31716e+02   8.64849e+00   7.45046e-03   5.65413e-06
+   2  p1          -2.83062e-02   1.70701e-04   1.97880e-07   5.17238e-03
+   3  p2           4.32969e-03   2.32221e-04   1.95161e-07   4.15685e-01
+Running: ../calib 2300 12 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.991 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=4.80654e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.07752e+02   5.89332e+00   3.59901e-03   2.12403e-04
+   2  p1          -2.57819e-02   2.31390e-04   1.93042e-07  -8.24678e-02
+   3  p2           4.16619e-03   3.04084e-04   1.84274e-07   1.61348e+00
+Running: ../calib 2300 12 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.9615 FROM MIGRAD    STATUS=CONVERGED      88 CALLS          89 TOTAL
+                     EDM=1.271e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00494e+02   5.03083e+00   3.75034e-03   2.94774e-05
+   2  p1          -2.96980e-02   9.27457e-04   4.54342e-07   5.94297e-02
+   3  p2           6.69585e-03   1.19843e-03   5.19364e-07   7.39851e-02
+Running: ../calib 2300 12 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.75133 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=1.34392e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.53593e+02   7.10925e+00   5.57320e-03  -1.01453e-05
+   2  p1          -2.74736e-02   1.65685e-04   1.76058e-07   6.57327e-01
+   3  p2           3.75699e-03   1.96014e-04   1.53591e-07   3.49410e-01
+Running: ../calib 2300 12 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.22992 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.2252e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.01773e+02   5.10763e+00   2.96793e-03   2.32342e-04
+   2  p1          -3.64152e-02   8.46262e-04   2.55945e-07  -3.00153e+00
+   3  p2           5.77111e-03   8.00284e-04   2.34457e-07   4.47073e+00
+Running: ../calib 2300 12 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.92902 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=6.15671e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.97006e+01   5.63273e+00   6.38101e-03  -2.16558e-04
+   2  p1          -3.83383e-02   2.57630e-04   3.61529e-07   3.41519e+00
+   3  p2           4.13089e-03   3.13592e-04   3.31771e-07  -3.81192e+00
+Running: ../calib 2300 12 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=15.0309 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=7.90694e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.28333e+01   5.85807e+00   7.73189e-03   2.71824e-05
+   2  p1          -3.68123e-02   2.80370e-04   5.08590e-07   5.44265e-01
+   3  p2           4.32849e-03   4.19328e-04   5.26824e-07   9.80568e-01
+Running: ../calib 2300 12 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.28936 FROM MIGRAD    STATUS=CONVERGED      85 CALLS          86 TOTAL
+                     EDM=5.19178e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.18350e+02   5.67015e+00   6.68496e-03  -4.95348e-05
+   2  p1          -3.46530e-02   7.40182e-04   4.39207e-07   2.64289e-01
+   3  p2           5.43129e-03   6.50414e-04   3.80168e-07  -6.22724e-03
+Running: ../calib 2300 12 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.0294 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=2.42665e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.91380e+02   7.86945e+00   8.13672e-03  -1.67567e-05
+   2  p1          -3.23268e-02   1.67787e-04   2.10234e-07   2.76908e-01
+   3  p2           3.80450e-03   1.86724e-04   1.79157e-07  -1.60514e+00
+Running: ../calib 2300 12 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.7178 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=9.32874e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.37972e+02   6.70023e+00   4.42820e-03   9.52765e-06
+   2  p1          -3.52627e-02   2.40620e-04   2.22731e-07  -4.16713e-01
+   3  p2           4.62550e-03   3.62270e-04   2.36827e-07   1.22854e+00
+Running: ../calib 2300 12 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.26158 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=1.91981e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.39429e+02   6.77629e+00   4.89312e-03   2.21768e-05
+   2  p1          -3.33077e-02   2.00440e-04   2.00625e-07  -1.51016e+00
+   3  p2           4.13484e-03   2.67468e-04   1.92829e-07  -1.45729e+00
+Running: ../calib 2300 12 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.61583 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=8.26302e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.16412e+02   1.00728e+01   7.87328e-03  -5.08605e-06
+   2  p1          -3.57742e-02   1.25442e-04   1.24159e-07   9.07388e+00
+   3  p2           3.81984e-03   1.42446e-04   1.06712e-07  -7.73526e+00
+Running: ../calib 2300 12 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.67377 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=7.8993e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.59172e+02   1.09959e+01   7.36259e-03   4.10015e-05
+   2  p1          -3.37495e-02   1.18997e-04   1.10574e-07  -2.11676e-02
+   3  p2           4.00221e-03   1.56043e-04   1.03966e-07   5.29876e-01
+Running: ../calib 2300 12 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.821883 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=5.37489e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.52225e+02   8.95111e+00   4.18954e-03   5.14891e-05
+   2  p1          -2.94961e-02   1.84178e-04   1.16504e-07   2.45765e-01
+   3  p2           4.65966e-03   2.69231e-04   1.22433e-07   1.29229e+00
+Running: ../calib 2300 13 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=15.8292 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=4.16192e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.68834e+02   1.11580e+01   1.59634e-02  -3.54796e-05
+   2  p1          -3.69996e-02   1.34379e-04   2.42693e-07   8.27448e-01
+   3  p2           4.10657e-03   1.71774e-04   2.27970e-07  -1.91305e+00
+Running: ../calib 2300 13 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.32075 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=3.92968e-12    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.15305e+02   1.17470e+01   9.65005e-03   5.81662e-09
+   2  p1          -3.42795e-02   1.09246e-04   1.18316e-07   2.64575e-02
+   3  p2           3.87015e-03   1.32663e-04   1.05885e-07  -4.20456e-03
+Running: ../calib 2300 13 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.48542 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=1.20327e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.22480e+02   1.02858e+01   8.42639e-03   1.49886e-04
+   2  p1          -3.24223e-02   1.56656e-04   1.58462e-07   4.04532e+00
+   3  p2           4.30645e-03   2.04100e-04   1.52894e-07   4.69892e-02
+Running: ../calib 2300 13 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=8.75464 FROM MIGRAD    STATUS=CONVERGED      73 CALLS          74 TOTAL
+                     EDM=1.33432e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.06211e+02   5.30424e+00   6.17069e-03   6.90294e-06
+   2  p1          -3.18364e-02   5.28470e-04   5.30438e-07  -4.14719e-01
+   3  p2           5.53527e-03   6.50764e-04   5.42908e-07   1.61264e-01
+Running: ../calib 2300 13 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.22546 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=2.19467e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.34595e+02   6.36781e+00   3.20156e-03   1.00304e-07
+   2  p1          -3.22935e-02   4.13871e-04   2.97073e-07   1.28861e-01
+   3  p2           6.37610e-03   8.44380e-04   4.20228e-07   7.92565e-01
+Running: ../calib 2300 13 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.77084 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.32632e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.40502e+02   6.66744e+00   5.34089e-03  -7.94572e-06
+   2  p1          -3.15079e-02   3.48766e-04   3.98279e-07   9.24870e-02
+   3  p2           5.81490e-03   6.64919e-04   5.22909e-07  -1.03819e-01
+Running: ../calib 2300 13 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.88717 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=9.50631e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.48142e+02   6.97883e+00   5.81129e-03  -6.46853e-05
+   2  p1          -4.04582e-02   2.24336e-04   2.61409e-07  -4.06412e-01
+   3  p2           4.52779e-03   3.31980e-04   2.73407e-07  -9.58901e-02
+Running: ../calib 2300 13 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=10.7453 FROM MIGRAD    STATUS=CONVERGED      87 CALLS          88 TOTAL
+                     EDM=1.22211e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.34810e+02   6.64387e+00   8.16067e-03  -2.58304e-05
+   2  p1          -4.16840e-02   1.99079e-04   3.09423e-07   2.50117e+00
+   3  p2           3.87878e-03   2.33481e-04   2.71780e-07   1.54139e-01
+Running: ../calib 2300 13 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.20021 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=2.14883e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.27746e+02   6.56714e+00   5.20418e-03  -1.30132e-04
+   2  p1          -4.41891e-02   2.05251e-04   2.24709e-07  -1.28346e+00
+   3  p2           4.05365e-03   2.72054e-04   2.13432e-07  -2.52402e+00
+Running: ../calib 2300 13 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=12.3381 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=3.59729e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.83407e+02   7.85853e+00   1.01053e-02   1.03202e-05
+   2  p1          -4.31974e-02   1.67306e-04   2.89833e-07   1.40215e+00
+   3  p2           3.94801e-03   2.11982e-04   2.67085e-07  -4.93483e-01
+Running: ../calib 2300 13 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.0469 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=7.07513e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.27951e+02   8.41002e+00   7.06035e-03  -4.23188e-05
+   2  p1          -3.74159e-02   2.23431e-04   1.67086e-07   2.46880e+00
+   3  p2           4.05486e-03   2.22166e-04   1.37755e-07  -7.69417e+00
+Running: ../calib 2300 13 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.65373 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=6.39246e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.16298e+02   8.49460e+00   8.35382e-03   1.34767e-06
+   2  p1          -4.12888e-02   1.75582e-04   2.03651e-07  -1.27535e-01
+   3  p2           3.96027e-03   2.06026e-04   1.80952e-07   2.34708e-01
+Running: ../calib 2300 13 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.23461 FROM MIGRAD    STATUS=CONVERGED      78 CALLS          79 TOTAL
+                     EDM=1.71002e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.90130e+02   7.99988e+00   7.87840e-03  -7.31060e-05
+   2  p1          -3.85667e-02   1.85629e-04   2.53993e-07   1.98802e+00
+   3  p2           4.31670e-03   2.64319e-04   2.55821e-07  -8.77621e-01
+Running: ../calib 2300 13 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.24658 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.59384e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.01640e+02   1.15391e+01   1.03215e-02   4.90938e-05
+   2  p1          -4.01348e-02   1.09226e-04   1.27470e-07  -2.40606e+00
+   3  p2           3.80812e-03   1.29175e-04   1.11860e-07   4.64915e-01
+Running: ../calib 2300 13 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.68911 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=2.04652e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.53728e+02   1.21264e+01   1.12730e-02   1.03134e-05
+   2  p1          -3.86711e-02   1.11566e-04   1.29708e-07  -5.54172e+00
+   3  p2           3.92939e-03   1.31058e-04   1.14629e-07   4.62790e+00
+Running: ../calib 2300 13 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.40304 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=9.02265e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.48993e+02   1.10363e+01   1.04223e-02   5.12677e-05
+   2  p1          -3.68131e-02   1.14458e-04   1.50551e-07   6.89190e-01
+   3  p2           3.84422e-03   1.47679e-04   1.38539e-07   3.59444e+00
+Running: ../calib 2300 14 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.67648 FROM MIGRAD    STATUS=CONVERGED      78 CALLS          79 TOTAL
+                     EDM=9.35789e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.49310e+02   1.05957e+01   7.94632e-03   4.42550e-05
+   2  p1          -3.50348e-02   1.43182e-04   1.50797e-07  -1.10835e+00
+   3  p2           4.50651e-03   2.08208e-04   1.55938e-07   2.60886e+00
+Running: ../calib 2300 14 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.65457 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=2.89635e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.73968e+02   1.08461e+01   1.21406e-02  -1.02738e-05
+   2  p1          -3.24283e-02   1.93586e-04   2.70852e-07  -7.54365e-01
+   3  p2           5.17608e-03   3.00241e-04   3.06215e-07  -6.20152e-01
+Running: ../calib 2300 14 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.71892 FROM MIGRAD    STATUS=CONVERGED      75 CALLS          76 TOTAL
+                     EDM=6.77719e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.39367e+02   1.03962e+01   1.01183e-02   4.07910e-06
+   2  p1          -2.66198e-02   1.55281e-04   1.95618e-07  -3.52043e-02
+   3  p2           4.50012e-03   2.13391e-04   1.96848e-07   2.42549e-01
+Running: ../calib 2300 14 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.35101 FROM MIGRAD    STATUS=CONVERGED      97 CALLS          98 TOTAL
+                     EDM=4.88697e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.81264e+01   4.86433e+00   5.21140e-03  -2.15497e-04
+   2  p1          -2.79243e-02   1.82140e-03   1.07302e-06   6.41049e-01
+   3  p2           8.98329e-03   2.87974e-03   1.55881e-06  -2.96937e-01
+Running: ../calib 2300 14 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.72882 FROM MIGRAD    STATUS=CONVERGED      78 CALLS          79 TOTAL
+                     EDM=3.17178e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.68785e+02   7.27129e+00   8.33351e-03   6.26125e-07
+   2  p1          -2.52319e-02   2.47852e-04   3.44851e-07  -2.61437e-02
+   3  p2           4.65752e-03   3.35228e-04   3.48012e-07   7.23417e-02
+Running: ../calib 2300 14 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.54618 FROM MIGRAD    STATUS=CONVERGED     112 CALLS         113 TOTAL
+                     EDM=1.20402e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.22496e+02   6.10339e+00   5.47846e-03  -3.22584e-06
+   2  p1          -3.14449e-02   7.12935e-04   9.08564e-07   1.90800e-02
+   3  p2           8.25546e-03   1.90435e-03   1.65201e-06   1.44736e-02
+Running: ../calib 2300 14 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.55694 FROM MIGRAD    STATUS=CONVERGED     101 CALLS         102 TOTAL
+                     EDM=2.31328e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.55466e+02   6.55723e+00   7.29172e-03  -1.62108e-06
+   2  p1          -3.70158e-02   3.62696e-04   3.19598e-07  -8.49083e-02
+   3  p2           4.70287e-03   3.70817e-04   2.79008e-07  -1.05083e-01
+Running: ../calib 2300 14 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.26671 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=8.05382e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.37597e+02   6.58161e+00   4.26239e-03  -3.08425e-05
+   2  p1          -3.79490e-02   2.80861e-04   1.92242e-07   1.82056e+00
+   3  p2           4.39377e-03   3.34198e-04   1.78541e-07  -1.18710e+00
+Running: ../calib 2300 14 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.95285 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=4.7821e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.52012e+02   6.86936e+00   4.93309e-03  -1.35590e-04
+   2  p1          -4.13633e-02   2.24403e-04   1.91731e-07   2.39195e+00
+   3  p2           4.23831e-03   2.70030e-04   1.76506e-07  -9.39334e-01
+Running: ../calib 2300 14 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.33644 FROM MIGRAD    STATUS=CONVERGED      74 CALLS          75 TOTAL
+                     EDM=8.74145e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.95160e+02   8.11803e+00   5.11080e-03  -9.11141e-05
+   2  p1          -4.05876e-02   1.73469e-04   1.52845e-07   5.57042e+00
+   3  p2           4.18863e-03   2.40533e-04   1.50486e-07   5.25677e-01
+Running: ../calib 2300 14 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.80713 FROM MIGRAD    STATUS=CONVERGED      81 CALLS          82 TOTAL
+                     EDM=1.50178e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.31545e+02   8.60727e+00   5.94279e-03   2.40984e-04
+   2  p1          -3.50374e-02   1.57273e-04   1.49601e-07   9.32943e-02
+   3  p2           4.18480e-03   2.07596e-04   1.43348e-07   1.10394e+01
+Running: ../calib 2300 14 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=0.862651 FROM MIGRAD    STATUS=CONVERGED      97 CALLS          98 TOTAL
+                     EDM=5.92952e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.87135e+02   6.81221e+00   3.44518e-03  -7.84845e-06
+   2  p1          -3.42919e-02   8.02142e-04   2.82358e-07   1.90024e-01
+   3  p2           7.57475e-03   1.18862e-03   3.66016e-07  -6.34288e-02
+Running: ../calib 2300 14 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.8542 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=7.11914e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.05150e+02   8.10806e+00   7.34889e-03  -1.29263e-04
+   2  p1          -3.21530e-02   1.92862e-04   2.43561e-07  -3.48238e+00
+   3  p2           4.57108e-03   2.82582e-04   2.54303e-07  -5.37883e+00
+Running: ../calib 2300 14 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.68247 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=5.0935e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           4.36106e+02   1.19637e+01   6.91084e-03   4.79754e-05
+   2  p1          -3.08970e-02   1.12269e-04   8.74633e-08   5.07907e+00
+   3  p2           4.05727e-03   1.44120e-04   8.17557e-08  -1.60314e+00
+Running: ../calib 2300 14 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=6.59428 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=4.65403e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.04552e+02   1.30368e+01   1.25757e-02   6.25555e-06
+   2  p1          -3.27257e-02   1.05148e-04   1.35380e-07   3.74033e-02
+   3  p2           4.02335e-03   1.35529e-04   1.26656e-07   2.61654e+00
+Running: ../calib 2300 14 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=9.40085 FROM MIGRAD    STATUS=CONVERGED      84 CALLS          85 TOTAL
+                     EDM=1.63302e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.16896e+02   9.01500e+00   1.11315e-02  -6.20118e-06
+   2  p1          -3.04570e-02   5.42241e-04   3.48598e-07   5.27903e-03
+   3  p2           6.20552e-03   5.61905e-04   3.45798e-07   6.07968e-03
+Running: ../calib 2300 15 0
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=11.7741 FROM MIGRAD    STATUS=CONVERGED      79 CALLS          80 TOTAL
+                     EDM=1.45699e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.83625e+02   9.23183e+00   1.15796e-02  -4.62756e-06
+   2  p1          -3.50973e-02   2.64043e-04   3.50467e-07  -1.67841e-01
+   3  p2           5.30010e-03   3.72758e-04   3.81335e-07  -2.10140e-02
+Running: ../calib 2300 15 1
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=2.51918 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=1.40891e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.95810e+02   9.16345e+00   6.34155e-03   5.09196e-06
+   2  p1          -3.15615e-02   2.73019e-04   1.63466e-07   6.82068e-01
+   3  p2           5.02355e-03   3.16626e-04   1.57190e-07  -5.81885e-01
+Running: ../calib 2300 15 2
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.24359 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=4.00905e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.87859e+02   9.74685e+00   7.64284e-03  -2.01352e-05
+   2  p1          -2.68956e-02   1.66058e-04   1.77932e-07   9.95392e-01
+   3  p2           4.54493e-03   2.44236e-04   1.85757e-07   2.82417e+00
+Running: ../calib 2300 15 3
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.77977 FROM MIGRAD    STATUS=CONVERGED      62 CALLS          63 TOTAL
+                     EDM=9.87041e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           8.89357e+01   4.91015e+00   4.46084e-03   2.12595e-05
+   2  p1          -3.77413e-02   4.92668e-04   3.70719e-07  -1.31740e+00
+   3  p2           4.91778e-03   5.32830e-04   3.37971e-07   1.26816e+00
+Running: ../calib 2300 15 4
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=16.2429 FROM MIGRAD    STATUS=CONVERGED      97 CALLS          98 TOTAL
+                     EDM=1.79932e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.19958e+02   5.54851e+00   8.62693e-03  -1.01941e-04
+   2  p1          -2.26267e-02   1.45677e-03   9.22345e-07   1.15708e+00
+   3  p2           7.36208e-03   1.56259e-03   1.00401e-06  -8.49123e-01
+Running: ../calib 2300 15 5
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.51432 FROM MIGRAD    STATUS=CONVERGED      91 CALLS          92 TOTAL
+                     EDM=2.56632e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.22463e+02   5.94217e+00   4.32344e-03  -1.06220e-05
+   2  p1          -3.25971e-02   5.08801e-04   4.88105e-07  -9.85528e-02
+   3  p2           6.75220e-03   1.02111e-03   7.03127e-07  -2.30268e-02
+Running: ../calib 2300 15 6
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=5.59773 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=4.37961e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.20017e+02   6.25795e+00   5.49830e-03   3.88243e-05
+   2  p1          -3.73978e-02   2.73816e-04   3.23379e-07   1.14669e-01
+   3  p2           4.68057e-03   4.08209e-04   3.44007e-07   9.78698e-01
+Running: ../calib 2300 15 7
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.17198 FROM MIGRAD    STATUS=CONVERGED      62 CALLS          63 TOTAL
+                     EDM=1.56951e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.01752e+02   5.24455e+00   4.53232e-03   3.79913e-04
+   2  p1          -3.75608e-02   4.67797e-04   3.26111e-07  -1.46007e-01
+   3  p2           4.93202e-03   5.00478e-04   2.96594e-07   9.77423e-01
+Running: ../calib 2300 15 8
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.84906 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=3.16463e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.19375e+02   6.20404e+00   4.71483e-03   3.30358e-05
+   2  p1          -3.58132e-02   2.65509e-04   2.73692e-07  -6.16464e-01
+   3  p2           4.63551e-03   3.90659e-04   2.88130e-07   8.61669e-01
+Running: ../calib 2300 15 9
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=7.37239 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=4.98596e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.72260e+02   7.56097e+00   7.36691e-03   1.51589e-05
+   2  p1          -3.78672e-02   2.24197e-04   3.16331e-07  -9.17239e-01
+   3  p2           4.79498e-03   3.62564e-04   3.53059e-07  -4.22133e-01
+Running: ../calib 2300 15 10
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=14.8164 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.05388e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.89964e+02   7.71316e+00   1.05965e-02   1.64579e-04
+   2  p1          -3.22272e-02   2.27702e-04   4.25662e-07  -2.24507e+00
+   3  p2           4.88096e-03   3.46616e-04   4.64496e-07  -7.17314e-01
+Running: ../calib 2300 15 11
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=3.67291 FROM MIGRAD    STATUS=CONVERGED      68 CALLS          69 TOTAL
+                     EDM=8.93558e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.80624e+02   7.37737e+00   5.55871e-03   2.94490e-05
+   2  p1          -2.80291e-02   2.84183e-04   2.67587e-07   1.19828e+00
+   3  p2           5.28688e-03   4.38284e-04   3.04045e-07   4.66320e-01
+Running: ../calib 2300 15 12
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=1.37235 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=3.14429e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.62109e+02   7.00472e+00   3.83049e-03   5.15796e-05
+   2  p1          -4.14809e-02   2.63872e-04   1.71703e-07  -3.39485e+00
+   3  p2           4.77855e-03   3.56064e-04   1.75057e-07   2.21596e+00
+Running: ../calib 2300 15 13
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=10.778 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=1.17132e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.09208e+02   9.93700e+00   1.21022e-02   1.17856e-05
+   2  p1          -3.81672e-02   1.67022e-04   2.41387e-07  -8.38379e-01
+   3  p2           4.36254e-03   2.11345e-04   2.30811e-07   1.02179e+00
+Running: ../calib 2300 15 14
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=12.2642 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=6.15429e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.68354e+02   1.07040e+01   1.36988e-02  -4.64969e-07
+   2  p1          -3.84726e-02   1.76509e-04   2.63486e-07   6.62924e+00
+   3  p2           4.71364e-03   2.36565e-04   2.66254e-07  -5.46177e-01
+Running: ../calib 2300 15 15
+Total entry: 374878
+Analyzed entry:0Analyzed entry:100000Analyzed entry:200000Analyzed entry:300000 FCN=4.83507 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=8.51827e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.03456e+02   9.76780e+00   8.26100e-03   4.27250e-05
+   2  p1          -3.90014e-02   1.60361e-04   1.84360e-07   2.57076e-01
+   3  p2           4.56851e-03   2.28618e-04   1.89828e-07   2.13859e-02

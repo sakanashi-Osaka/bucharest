@@ -263,8 +263,9 @@ double astrac(double ene,double thick, double tthick);
 double tmp(double thetacm_i, double thetacm_f, int n_div, int i_div);
 int get_fch(double r);
 int get_rch(double theta);
-std::pair<double,double> get_pos(double r, double theta);
+std::pair<double,double> get_pos(int fch, int rch);
 std::pair<int,int> get_ch(double r, double theta, double x, double y);
+std::pair<int,int> get_ch_12C(double r, double theta, double x, double y);
 double tmp_func_mean(double x, int fch, int rch);
 double tmp_func_sigma(double x, int fch, int rch);
 
@@ -280,7 +281,8 @@ double ps1[16][16];
 double ps2[16][16];
 double ps3[16][16];
 
-
+bool flag_strip = false;
+bool flag_strip1 = false;
 
 
 int main(int argc, char *argv[]){
@@ -300,14 +302,15 @@ int main(int argc, char *argv[]){
   ssim.a1=4;    /* mass numbers of beam particle*/
   
   ssim.thSi=0; /* Angle of Si in degree */
-  ssim.dSi=41.0; /* distance between target and Si in mm */
-  //  ssim.dSi=40.0; /* distance between target and Si in mm */
+  ssim.dSi=41; /* distance between target and Si in mm */
+  //   ssim.dSi=40.0; /* distance between target and Si in mm */
   ssim.diaSi=96; /* diameter of Si in mm */
   ssim.innSi=48; /* inner of Si in mm */
   ssim.nxSi=16*4; /* Number of horizontal strips in Si */
   ssim.nySi=16; /* Number of vertical strips in Si */
   ssim.thrSi=ssim.thSi*D_TO_R;   /* Angle of Si in radian */
-  ssim.tdeadSi=0.4;  /* Dead layer in Si in um */
+  //  ssim.tdeadSi=0.4;  /* Dead layer in Si in um */
+  ssim.tdeadSi=0.55;  /* Dead layer in Si in um */
 
   ssim.sigK1=0.02;  /* Energy spread of the beam in MeV */
   ssim.sigthr1=0.2*D_TO_R; /* In-plane angular spread of the beam in radian */ 
@@ -485,8 +488,10 @@ int main(int argc, char *argv[]){
   tree->Branch("m12CchR",&ssim.isy12CSi,"7_m12CchR/I");
   tree->Branch("mAmax12C",&ssim.mAmax12C,"7_mAmax12C/D");
 
+  tree->Branch("flag_strip",&flag_strip,"flag_strip/B");
+  tree->Branch("flag_strip1",&flag_strip1,"flag_strip1/B");
   
-  //  int nev=5e5;
+  //  int nev=5e6;
   int nev=1e6;
 
   
@@ -522,10 +527,10 @@ int main(int argc, char *argv[]){
   
   srand48(time(NULL));  
   for(int iev=0;iev<nev*2;iev++){
-
+    //    cout << iev << endl;
     if(iev%10000==0) {
-      std::cout << iev << " event finished" << endl;
-      std::cout << std::flush; 
+      std::cout << iev << " event finished ("<< (int)(iev*100/nev/2) <<"%)";
+      std::cout << "\r" << std::flush; 
     }
     ssim.sx1=0; ssim.sy1=0;
     ssim.sdep1=0;
@@ -590,6 +595,8 @@ int main(int argc, char *argv[]){
 	}
       }
     }
+    flag_strip = false;
+    flag_strip1 = false;
     
     /** Create 4He Beam ***********************************************/
     create4He(&kine,&ssim); /* Up to the collision point */
@@ -612,16 +619,16 @@ int main(int argc, char *argv[]){
     detect4He(&kine,&ssim);
 
     /** 3a detection *******************************************/
-    detect3a(&kine,&ssim);
-    hit3a(&kine,&ssim);
-        
+    //    detect3a(&kine,&ssim);
+    //    hit3a(&kine,&ssim);
     /** 12C gamma decay *******************************************/
     decay12C(&kine,&ssim);
 
     /** 12C detection *******************************************/
     detect12C(&kine,&ssim);
+    //    cout << "b" << flag_strip1 << endl;
 
-    culc_Amax(&kine,&ssim);
+    //    culc_Amax(&kine,&ssim);
     
     tree->Fill();
   }
@@ -1134,15 +1141,15 @@ int detect4He(struct skine *k, struct ssimval *s){
 
     if((tmpr < s->diaSi/2) && (tmpr > s->innSi/2)){
       s->idp4He=1;
-      s->isx4HeSi=get_fch(tmpr);
-      s->isy4HeSi=get_rch(tmptheta);
+      //      s->isx4HeSi=get_fch(tmpr);
+      //      s->isy4HeSi=get_rch(tmptheta);
       s->isx4HeSi=get_ch(tmpr,tmptheta,s->s4Hepos[0],s->s4Hepos[1]).first;
       s->isy4HeSi=get_ch(tmpr,tmptheta,s->s4Hepos[0],s->s4Hepos[1]).second;
       //      printf("x,y:%d,%d,%d,%d\n",15-s->isx4HeSi%16,s->isy4HeSi,tmp0,tmp1);
       
       s->m4Hepos[0][2]=s->s4Hepos[2];
-      s->m4Hepos[0][0]=get_pos(tmpr,tmptheta).first;
-      s->m4Hepos[0][1]=get_pos(tmpr,tmptheta).second;
+      s->m4Hepos[0][0]=get_pos(s->isx4HeSi,s->isy4HeSi).first;
+      s->m4Hepos[0][1]=get_pos(s->isx4HeSi,s->isy4HeSi).second;
       rotvec(s->m4Hepos[0],s->m4Hepos[1],1,s->thrSi);
       //      printf("posx, posy : %f, %f %f %f\n",s->m4Hepos[0][0],s->m4Hepos[0][1],tmp2,tmp3);
 
@@ -1235,12 +1242,11 @@ double decay12C(struct skine *k, struct ssimval *s){
     s->sphrC[i]=s->sphC[i]*D_TO_R;
     s->sKC[i]=s->scvec[i][0]-sqrt(scapro4(s->scvec[i],s->scvec[i]));
     s->spC[i]=sqrt(scapro(&s->scvec[i][1],&s->scvec[i][1]));
-    cout << segc << endl;
-    cout << s->sgvec[i-1][0] << " " << s->sgvec[i-1][1] << " " << s->sgvec[i-1][2] << " " << s->sgvec[i-1][3] << endl; 
-    cout << s->sKC[i-1] << endl;
-    cout << s->scvec[i-1][0] << " " << s->scvec[i-1][1] << " " << s->scvec[i-1][2] << " " << s->scvec[i-1][3] << endl; 
+    //    cout << segc << endl;
+    //    cout << s->sgvec[i-1][0] << " " << s->sgvec[i-1][1] << " " << s->sgvec[i-1][2] << " " << s->sgvec[i-1][3] << endl; 
+    //    cout << s->sKC[i-1] << endl;
+    //    cout << s->scvec[i-1][0] << " " << s->scvec[i-1][1] << " " << s->scvec[i-1][2] << " " << s->scvec[i-1][3] << endl; 
   }
-
   
   return(s->sKC[i]);
 }
@@ -1279,14 +1285,16 @@ int detect12C(struct skine *k, struct ssimval *s){
 
     if((tmpr < s->diaSi/2) && (tmpr > s->innSi/2)){
       s->idp12C=1;
-      s->isx12CSi=get_fch(tmpr); 
-      s->isy12CSi=get_rch(tmptheta); 
-      s->isx12CSi=get_ch(tmpr,tmptheta,s->s12Cpos[0],s->s12Cpos[1]).first;
-      s->isy12CSi=get_ch(tmpr,tmptheta,s->s12Cpos[0],s->s12Cpos[1]).second;
+      //      s->isx12CSi=get_fch(tmpr); 
+      //      s->isy12CSi=get_rch(tmptheta); 
+      //      cout << "a" << flag_strip1 << endl;
+      s->isx12CSi=get_ch_12C(tmpr,tmptheta,s->s12Cpos[0],s->s12Cpos[1]).first;
+      s->isy12CSi=get_ch_12C(tmpr,tmptheta,s->s12Cpos[0],s->s12Cpos[1]).second;
+      //      cout << "a" << flag_strip1 << endl;
 
       s->m12Cpos[0][2]=s->s12Cpos[2];
-      s->m12Cpos[0][0]=get_pos(tmpr,tmptheta).first;
-      s->m12Cpos[0][1]=get_pos(tmpr,tmptheta).second; 
+      s->m12Cpos[0][0]=get_pos(s->isx12CSi,s->isy12CSi).first;
+      s->m12Cpos[0][1]=get_pos(s->isx12CSi,s->isy12CSi).second;
       rotvec(s->m12Cpos[0],s->m12Cpos[1],1,s->thrSi);
       
       double tmppos[3]; 
@@ -1399,14 +1407,14 @@ int detect3a(struct skine *k, struct ssimval *s){
       
       if((tmpr[j] < s->diaSi/2) && (tmpr[j] > s->innSi/2)){
 	s->idp3a[j]=1;
-      	s->isx3aSi[j]=get_fch(tmpr[j]);
-      	s->isy3aSi[j]=get_rch(tmptheta);
-	s->isx3aSi[j]=get_ch(tmpr[j],tmptheta,s->s3apos[j][0],s->s3apos[j][1]).first;
-	s->isy3aSi[j]=get_ch(tmpr[j],tmptheta,s->s3apos[j][0],s->s3apos[j][1]).second;
+	//      	s->isx3aSi[j]=get_fch(tmpr[j]);
+	//      	s->isy3aSi[j]=get_rch(tmptheta);
+	s->isx3aSi[j]=get_ch_12C(tmpr[j],tmptheta,s->s3apos[j][0],s->s3apos[j][1]).first;
+	s->isy3aSi[j]=get_ch_12C(tmpr[j],tmptheta,s->s3apos[j][0],s->s3apos[j][1]).second;
       
       	s->m3apos[0][j][2]=s->s3apos[j][2];
-      	s->m3apos[0][j][0]=get_pos(tmpr[j],tmptheta).first;
-      	s->m3apos[0][j][1]=get_pos(tmpr[j],tmptheta).second;
+	s->m3apos[0][j][0]=get_pos(s->isx3aSi[j],s->isy3aSi[j]).first;
+	s->m3apos[0][j][1]=get_pos(s->isx3aSi[j],s->isy3aSi[j]).second;
 	rotvec(s->m3apos[0][j],s->m3apos[1][j],1,s->thrSi);
       
 	double tmppos[3][3]; 
@@ -1803,7 +1811,9 @@ double tmp(double thetacm_i=40., double thetacm_f=75., int n_div=350, int i_div=
   return num;
 }
 
+
 ///// for Si /////
+
 int get_fch(double r){
   double r_in = 24.0;
   double r_out = 48.0;
@@ -1816,23 +1826,57 @@ int get_rch(double theta){
   rear_ch = ((int)((360+theta*R_TO_D-90)/22.5))%16;
   return rear_ch;
 }
-std::pair<double,double> get_pos(double r, double theta){
-  int fch = get_fch(r);
-  int rch = get_rch(theta);
+
+std::pair<int,int> get_ch(double r, double theta, double x, double y){
+  double fch,rch;
+  fch=get_fch(r);  // true circle assumption
+  rch=get_rch(theta);
+  
+  double d = (45.74-24.)*tan(9.939*D_TO_R);
+  if(abs(y)<(abs(x)-24)*tan(9.939*D_TO_R)){
+    for(int i=0; i<13; i++){
+      if(d/13.*i < abs(y) && abs(y) <= d/13.*(i+1)) fch = 15-i;
+      flag_strip = true;
+    }
+  }
+  if(abs(x)>45.74){
+    fch=-10; rch=-10;
+    flag_strip = false;
+  }  
+
+  return std::make_pair(fch,rch);
+}
+
+std::pair<int,int> get_ch_12C(double r, double theta, double x, double y){
+  double fch,rch;
+  fch=get_fch(r);  // true circle assumption
+  rch=get_rch(theta);
+
+  //  cout << flag_strip1 << endl;
+  
+  double d = (45.74-24.)*tan(9.939*D_TO_R);
+  if(abs(y)<(abs(x)-24)*tan(9.939*D_TO_R)){
+    for(int i=0; i<13; i++){
+      if(d/13.*i < abs(y) && abs(y) <= d/13.*(i+1)) fch = 15-i;
+      flag_strip1 = true;
+    }
+  }
+  //  cout << flag_strip1 << endl;
+  if(abs(x)>45.74){
+    fch=-10; rch=-10;
+      flag_strip1 = false;
+  }  
+  //  cout << flag_strip1 << endl;
+  //  cout << endl;
+  
+  return std::make_pair(fch,rch);
+}
+
+
+std::pair<double,double> get_pos(int fch,int rch){
   double x=-100;
   double y=-100;
   if(fch>-1 && rch>-1) x = (48-1.5*(double)fch-0.75) * cos((90+22.5*(double)rch+11.25)*D_TO_R);
   if(fch>-1 && rch>-1) y = (48-1.5*(double)fch-0.75) * sin((90+22.5*(double)rch+11.25)*D_TO_R);
   return std::make_pair(x,y);
-}
-std::pair<int,int> get_ch(double r, double theta, double x, double y){
-  double fch,rch;
-  fch=get_fch(r);  // true circle assumption
-  rch=get_rch(theta);
-  //  if(abs(theta*R_TO_D)<4.762 || abs(theta*R_TO_D-180)<4.762) fch=-1; 
-  if(abs(y)<(abs(x)-24)*tan(9.939*D_TO_R)) fch=-1;
-  if(abs(x)>45.74){
-    fch=-10; rch=-10;
-  }
-  return std::make_pair(fch,rch);
 }

@@ -1,0 +1,65 @@
+void hist_Dron_tmp() {
+    // ROOTファイルを開く
+    TFile *file1 = TFile::Open("rootfile/Dron_2236_2239.root");
+    TFile *file2 = TFile::Open("rootfile/Dron13C_all.root");
+    TFile *file3 = TFile::Open("rootfile/Dronb_all.root");
+
+    if (!file1 || !file2 || !file3) {
+        std::cerr << "Error: One or more files could not be opened!" << std::endl;
+        return;
+    }
+
+    // ツリーを取得
+    TTree *tree1 = (TTree*)file1->Get("tree");
+    TTree *tree2 = (TTree*)file2->Get("tree");
+    TTree *tree3 = (TTree*)file3->Get("tree");
+
+    if (!tree1 || !tree2 || !tree3) {
+        std::cerr << "Error: One or more trees could not be found!" << std::endl;
+        return;
+    }
+
+    // ヒストグラムを生成
+    TH1F *h12C = new TH1F("h12C", "h12C", 200, 6.5, 8.5);
+    TH1F *h13C = new TH1F("h13C", "h13C", 200, 6.5, 8.5);
+    TH1F *hb = new TH1F("hb", "hb", 200, 6.5, 8.5);
+
+    // ヒストグラムにデータを描画
+    tree1->Draw("Ex4He>>h12C", "abs(Amax4He)<0.015 && chf4He<14", "goff");
+    tree2->Draw("Ex4He>>h13C", "abs(Amax4He)<0.015 && chf4He<14", "goff");
+    tree3->Draw("Ex4He>>hb", "abs(Amax4He)<0.015 && chf4He<14", "goff");
+
+    // フィット関数に必要なヒストグラムのスケーリングを計算
+    TH1F *scaled_h13C = (TH1F*)h13C->Clone("scaled_h13C");
+    TH1F *scaled_hb = (TH1F*)hb->Clone("scaled_hb");
+    scaled_h13C->Scale(0.01); // 初期スケール
+    scaled_hb->Scale(0.2);    // 初期スケール
+
+    // ガウス関数を定義
+    TF1 *fGaussian1 = new TF1("fGaussian1", "[0]*exp(-0.5*((x-[1])/[2])^2)", 6.5, 8.5);
+    TF1 *fGaussian2 = new TF1("fGaussian2", "[0]*exp(-0.5*((x-[1])/[2])^2)", 6.5, 8.5);
+
+    fGaussian1->SetParameters(1000, 7.6, 0.1); // 振幅, 平均, 標準偏差
+    fGaussian2->SetParameters(100, 7.9, 0.2);  // 振幅, 平均, 標準偏差
+
+    // フィット
+    h12C->Add(scaled_h13C);
+    h12C->Add(scaled_hb);
+    h12C->Fit(fGaussian1, "R+");
+    h12C->Fit(fGaussian2, "R+");
+
+    // 結果を描画
+    TCanvas *c1 = new TCanvas("c1", "Fit Results", 800, 600);
+    h12C->Draw("E");
+    scaled_h13C->SetLineColor(kBlue);
+    scaled_h13C->Draw("same hist");
+
+    scaled_hb->SetLineColor(kGreen);
+    scaled_hb->Draw("same hist");
+
+    fGaussian1->SetLineColor(kMagenta);
+    fGaussian1->Draw("same");
+
+    fGaussian2->SetLineColor(kOrange);
+    fGaussian2->Draw("same");
+}

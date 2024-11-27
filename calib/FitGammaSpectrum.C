@@ -1,0 +1,117 @@
+void FitGammaSpectrum() {
+    // 入力ヒストグラムの取得
+    TH1F *h = (TH1F*)gDirectory->Get("h");
+    if (!h) {
+        std::cerr << "Histogram 'h' not found. Make sure it exists before running this macro." << std::endl;
+        return;
+    }
+
+    // フィット範囲の設定
+    double fitMin = 3.13;
+    double fitMax = 3.35;
+
+    // ガウス分布の定義
+    TF1 *fitFunc = new TF1("fitFunc", 
+        "[0]*3.21*TMath::Gaus(x, [1]*3.202, [2]) + "  // 1つ目のガウス
+        "[0]*7.92*TMath::Gaus(x, [1]*3.253, [2]) + "  // 2つ目のガウス
+        "[0]*1.88*TMath::Gaus(x, [1]*3.273, [2])",    // 3つ目のガウス
+        fitMin, fitMax);
+
+    TF1 *f0 = new TF1("f0","[0]*TMath::Gaus(x,[1],[2])",1.72,1.83);
+    TF1 *f1 = new TF1("f1","[0]*TMath::Gaus(x,[1],[2])",2.55,2.66);
+    TF1 *f2 = new TF1("f2","[0]*TMath::Gaus(x,[1],[2])",1.19,1.29);
+    
+    // 初期パラメータの設定
+    double aInit = 0.001; // スケールファクターの初期値
+    fitFunc->SetParameter(0, 500);         
+    fitFunc->SetParameter(1, 1);         
+    fitFunc->SetParameter(2, 0.03);
+
+    f0->SetParameter(0, 1000);
+    f0->SetParameter(1, 1.75);
+    f0->SetParameter(2, 0.03);
+
+    f1->SetParameter(0, 1000);
+    f1->SetParameter(1, 2.65);
+    f1->SetParameter(2, 0.03);
+
+    f2->SetParameter(0, 5000);
+    f2->SetParameter(1, 1.2);
+    f2->SetParameter(2, 0.03);
+
+    
+    // フィットの実行
+    h->Fit(fitFunc, "R");
+    h->Fit(f0, "R");
+    h->Fit(f1, "R");
+    h->Fit(f2, "R");
+
+    
+    // 結果の表示
+    fitFunc->Print();
+
+
+// フィットされたパラメータの取得
+    double norm = fitFunc->GetParameter(0);
+    double a = fitFunc->GetParameter(1);
+    double sigma = fitFunc->GetParameter(2);
+
+    // 各ガウス分布を描画するためのTGraph
+    const int nPoints = 100; // データポイント数
+    double xVals[nPoints];
+    double yVals1[nPoints], yVals2[nPoints], yVals3[nPoints];
+
+    double step = (fitMax - fitMin) / (nPoints - 1);
+
+    for (int i = 0; i < nPoints; ++i) {
+        double x = fitMin + i * step;
+        xVals[i] = x;
+        yVals1[i] = norm * 3.21 * TMath::Gaus(x, a * 3.202, sigma);
+        yVals2[i] = norm * 7.92 * TMath::Gaus(x, a * 3.253, sigma);
+        yVals3[i] = norm * 1.88 * TMath::Gaus(x, a * 3.273, sigma);
+    }
+
+    TGraph *g1 = new TGraph(nPoints, xVals, yVals1);
+    TGraph *g2 = new TGraph(nPoints, xVals, yVals2);
+    TGraph *g3 = new TGraph(nPoints, xVals, yVals3);
+
+    // スタイル設定（任意で変更可能）
+    g1->SetLineColor(kRed);
+    g1->SetLineStyle(2);
+    g1->SetLineWidth(2);
+
+    g2->SetLineColor(kBlue);
+    g2->SetLineStyle(2);
+    g2->SetLineWidth(2);
+
+    g3->SetLineColor(kGreen);
+    g3->SetLineStyle(2);
+    g3->SetLineWidth(2);
+
+    // ヒストグラムとフィット結果を描画
+    TCanvas *c = new TCanvas("c", "Gamma Spectrum Fit", 800, 600);
+    h->Draw();
+    fitFunc->Draw("same");
+    f0->Draw("same"); 
+    f1->Draw("same"); 
+    f2->Draw("same"); 
+
+    // 各ガウス分布を重ね書き
+    g1->Draw("L same");
+    g2->Draw("L same");
+    g3->Draw("L same");
+
+    // 凡例の追加
+    /*
+    TLegend *legend = new TLegend(0.7, 0.7, 0.9, 0.9);
+    legend->AddEntry(h, "Data", "l");
+    legend->AddEntry(fitFunc, "Total Fit", "l");
+    legend->AddEntry(g1, "Gaussian 1", "l");
+    legend->AddEntry(g2, "Gaussian 2", "l");
+    legend->AddEntry(g3, "Gaussian 3", "l");
+    legend->Draw();
+    */
+}
+
+
+

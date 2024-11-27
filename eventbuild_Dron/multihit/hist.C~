@@ -1,0 +1,5 @@
+{
+  event->Draw("Amax[4][8]:Energy[4][8]>>h1(100,1,10,100,0.2,0.8)","Energy[9][2]>0.5 && abs(Energy[9][2]-Energy[4][8])<0.5","col",1e7); //1vs1event (1hit)
+  event->Draw("Amax[4][8]:Energy[4][8]>>h2(100,1,10,100,0.2,0.8)","Energy[9][2]>0.5 && Energy[9][3]>0.5 && abs(Energy[9][2]+Energy[9][3]-Energy[4][8])<0.5","col"); //1vs2event (2hit)
+
+}

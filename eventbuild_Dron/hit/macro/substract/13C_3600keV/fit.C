@@ -1,0 +1,44 @@
+{
+  TCanvas *c = new TCanvas("c","c",700,700);
+  TH1D *h = new TH1D("h","h",200,1,5);                                                        
+  h->SetLineColor(4);
+
+  bool flag_bg = 1;
+  bool flag_12C = 1;
+
+  double pb0, pb1, pb2, pb3, pb4, pb5;
+  double p12C0, p12C1, p12C2, p12C3, p12C4, p12C5;
+
+  TFile f12C("hist12C.root");  
+  h12C_Kg->SetLineColor(1); 
+  h12C_Kg->SetLineWidth(2);
+  h12C_Kg->Draw("");
+
+  TFile f13C("hist13C.root");  
+  h->Add(h13C_Kg,0.175);
+
+  TFile fb("histb.root");
+  h->Add(hb_Kg,3);
+  h->SetLineWidth(2);
+  h->Draw("same");
+
+  
+  TCanvas *c1 = new TCanvas("c1","c1",700,700);
+
+  TFile f12Ca("hist12C.root");  
+  h12C_Kg->SetLineColor(1);
+  h12C_Kg->SetLineWidth(2);
+  h12C_Kg->Draw("");
+  
+  TFile f13Ca("hist13C.root");  
+  TH1D *h13 = new TH1D("h13","h13",200,1,5);
+  h13->SetLineColor(3);
+  h13->Add(h13C_Kg,0.1);
+  h13->SetLineWidth(2);
+  h13->Draw("same");
+  
+  TFile fba("histb.root");
+  hb_Kg->SetLineColor(2);
+  hb_Kg->SetLineWidth(2);
+  hb_Kg->Draw("same");
+}

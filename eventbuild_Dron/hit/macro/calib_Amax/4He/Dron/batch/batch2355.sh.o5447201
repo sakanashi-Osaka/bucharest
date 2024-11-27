@@ -1,0 +1,743 @@
+Running: ../calib 2355 0 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 5
+Total entry: 417
+Analyzed entry:0 FCN=2.02671e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05245e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.94988e-06
+   2  p1           4.88603e-02   7.25545e-01   1.02292e-06   1.77287e-04
+   3  p2           5.56759e-03   4.43710e+00   9.80578e-06  -1.94394e-05
+Running: ../calib 2355 0 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 0 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 1 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 4
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           3.53603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 2 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 2 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 3 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 4 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 5 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 10
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.03603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 6 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 6 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 7 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 8 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 12
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           1.88603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 9 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 9 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 0
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.03603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 10 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 6
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           3.83603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 10 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 10
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           1.73603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 10 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 10 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 4
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.93603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 11 5
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           3.38603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 11 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 11
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           9.86028e-03   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 11 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 11 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 1
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.18603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 12 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 7
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.93603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 12 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 12
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           1.58603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 12 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 12 14
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1          -1.71397e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 12 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 1
+Total entry: 417
+Analyzed entry:0 FCN=2.36448e-09 FROM MIGRAD    STATUS=CONVERGED      64 CALLS          65 TOTAL
+                     EDM=4.72574e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.07679e+00   9.98323e+00   3.71787e-04  -9.62520e-05
+   2  p1           1.45003e-02   1.07728e-02   5.25146e-06   5.94842e-03
+   3  p2           5.84805e-03   3.66184e-01   1.36738e-05  -2.62883e-03
+Running: ../calib 2355 13 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 3
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 4
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 5
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 6
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.03603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 13 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 12
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 13 15
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 0
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 1
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 2
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           1.88603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 14 3
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.18603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 14 4
+Total entry: 417
+Analyzed entry:0 FCN=8.6489e-08 FROM MIGRAD    STATUS=CONVERGED      57 CALLS          58 TOTAL
+                     EDM=1.73049e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.03392e+00   7.10738e+00   3.57069e-04   1.94344e-04
+   2  p1           3.17455e-02   1.59287e-02   7.60934e-06  -3.58278e-02
+   3  p2           5.81152e-03   6.00258e-01   2.79125e-05   2.24324e-03
+Running: ../calib 2355 14 5
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.93603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 14 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 7
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 9
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 11
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           1.58603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 14 12
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.63603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 14 13
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 14 15
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.33603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 15 0
+Total entry: 417
+Analyzed entry:0 FCN=8.63056e-08 FROM MIGRAD    STATUS=CONVERGED      38 CALLS          39 TOTAL
+                     EDM=1.74326e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00835e+00   2.36572e+00   3.49173e-04  -8.23876e-04
+   2  p1           1.00000e-02   3.10165e-02   9.53019e-06  -1.51407e-14
+   3  p2           5.74344e-03   7.75629e-01   1.14233e-04  -2.47135e-03
+Running: ../calib 2355 15 1
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           3.08603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 15 2
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 15 3
+Total entry: 417
+Analyzed entry:0 FCN=8.63056e-08 FROM MIGRAD    STATUS=CONVERGED      38 CALLS          39 TOTAL
+                     EDM=1.74326e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00835e+00   2.36572e+00   3.49173e-04  -8.23876e-04
+   2  p1           1.60000e-02   3.10165e-02   9.53019e-06  -1.51407e-14
+   3  p2           5.74344e-03   7.75629e-01   1.14233e-04  -2.47135e-03
+Running: ../calib 2355 15 4
+Total entry: 417
+Analyzed entry:0 FCN=2.19695e-09 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=4.43055e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.41430e+00   4.25206e+01   6.80127e-04   1.52719e-05
+   2  p1           2.16718e-02   1.75277e-01   1.29529e-06   2.01431e-02
+   3  p2           4.20144e-03   9.00313e-02   1.11672e-06   3.19508e-02
+Running: ../calib 2355 15 5
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.18603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 15 6
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 15 7
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           3.98603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 15 8
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 15 9
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           3.53603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 15 10
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 15 11
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 15 12
+Total entry: 417
+Analyzed entry:0 FCN=2.02693e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          67 TOTAL
+                     EDM=4.05288e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95036e-06
+   2  p1          -3.63971e-03   7.25531e-01   1.02290e-06   1.77300e-04
+   3  p2           5.56761e-03   4.43698e+00   9.80518e-06  -1.94413e-05
+Running: ../calib 2355 15 13
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1           2.33603e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05
+Running: ../calib 2355 15 14
+Total entry: 417
+Analyzed entry:0Running: ../calib 2355 15 15
+Total entry: 417
+Analyzed entry:0 FCN=2.02679e-11 FROM HESSE     STATUS=NOT POSDEF     16 CALLS          69 TOTAL
+                     EDM=4.05259e-11    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00602e+00   1.31701e+01   9.82350e-05  -8.95004e-06
+   2  p1          -3.06397e-02   7.25540e-01   1.02291e-06   1.77291e-04
+   3  p2           5.56760e-03   4.43706e+00   9.80558e-06  -1.94400e-05

@@ -16,6 +16,7 @@
 #include <TTree.h>
 #include <TFile.h>
 #include <TMath.h>
+#include <TRandom3.h>
 
 using namespace std; 
 
@@ -186,9 +187,11 @@ int main(int argc, char *argv[]){
   //  TFile *fout =new TFile(Form("rootfile/acci%d.root",atoi(argv[1])),"recreate");
   TFile *fout =new TFile(Form("rootfile/gamma%d.root",atoi(argv[1])),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/single%d.root",atoi(argv[1])),"recreate");
-  //  TFile *fout =new TFile(Form("rootfile/gomi%d.root",atoi(argv[1])),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/gomi.root",atoi(argv[1])),"recreate");
   TTree *tree = new TTree("tree","tree"); 
 
+  TRandom3 random_gen;
+  
   //branch
   double K4He;
   double Ex4He;
@@ -351,8 +354,10 @@ int main(int argc, char *argv[]){
       th4He = tmp_theta *180/PI;
       ph4He = tmp_phi *180/PI;
 
+      double e_randam = random_gen.Uniform(-0.01, 0.01);
+      
       for(int i=0; i<2; i++){
-	Kg[i] = Gamma[i];
+	Kg[i] = Gamma[i] + e_randam;
 	chg[i] = get_g_slot(ch_g[i]);
 	thg[i] = get_g_angle(chg[i]).first;
 	phg[i] = get_g_angle(chg[i]).second;
@@ -365,6 +370,7 @@ int main(int argc, char *argv[]){
       tsb = ts_diff_b[0]/1e3;
 	
       included_angle = get_included_angle(75.-th4He/2.,ph4He+180.,thg[0],phg[0]);
+      th12C = 75.-th4He/2.;
       double xtotalE_12C = (25.0-4.44-K4He)+AMU*12+4.44;
       double xtmpmom = sqrt(xtotalE_12C*xtotalE_12C-(AMU*12+4.44)*(AMU*12+4.44));
       double xtmpgam = pow(1+pow(xtmpmom/(AMU*12),2),0.5);

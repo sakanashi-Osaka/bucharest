@@ -1,0 +1,85 @@
+void createEnergyBranch() {
+    // 入力ファイルとTreeの指定
+    TFile *inputFile = TFile::Open("rootfile/marged2423.root", "READ");
+    if (!inputFile || inputFile->IsZombie()) {
+        std::cerr << "Error: Cannot open file 'rootfile/marged2423.root'" << std::endl;
+        return;
+    }
+
+    TTree *inputTree = (TTree*)inputFile->Get("tree");
+    if (!inputTree) {
+        std::cerr << "Error: Cannot find tree in the file." << std::endl;
+        inputFile->Close();
+        return;
+    }
+
+    // 入力Treeのブランチをリンク
+    int ADC, domain;
+    float Energy;
+    inputTree->SetBranchAddress("ADC", &ADC);
+    inputTree->SetBranchAddress("domain", &domain);
+    inputTree->SetBranchAddress("Energy", &Energy);
+
+    // 新しいファイルとTreeの作成
+    TFile *outputFile = new TFile("rootfile/ene2423.root", "RECREATE");
+    TTree *outputTree = new TTree("tree", "Tree with Energy2423");
+
+    // 新しいTreeのブランチ
+    float Energy2423;
+    outputTree->Branch("ADC", &ADC, "ADC/I");
+    outputTree->Branch("domain", &domain, "domain/I");
+    outputTree->Branch("Energy", &Energy, "Energy/F");
+    outputTree->Branch("Energy2423", &Energy2423, "Energy2423/F");
+
+    // パラメータを格納するマップ
+    std::map<int, std::pair<float, float>> params;
+
+    // パラメータファイルを読み込む
+    std::ifstream paramFile("ene2423.prm");
+    if (!paramFile.is_open()) {
+        std::cerr << "Error: Cannot open parameter file 'ene2423.prm'" << std::endl;
+        inputFile->Close();
+        outputFile->Close();
+        return;
+    }
+
+    std::string line;
+    while (std::getline(paramFile, line)) {
+        std::istringstream iss(line);
+        int domainID;
+        float p0, p1;
+        if (iss >> domainID >> p0 >> p1) {
+            params[domainID] = std::make_pair(p0, p1);
+        }
+    }
+    paramFile.close();
+
+    // エントリをループ
+    Long64_t nEntries = inputTree->GetEntries();
+    std::cout << "Entries: " << nEntries << std::endl;
+    for (Long64_t i = 0; i < nEntries; ++i) {
+        inputTree->GetEntry(i);
+        if (i % 1000000 == 0) {
+            std::cout << "Processing entry " << i << "..." << std::endl;
+        }
+
+        if (domain < 64) {
+            Energy2423 = Energy;
+        } else if (params.find(domain) != params.end()) {
+            float p0 = params[domain].first;
+            float p1 = params[domain].second;
+            Energy2423 = p0 + p1 * ADC;
+        } else {
+            Energy2423 = Energy; // パラメータが見つからない場合は既存のEnergyを使用
+        }
+
+        outputTree->Fill(); // 新しいTreeに値を保存
+    }
+
+    // ファイルとTreeを保存
+    outputTree->Write();
+    outputFile->Close();
+    inputFile->Close();
+
+    std::cout << "New file 'rootfile/newfile.root' with branch 'Energy2423' created." << std::endl;
+}

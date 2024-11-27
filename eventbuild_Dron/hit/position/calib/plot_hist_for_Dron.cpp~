@@ -1,0 +1,33 @@
+void plot_hist_for_Dron() {
+    // ファイルを開く
+    std::ifstream infile("hist_for_Dron.txt");
+    if (!infile.is_open()) {
+        std::cerr << "Error: Unable to open data file." << std::endl;
+        return;
+    }
+
+    // データを格納する変数
+    std::vector<double> run, x, y;
+
+    // ファイルからデータを読み込む
+    double run_val, x_val, y_val;
+    while (infile >> run_val >> x_val >> y_val) {
+        run.push_back(run_val);
+        x.push_back(x_val);
+        y.push_back(y_val);
+    }
+
+    // データポイント数
+    int n = run.size();
+
+    // グラフを作成
+    TGraph *graph = new TGraph(n, x.data(), y.data());
+    graph->SetTitle("Graph from data.txt;X-axis;Y-axis"); // タイトルと軸ラベルを設定
+
+    // キャンバスを作成して描画
+    TCanvas *c1 = new TCanvas("c1", "Graph", 800, 600);
+    graph->SetMarkerStyle(20); // マーカーのスタイル
+    graph->SetMarkerSize(0.8); // マーカーのサイズ
+    graph->SetMarkerColor(kBlue); // マーカーの色
+    graph->Draw("AP"); // A: Axes, P: Points
+}
