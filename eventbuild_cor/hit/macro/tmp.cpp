@@ -28,13 +28,10 @@ using namespace std;
 double cor_ts(double chf4He);
 double get_front_theta(double front_ch);
 std::pair<double,double> get_angle(double ch_f, double ch_r);
-double get_distance(double ch_f, double ch_r);
-double get_area(double ch_f, double ch_r);
 double get_front_ex(double theta, double ene);
 int get_g_slot(int ch_g);
 std::pair<double,double> get_g_angle(int g_slot);
 double get_included_angle(double theta0, double phi0, double theta1, double phi1);
-
 
 int getStrFromText(string filename, vector<string> &vstr){
   ifstream ifs(filename);
@@ -62,33 +59,17 @@ int main(int argc, char *argv[]){
   //  TFile *fin =new TFile(Form("../rootfile/acci%d.root",atoi(argv[1])));
   TTree *hit = (TTree*)fin->Get("hit");
 
-  if(atoi(argv[1])>=2236 && atoi(argv[1])<=2239) s1_dist=41.3;
-  if(atoi(argv[1])>=2240 && atoi(argv[1])<=2250) s1_dist=41.7;
-  if(atoi(argv[1])>=2251 && atoi(argv[1])<=2269) s1_dist=41.5;
-  if(atoi(argv[1])>=2270 && atoi(argv[1])<=2304) s1_dist=40.3;
-  //  if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=40.4; 
-  if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=40.9; // 
-  if(atoi(argv[1])>=2319 && atoi(argv[1])<=2327) s1_dist=39.9; 
-  if(atoi(argv[1])>=2328 && atoi(argv[1])<=2337) s1_dist=40.2; 
-  if(atoi(argv[1])>=2338 && atoi(argv[1])<=2345) s1_dist=40.4; 
-  if(atoi(argv[1])>=2346 && atoi(argv[1])<=2355) s1_dist=40.8;
-  if(atoi(argv[1])>=2356 && atoi(argv[1])<=2362) s1_dist=40.9;
-  if(atoi(argv[1])>=2363 && atoi(argv[1])<=2376) s1_dist=39.9;
-  if(atoi(argv[1])>=2377 && atoi(argv[1])<=2394) s1_dist=40.4;
-  if(atoi(argv[1])>=2395 && atoi(argv[1])<=2413) s1_dist=39.9;
-  /*
   if(atoi(argv[1])>=2236 && atoi(argv[1])<=2286) s1_dist=41.5;
   if(atoi(argv[1])>=2287 && atoi(argv[1])<=2304) s1_dist=41.0;
-  if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=41.0; 
-  if(atoi(argv[1])>=2319 && atoi(argv[1])<=2327) s1_dist=40.5; 
-  if(atoi(argv[1])>=2328 && atoi(argv[1])<=2337) s1_dist=40.5; 
-  if(atoi(argv[1])>=2338 && atoi(argv[1])<=2345) s1_dist=41.0; 
+  if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=41.0;
+  if(atoi(argv[1])>=2319 && atoi(argv[1])<=2327) s1_dist=40.5;
+  if(atoi(argv[1])>=2328 && atoi(argv[1])<=2337) s1_dist=40.5;
+  if(atoi(argv[1])>=2338 && atoi(argv[1])<=2345) s1_dist=41.0;
   if(atoi(argv[1])>=2346 && atoi(argv[1])<=2362) s1_dist=41.5;
   if(atoi(argv[1])>=2363 && atoi(argv[1])<=2376) s1_dist=40.5;
   if(atoi(argv[1])>=2377 && atoi(argv[1])<=2394) s1_dist=41.0;
   if(atoi(argv[1])>=2394 && atoi(argv[1])<=2413) s1_dist=40.5;
-  */
-  
+
   double chr[16][16]={};
   double chf[16][16]={};
   double pr[16][16]={};
@@ -206,9 +187,8 @@ int main(int argc, char *argv[]){
   //  TFile *fout =new TFile(Form("rootfile/gamma%d.root",atoi(argv[1])),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/single%d.root",atoi(argv[1])),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/gomi%d.root",atoi(argv[1])),"recreate");
-  //  TFile *fout =new TFile(Form("rootfile/tmp%d.root",atoi(argv[1])),"recreate");
-  TFile *fout =new TFile("rootfile/gomi.root","recreate");
-  //    TFile *fout =new TFile("rootfile/gomi1.root","recreate");
+  TFile *fout =new TFile(Form("rootfile/tmp%d.root",atoi(argv[1])),"recreate");
+  //  TFile *fout =new TFile("rootfile/gomi.root","recreate");
   TTree *tree = new TTree("tree","tree"); 
 
   //branch
@@ -244,8 +224,6 @@ int main(int argc, char *argv[]){
   double tsb;
   double included_angle;
   bool flag_g = false;
-  bool flag_4He = false;
-  bool flag_12C = false;
   
   int C_E=0;
   int C_th=0;
@@ -291,16 +269,14 @@ int main(int argc, char *argv[]){
   tree->Branch("tsb",&tsb,"tsb/D");
   tree->Branch("included_angle",&included_angle,"included_angle/D");
   tree->Branch("flag_g",&flag_g,"flag_g/B");
-  tree->Branch("flag_4He",&flag_4He,"flag_4He/B");
-  tree->Branch("flag_12C",&flag_12C,"flag_12C/B");
-   
+  
   
   tree->Branch("run",&run_n,"run/I");
   
   ULong64_t N=hit->GetEntries();
   cout << "Total entry: " << N << endl;
   for(ULong64_t evtn=0; evtn<N; evtn++){
-  //  for(ULong64_t evtn=0; evtn<100; evtn++){
+  //  for(ULong64_t evtn=0; evtn<5e6; evtn++){
 
     if(evtn%100000==0) cout << "\rAnalyzed entry:" << evtn; std::cout << flush;
 
@@ -308,7 +284,7 @@ int main(int argc, char *argv[]){
     K4He = -100; chf4He = -100; chr4He = -100; tsf4He = -100; tsr4He = -100;
     Amax4He = -100; th4He = -1000; ph4He = -1000; Ex4He = -100; 
     K12C = -100; chf12C = -100; chr12C = -100; tsf12C = -100; tsr12C = -100;
-    Amax12C = -100; th12C = -1000; ph12C = -1000; flag_g = false; flag_4He = false; flag_12C = false;
+    Amax12C = -100; th12C = -1000; ph12C = -1000; flag_g = false;
     
     for(int i=0; i<2; i++){    
       Kg[i] = -100; chg[i] = -100; thg[i] = -1000; phg[i] = -1000; tsg[i] = -100; Kg_cor = -100;
@@ -350,8 +326,8 @@ int main(int argc, char *argv[]){
       //      tmp_ex = cor_ex[seg_i][0];
 
     }else if(hit_n[seg_i]==21 && abs(ch_f[seg_i][0]-ch_f[seg_i][1])<=1){
-      flag_4He = true;
-      tmp_chf = (double)(ch_f[seg_i][0]+ch_f[seg_i][1])/2.;
+      continue;
+      tmp_chf = (double)(ch_f[seg_i][0]+ch_f[seg_i][1])/2;
       tmp_chr = (double)ch_r[seg_i][0];
       tmp_theta = get_angle(tmp_chf,tmp_chr).first;
       tmp_phi = get_angle(tmp_chf,tmp_chr).second;
@@ -362,14 +338,10 @@ int main(int argc, char *argv[]){
       continue;
     }
 
-    
     //    if(-1 < tmp_ex && tmp_ex<9){  // selected leading alpha //run*.root
-    //    if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //test*.root
-    //    if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //gomi*.root
-    if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //tmp*.root
+    if(6 < tmp_ex && tmp_ex<9){  // selected leading alpha //test*.root
+    //      if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //gomi*.root
     //    if(3 < tmp_ex && tmp_ex<6){  // selected leading alpha //gamma*.root
-      //      cout << evtn << " " << tmp_ex << endl;
-
       Ex4He = tmp_ex;
       K4He = tmp_ene; 
       chf4He = tmp_chf;
@@ -377,7 +349,7 @@ int main(int argc, char *argv[]){
       tsf4He = ts_diff_f[seg_i][0]/1e3;
       tsr4He = ts_diff_r[seg_i][0]/1e3;
       //      Amax4He = Amax[seg_i][0]; 
-      Amax4He = Amax[seg_i][0] - pHe3[(int)chf4He][(int)chr4He];  // for tmp*.root
+      Amax4He = Amax[seg_i][0] - pHe3[(int)chf4He][(int)chr4He]; 
       th4He = tmp_theta *180/PI;
       ph4He = tmp_phi *180/PI;
 
@@ -410,85 +382,51 @@ int main(int argc, char *argv[]){
 	  flag_g = true;
 	}
       }
-            
-      int seg_j = (seg_i+2)%4; // opposite segment
-      int seg_p = (seg_j+3)%4; // previous seg.
-      int seg_c = (seg_j+0)%4; // current seg.
-      int seg_n = (seg_j+1)%4; // next seg.
-      
-      if(hit_n[seg_p]==11 && hit_n[seg_c]!=11 && hit_n[seg_n]!=11){
-	seg_j = seg_p;
-      }
-      else if(hit_n[seg_p]!=11 && hit_n[seg_c]==11 && hit_n[seg_n]!=11){
-	seg_j = seg_c;
-	flag_12C = true;
-      }
-      else if(hit_n[seg_p]!=11 && hit_n[seg_c]!=11 && hit_n[seg_n]==11){
-	seg_j = seg_n;
-      }
-      /*
-      else if(hit_n[seg_p]==21 && hit_n[seg_c]!=11 && hit_n[seg_n]!=11 && abs(ch_f[seg_p][0]-ch_f[seg_p][1])<=1){
-	if((int)ch_r[seg_i][0]%4!=1 && (int)ch_r[seg_i][0]%4!=2){
-	  seg_j = seg_p;
-	  flag_seg = true;
-	}
-      }else if(hit_n[seg_p]!=11 && hit_n[seg_c]!=11 && hit_n[seg_n]==21 && abs(ch_f[seg_n][0]-ch_f[seg_n][1])<=1){
-	if((int)ch_r[seg_i][0]%4!=1 && (int)ch_r[seg_i][0]%4!=2){
-	  seg_j = seg_n;
-	  flag_seg = true;
-	}
-      }
-      */
-      else{
-	//	continue;
-      }
-      //      if(seg_j==seg_c) flag_seg = true;
 
-      
-      
-      tmp_chf = (double)ch_f[seg_j][0];
-      if(flag_12C) tmp_chf = ((double)ch_f[seg_j][0]+(double)ch_f[seg_j][1])/2;
-      tmp_chr = (double)ch_r[seg_j][0];
-      tmp_theta = get_angle(tmp_chf,tmp_chr).first;
-      tmp_phi = get_angle(tmp_chf,tmp_chr).second;
-      
-      K12C = Energy_f[seg_j][0];
-      if(flag_12C) K12C = Energy_f[seg_j][0] + Energy_f[seg_j][1];
-      chf12C = tmp_chf;
-      chr12C = tmp_chr;
-      //	tsf12C = ts_diff_f[seg_j][0]/1e3 + K4He*40/18; //before ts correction
-      //	tsr12C = ts_diff_r[seg_j][0]/1e3 + K4He*40/18;
-      tsf12C = ts_diff_f[seg_j][0]/1e3 + K4He*40/18 -pf[(int)chf12C][(int)chr12C];
-      tsr12C = ts_diff_r[seg_j][0]/1e3 + K4He*40/18 -pr[(int)chf12C][(int)chr12C];
-      //	Amax12C = Amax[seg_j][0];
-      Amax12C = Amax[seg_j][0] - (pa0[(int)chf12C][(int)chr12C] + pa1[(int)chf12C][(int)chr12C]*K12C + pa2[(int)chf12C][(int)chr12C]/(K12C-pa3[(int)chf12C][(int)chr12C]));
-      //       	cout << Amax[seg_j][0] << " " << Amax12C << endl;
-      th12C = tmp_theta *180/PI;
-      ph12C = tmp_phi *180/PI;
+      int seg_j = (seg_i+2)%4; // opposite segment
+
+      if(hit_n[seg_j]==11){ 
+	tmp_chf = (double)ch_f[seg_j][0];
+	tmp_chr = (double)ch_r[seg_j][0];
+	tmp_theta = get_angle(tmp_chf,tmp_chr).first;
+	tmp_phi = get_angle(tmp_chf,tmp_chr).second;
+
+	K12C = Energy_f[seg_j][0]; 
+	chf12C = ch_f[seg_j][0];
+	chr12C = ch_r[seg_j][0];
+	//	tsf12C = ts_diff_f[seg_j][0]/1e3 + K4He*40/18; //before ts correction
+	//	tsr12C = ts_diff_r[seg_j][0]/1e3 + K4He*40/18;
+	tsf12C = ts_diff_f[seg_j][0]/1e3 + K4He*40/18 -pf[(int)chf12C][(int)chr12C];
+	tsr12C = ts_diff_r[seg_j][0]/1e3 + K4He*40/18 -pr[(int)chf12C][(int)chr12C];
+	//	Amax12C = Amax[seg_j][0];
+       	Amax12C = Amax[seg_j][0] - (pa0[(int)chf12C][(int)chr12C] + pa1[(int)chf12C][(int)chr12C]*K12C + pa2[(int)chf12C][(int)chr12C]/(K12C-pa3[(int)chf12C][(int)chr12C]));
+	//       	cout << Amax[seg_j][0] << " " << Amax12C << endl;
+	th12C = tmp_theta *180/PI;
+	ph12C = tmp_phi *180/PI;
 	
-      //doppler sift
-      double tmp_xx = sin(th12C*PI/180)*cos(ph12C*PI/180) * sin(thg[0]*PI/180)*cos(phg[0]*PI/180);
-      double tmp_yy = sin(th12C*PI/180)*sin(ph12C*PI/180) * sin(thg[0]*PI/180)*sin(phg[0]*PI/180);
-      double tmp_zz = cos(th12C*PI/180) * cos(thg[0]*PI/180);
-      double ang_cos = tmp_xx+tmp_yy+tmp_zz;
-      double totalE_12C = K12C+AMU*12+7.65;
-      double tmpmom = sqrt(totalE_12C*totalE_12C-(AMU*12+7.65)*(AMU*12+7.65));
-      double tmpgam = pow(1+pow(tmpmom/(AMU*12),2),0.5);
-      double tmpbeta = pow(1-1/pow(tmpgam,2),0.5);
-      //	Kg_cor = Kg[0]*(1-ang_cos*tmpbeta)/pow(1-pow(tmpbeta,2),0.5);
-      included_angle = get_included_angle(th12C,ph12C,thg[0],phg[0]);
-      Kg_cor = Kg[0]*(1-cos(included_angle*PI/180.)*xtmpbeta)/pow(1-pow(xtmpbeta,2),0.5);
-      Kg_cor = 4.44 * Kg_cor/pg2[chg[0]];
-      
-      
-      //C_flag
-      if(th12C>0 && th4He>0 && th4He>-4*th12C+200) C_th=1;
-      if(abs(ph4He-ph12C)>155 && abs(ph4He-ph12C)<205) C_ph=1;
-      //	if(K4He+K12C>15.6 && K4He+K12C<16.7) C_E=1; 
-      if(abs(tsf12C)<30 && abs(tsr12C)<30 && abs(tsr4He)<3) C_ts=1;
-      
+	//doppler sift
+	double tmp_xx = sin(th12C*PI/180)*cos(ph12C*PI/180) * sin(thg[0]*PI/180)*cos(phg[0]*PI/180);
+	double tmp_yy = sin(th12C*PI/180)*sin(ph12C*PI/180) * sin(thg[0]*PI/180)*sin(phg[0]*PI/180);
+	double tmp_zz = cos(th12C*PI/180) * cos(thg[0]*PI/180);
+	double ang_cos = tmp_xx+tmp_yy+tmp_zz;
+	double totalE_12C = K12C+AMU*12+7.65;
+	double tmpmom = sqrt(totalE_12C*totalE_12C-(AMU*12+7.65)*(AMU*12+7.65));
+	double tmpgam = pow(1+pow(tmpmom/(AMU*12),2),0.5);
+	double tmpbeta = pow(1-1/pow(tmpgam,2),0.5);
+	//	Kg_cor = Kg[0]*(1-ang_cos*tmpbeta)/pow(1-pow(tmpbeta,2),0.5);
+	included_angle = get_included_angle(th12C,ph12C,thg[0],phg[0]);
+	Kg_cor = Kg[0]*(1-cos(included_angle*PI/180.)*xtmpbeta)/pow(1-pow(xtmpbeta,2),0.5);
+	Kg_cor = 4.44 * Kg_cor/pg2[chg[0]];
+	
+	
+	//C_flag
+	if(th12C>0 && th4He>0 && th4He>-4*th12C+200) C_th=1;
+	if(abs(ph4He-ph12C)>155 && abs(ph4He-ph12C)<205) C_ph=1;
+	//	if(K4He+K12C>15.6 && K4He+K12C<16.7) C_E=1; 
+	if(abs(tsf12C)<30 && abs(tsr12C)<30 && abs(tsr4He)<3) C_ts=1;
+      }
       //      if(C_th==1 && C_ph==1 && C_E==1 && C_ts==1) tree->Fill(); //run*.root
-      //      if(C_th==1 && C_ph==1 && C_ts==1) tree->Fill(); //test*.root
+      //    if(C_th==1 && C_ph==1 && C_ts==1) tree->Fill(); //test*.root
       tree->Fill(); //gomi*.root 
     }
   }
@@ -598,28 +536,6 @@ std::pair<double,double> get_angle(double ch_f, double ch_r){
   return std::make_pair(tmp_theta,tmp_phi);
 }
 
-double get_distance(double ch_f, double ch_r){
-  double tmp_x, tmp_y, tmp_z, tmp_d;
-  double front_theta = get_front_theta(ch_f);
-  double rear_phi = (90 + 22.5/2.0 + 22.5*ch_r)*PI/180;
-
-  tmp_x = s1_dist * tan(front_theta)*cos(rear_phi) - beam_x;
-  tmp_y = s1_dist * tan(front_theta)*sin(rear_phi) - beam_y;
-  tmp_z = s1_dist;
-
-  tmp_d = pow(pow(tmp_x,2) + pow(tmp_y,2) + pow(tmp_z,2), 0.5);
-  return tmp_d;
-}
-
-double get_area(double ch_f, double ch_r){
-  double tmp_r_outer = 48.0  - 1.5*ch_f;
-  double tmp_r_inner = 46.5  - 1.5*ch_f;
-  double tmp_area = PI * (pow(tmp_r_outer,2) - pow(tmp_r_inner,2)) / 16.0;
-  
-  return tmp_area;
-}
-
-
 double get_front_ex(double theta, double ene){
   const double beam_ene = 25.0;
   const double mass_ex_12c = 0;
@@ -660,7 +576,3 @@ double get_front_ex(double theta, double ene){
 
   return ex4;
 }
-
-
-
-

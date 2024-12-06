@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
   TH1D *hAmax4[16][16];
   TH1D *hAmax5[16][16];
   
-  fin = new TFile(Form("../../rootfile/gomi%d.root",atoi(argv[1])));
+  fin = new TFile(Form("../../rootfile/Dron%d.root",atoi(argv[1])));
   tree = (TTree*)fin->Get("tree");
 
   for(int i=0; i<16; i++){

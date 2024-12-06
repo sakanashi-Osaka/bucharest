@@ -1,0 +1,70 @@
+void DeadLayer1() {
+    // 実験データのROOTファイルを開く
+    TFile *f_exp = TFile::Open("../rootfile/Dron44412C_all.root");
+    if (!f_exp || f_exp->IsZombie()) {
+        std::cerr << "Error: Could not open rootfile/Dron44412C_all.root" << std::endl;
+        return;
+    }
+
+    // 実験データのTreeを取得
+    TTree *tree_exp = (TTree*)f_exp->Get("tree");
+    if (!tree_exp) {
+        std::cerr << "Error: Could not retrieve tree from Dron44412C_all.root" << std::endl;
+        return;
+    }
+
+    // 実験データのヒストグラムを作成
+    TH1F *h_exp = new TH1F("h_exp", "Experimental Data; Energy; Counts", 80, 22.5, 24.5);
+    tree_exp->Draw("K4He+K12C+4.44>>h_exp",
+                   "abs(Ex4He-4.44)<0.3&&Amax4He<0.02&&Amax12C<0.02&&K12C<5&&chf4He<3&&chf12C<3",
+                   "col", 1e5, 5e5);
+
+    // シミュレーションデータのROOTファイルを開く
+    TFile *sim_file = TFile::Open("~/exp/Bucharest2022/simulation/rootfile/ene444_dl57_e110.root");
+
+    // シミュレーションデータのTreeを取得
+    TTree *tree_sim = (TTree*)sim_file->Get("tree");
+    if (!tree_sim) {
+        std::cerr << "Error: Could not retrieve tree from ene444_dl52_e70.root" << std::endl;
+        return;
+    }
+
+    // シミュレーションデータのヒストグラムを作成
+    TH1F *h_sim = new TH1F("h_sim", "Simulation Data; Energy; Counts", 160, 22.5, 24.5);
+    tree_sim->Draw("mK4He+mK12C+4.44>>h_sim",
+                   "m4HechF<3&&m12CchF<3",
+                   "col");
+
+    // h_simを関数として定義 (スケールと平行移動をパラメータ化)
+    TF1 *sim_fit = new TF1("sim_fit", [h_sim](double *x, double *par) {
+        double shifted_x = x[0] - par[1];  // 平行移動の分だけxをずらす
+        int bin = h_sim->FindBin(shifted_x);
+        if (bin <= 0 || bin > h_sim->GetNbinsX()) return 0.0; // 範囲外は0
+        return par[0] * h_sim->GetBinContent(bin);
+    }, 22.5, 24.5, 2); // 2パラメータ: スケールと平行移動
+
+    // パラメータの初期値を設定
+    sim_fit->SetParameter(0, 1.0); // スケールファクター
+    sim_fit->SetParameter(1, -0.1); // 平行移動 (初期値: 0)
+
+    // 実験ヒストグラムをフィット
+    h_exp->Fit("sim_fit", "N","",22.5,24.5);
+
+    // フィット関数を点で描画する設定
+    sim_fit->SetLineStyle(1);       // 線スタイルを無しに設定
+    sim_fit->SetLineWidth(0);       // 線スタイルを無しに設定
+    sim_fit->SetMarkerStyle(20);   // 点のスタイルを設定
+    sim_fit->SetMarkerSize(0.4);   // 点のサイズを設定
+    sim_fit->SetMarkerColor(kRed); // 点の色を設定
+
+    // 結果を表示
+    TCanvas *c1 = new TCanvas("c1", "Fit Simulation to Experimental Data", 800, 600);
+    h_exp->SetLineColor(kBlack);
+    h_sim->SetLineColor(kRed);
+    h_exp->Draw();
+    sim_fit->Draw("P SAME");
+
+    double chi2 = sim_fit->GetChisquare(); // カイ二乗値を取得
+    int ndf = sim_fit->GetNDF();          // 自由度を取得
+    std::cout << "Chi2: " << chi2 << ", NDF: " << ndf << ", Chi2/NDF: " << chi2/ndf << std::endl;
+}

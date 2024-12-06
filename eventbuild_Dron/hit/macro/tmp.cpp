@@ -55,6 +55,30 @@ double beam_x=0;
 double beam_y=0;
 
 
+bool getRunMeanSigma(int runNumber, double &mean, double &sigma, const std::string &filename = "calib_ex/ex_cor.prm") {
+  std::ifstream inputFile(filename);
+  std::string line;
+  bool found = false;
+  while (std::getline(inputFile, line)) {
+    std::istringstream iss(line);
+    int fileRunNumber;
+    double fileMean, fileSigma;
+    if (iss >> fileRunNumber >> fileMean >> fileSigma) {
+      if (fileRunNumber == runNumber) {
+	if(fabs(fileMean-7.65)<0.2){
+	  mean = 7.65 - fileMean;
+	  sigma = fileSigma;
+	  found = true;
+	}
+	break;
+      }
+    }
+  }
+  return found;
+}
+
+
+
 int main(int argc, char *argv[]){
   
   TFile *fin =new TFile(Form("../rootfile/run%d.root",atoi(argv[1])));
@@ -65,8 +89,7 @@ int main(int argc, char *argv[]){
   if(atoi(argv[1])>=2240 && atoi(argv[1])<=2250) s1_dist=41.7;
   if(atoi(argv[1])>=2251 && atoi(argv[1])<=2269) s1_dist=41.5;
   if(atoi(argv[1])>=2270 && atoi(argv[1])<=2304) s1_dist=40.3;
-  //  if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=40.4; 
-  if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=40.9; // 
+  if(atoi(argv[1])>=2305 && atoi(argv[1])<=2318) s1_dist=40.9;
   if(atoi(argv[1])>=2319 && atoi(argv[1])<=2327) s1_dist=39.9; 
   if(atoi(argv[1])>=2328 && atoi(argv[1])<=2337) s1_dist=40.2; 
   if(atoi(argv[1])>=2338 && atoi(argv[1])<=2345) s1_dist=40.4; 
@@ -75,6 +98,7 @@ int main(int argc, char *argv[]){
   if(atoi(argv[1])>=2363 && atoi(argv[1])<=2376) s1_dist=39.9;
   if(atoi(argv[1])>=2377 && atoi(argv[1])<=2394) s1_dist=40.4;
   if(atoi(argv[1])>=2395 && atoi(argv[1])<=2413) s1_dist=39.9;
+  s1_dist=40;
   /*
   if(atoi(argv[1])>=2236 && atoi(argv[1])<=2286) s1_dist=41.5;
   if(atoi(argv[1])>=2287 && atoi(argv[1])<=2304) s1_dist=41.0;
@@ -136,6 +160,14 @@ int main(int argc, char *argv[]){
   }
   
 
+  int runNumber = atoi(argv[1]);
+  double mean = 0;
+  double sigma = 0;
+   
+  if(getRunMeanSigma(runNumber, mean, sigma)){
+    std::cout << "Run " << runNumber << ": Mean = " << mean << ", Sigma = " << sigma << std::endl;
+  }
+  
   
   vector<string> vstr;
   getStrFromText("../beam_pos.prm",vstr);
@@ -151,8 +183,8 @@ int main(int argc, char *argv[]){
       //      beam_y = 2.4;
       break;
     }else{
-      beam_x = -0.5;
-      beam_y = 2.4;
+      beam_x = 0.20;
+      beam_y = 2.49;
     }
   }
     cout << "beam_pos: " << beam_x << " " << beam_y << endl;
@@ -205,9 +237,10 @@ int main(int argc, char *argv[]){
   //  TFile *fout =new TFile(Form("rootfile/acci%d.root",atoi(argv[1])),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/gamma%d.root",atoi(argv[1])),"recreate");
   //  TFile *fout =new TFile(Form("rootfile/single%d.root",atoi(argv[1])),"recreate");
-  //    TFile *fout =new TFile(Form("rootfile/gomi%d.root",atoi(argv[1])),"recreate");
-  TFile *fout =new TFile(Form("rootfile/Dron%d.root",atoi(argv[1])),"recreate");
-  //    TFile *fout =new TFile("rootfile/gomi.root","recreate");
+  //  TFile *fout =new TFile(Form("rootfile/gomi%d.root",atoi(argv[1])),"recreate");
+  //  TFile *fout =new TFile(Form("rootfile/Dron%d.root",atoi(argv[1])),"recreate");
+  TFile *fout =new TFile(Form("rootfile/Dron444%d.root",atoi(argv[1])),"recreate");
+  //  TFile *fout =new TFile("rootfile/gomi.root","recreate");
   //    TFile *fout =new TFile("rootfile/gomi1.root","recreate");
   TTree *tree = new TTree("tree","tree"); 
 
@@ -229,6 +262,8 @@ int main(int argc, char *argv[]){
   double chr12C;
   double tsf12C;
   double tsr12C;
+  double tsf12C_origin;
+  double tsr12C_origin;
   double Amax12C;
   double th12C;
   double ph12C;
@@ -271,6 +306,8 @@ int main(int argc, char *argv[]){
   tree->Branch("K12C",&K12C,"K12C/D");
   tree->Branch("chf12C",&chf12C,"chf12C/D");
   tree->Branch("chr12C",&chr12C,"chr12C/D");
+  tree->Branch("tsf12C_origin",&tsf12C_origin,"tsf12C_origin/D");
+  tree->Branch("tsr12C_origin",&tsr12C_origin,"tsr12C_origin/D");
   tree->Branch("tsf12C",&tsf12C,"tsf12C/D");
   tree->Branch("tsr12C",&tsr12C,"tsr12C/D");
   tree->Branch("Amax12C",&Amax12C,"Amax12C/D");
@@ -312,6 +349,7 @@ int main(int argc, char *argv[]){
     K4He = -100; chf4He = -100; chr4He = -100; tsf4He = -100; tsr4He = -100;
     Amax4He = -100; th4He = -1000; ph4He = -1000; Ex4He = -100; 
     K12C = -100; chf12C = -100; chr12C = -100; tsf12C = -100; tsr12C = -100;
+    tsf12C_origin = -100; tsr12C_origin = -100;
     Amax12C = -100; th12C = -1000; ph12C = -1000; flag_g = false; flag_4He = false; flag_12C = false;
     
     for(int i=0; i<2; i++){    
@@ -354,6 +392,7 @@ int main(int argc, char *argv[]){
       //      tmp_ex = cor_ex[seg_i][0];
 
     }else if(hit_n[seg_i]==21 && abs(ch_f[seg_i][0]-ch_f[seg_i][1])<=1){
+      
       flag_4He = true;
       //      continue;
       tmp_chf = (double)(ch_f[seg_i][0]+ch_f[seg_i][1])/2.;
@@ -369,10 +408,12 @@ int main(int argc, char *argv[]){
 
     //    if(-1 < tmp_ex && tmp_ex<9){  // selected leading alpha //run*.root
     //    if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //test*.root
-    if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //gomi*.root
-    //    if(3 < tmp_ex && tmp_ex<6){  // selected leading alpha //gamma*.root
-      Ex4He = tmp_ex;
-      K4He = tmp_ene; 
+    //  if(6 < tmp_ex && tmp_ex<10){  // selected leading alpha //gomi*.root
+    if(3 < tmp_ex && tmp_ex<6){  // selected leading alpha //gamma*.root
+      //      Ex4He = tmp_ex;
+      //      K4He = tmp_ene; 
+      Ex4He = tmp_ex + mean;
+      K4He = tmp_ene - mean; // after ene correction //Dron
       chf4He = tmp_chf;
       chr4He = tmp_chr;
       tsf4He = ts_diff_f[seg_i][0]/1e3;
@@ -443,27 +484,27 @@ int main(int argc, char *argv[]){
       }
       */
       else{
-	//	continue;
+	continue;
       }
       //      if(seg_j==seg_c) flag_seg = true;
 
-      
+      //      cout << "aa";
       
       tmp_chf = (double)ch_f[seg_j][0];
-      if(flag_12C) tmp_chf = ((double)ch_f[seg_j][0]+(double)ch_f[seg_j][1])/2;
+      //      if(flag_12C) tmp_chf = ((double)ch_f[seg_j][0]+(double)ch_f[seg_j][1])/2;
       tmp_chr = (double)ch_r[seg_j][0];
       tmp_theta = get_angle(tmp_chf,tmp_chr).first;
       tmp_phi = get_angle(tmp_chf,tmp_chr).second;
       
       K12C = Energy_f[seg_j][0];
-      if(flag_12C) K12C = Energy_f[seg_j][0] + Energy_f[seg_j][1];
+      //      if(flag_12C) K12C = Energy_f[seg_j][0] + Energy_f[seg_j][1];
       chf12C = tmp_chf;
       chr12C = tmp_chr;
-      //	tsf12C = ts_diff_f[seg_j][0]/1e3 + K4He*40/18; //before ts correction
-      //	tsr12C = ts_diff_r[seg_j][0]/1e3 + K4He*40/18;
+      tsf12C_origin = ts_diff_f[seg_j][0]/1e3; //before ts correction
+      tsr12C_origin = ts_diff_r[seg_j][0]/1e3;
       tsf12C = ts_diff_f[seg_j][0]/1e3 + K4He*40/18 -pf[(int)chf12C][(int)chr12C];
       tsr12C = ts_diff_r[seg_j][0]/1e3 + K4He*40/18 -pr[(int)chf12C][(int)chr12C];
-      //	Amax12C = Amax[seg_j][0];
+      //      Amax12C = Amax[seg_j][0];
       Amax12C = Amax[seg_j][0] - (pa0[(int)chf12C][(int)chr12C] + pa1[(int)chf12C][(int)chr12C]*K12C + pa2[(int)chf12C][(int)chr12C]/(K12C-pa3[(int)chf12C][(int)chr12C]));
       //       	cout << Amax[seg_j][0] << " " << Amax12C << endl;
       th12C = tmp_theta *180/PI;

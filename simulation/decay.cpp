@@ -302,15 +302,15 @@ int main(int argc, char *argv[]){
   ssim.a1=4;    /* mass numbers of beam particle*/
   
   ssim.thSi=0; /* Angle of Si in degree */
-  ssim.dSi=41; /* distance between target and Si in mm */
-  //   ssim.dSi=40.0; /* distance between target and Si in mm */
+  //  ssim.dSi=41; /* distance between target and Si in mm */
+  ssim.dSi=40.0; /* distance between target and Si in mm */
   ssim.diaSi=96; /* diameter of Si in mm */
   ssim.innSi=48; /* inner of Si in mm */
   ssim.nxSi=16*4; /* Number of horizontal strips in Si */
   ssim.nySi=16; /* Number of vertical strips in Si */
   ssim.thrSi=ssim.thSi*D_TO_R;   /* Angle of Si in radian */
-  //  ssim.tdeadSi=0.4;  /* Dead layer in Si in um */
-  ssim.tdeadSi=0.55;  /* Dead layer in Si in um */
+  ssim.tdeadSi=0.4;  /* Dead layer in Si in um */
+  //  ssim.tdeadSi=0.55;  /* Dead layer in Si in um */
 
   ssim.sigK1=0.02;  /* Energy spread of the beam in MeV */
   ssim.sigthr1=0.2*D_TO_R; /* In-plane angular spread of the beam in radian */ 
@@ -491,8 +491,8 @@ int main(int argc, char *argv[]){
   tree->Branch("flag_strip",&flag_strip,"flag_strip/B");
   tree->Branch("flag_strip1",&flag_strip1,"flag_strip1/B");
   
-  //  int nev=5e6;
-  int nev=1e6;
+  int nev=10e6;
+  //  int nev=1e6;
 
   
   // angular distribution

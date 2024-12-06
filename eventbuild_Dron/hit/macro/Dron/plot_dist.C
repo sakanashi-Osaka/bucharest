@@ -1,0 +1,98 @@
+void plot_dist(){
+  TString fileName = "gomi_with_errors765.root";
+  TFile *file = TFile::Open(fileName);
+  TString histName = "cross_section_cm_with_errors";
+  TGraphErrors *g = (TGraphErrors*)file->Get(histName);
+
+  TCanvas *c0 = new TCanvas("c0","c0",600,600);
+
+  double xMin = 40.0, xMax = 75.0; // xの範囲
+  double yMin = 0.04, yMax = 1.0; // yの範囲
+
+  // 新しいTGraphを作成
+  TGraphErrors *g0 = new TGraphErrors();
+  TGraphErrors *g0_copy = new TGraphErrors();
+  int nPoints = g->GetN(); // 元のTGraphのデータ点数
+  int newIndex = 0;
+  
+  for (int i = 0; i < nPoints; ++i) {
+    double x, y, x_error, y_error;
+    g->GetPoint(i, x, y);
+    x_error = g->GetErrorX(i);
+    y_error = g->GetErrorY(i);
+    if (x >= xMin && x <= xMax && y >= yMin && y <= yMax) {
+      g0->SetPoint(newIndex, x, y);
+      g0->SetPointError(newIndex, x_error, y_error);
+      g0_copy->SetPoint(newIndex, x, y);
+      g0_copy->SetPointError(newIndex, x_error, y_error);
+      newIndex++;
+    }
+  }
+  
+  g0->GetXaxis()->SetLimits(0,100);
+  g0->GetYaxis()->SetLimits(0,100);
+  g0->GetXaxis()->SetRangeUser(35,75);
+  g0->GetYaxis()->SetRangeUser(0,0.5);
+  g0->SetMarkerStyle(8);
+  g0->SetMarkerSize(0.5);
+  g0->Draw("AP");
+
+  
+  TF1 *f0 = new TF1("f0",
+		    "[0] + [1]*x + [2]*exp(-pow(x-[3],2)/(2*pow([4],2))) + [5]*exp(-pow(x-[6],2)/(2*pow([7],2)))",
+		    40, 70); // xの範囲を適宜変更
+
+  double p0,p1,p2,p3,p4,p5,p6,p7;
+  double f=1.07;
+  //  double f=1;
+  p0 = f*-1.7537;
+  p1 = f*0.024486;
+  p2 = f*0.8;
+  p3 = 53.055;
+  p4 = 8.5946;
+  p5 = f*0.72505;
+  p6 = 38.205;
+  p7 = 4;
+  
+  f0->SetParameters(-1.5, 0.021, 0.7, 54, 8.4, 0.8, 36.5, 5.08);
+  //  f0->SetParameters(p0,p1,p2,p3,p4,p5,p6,p7);
+
+  /*
+  f0->FixParameter(0,p0);
+  f0->FixParameter(1,p1);
+  f0->FixParameter(2,p2);
+  f0->FixParameter(3,p3);
+  f0->FixParameter(4,p4);
+  f0->FixParameter(5,p5);
+  f0->FixParameter(6,p6);
+  f0->FixParameter(7,p7);
+  */
+  
+  g0->Fit("f0","R","",40,70);
+  
+  double chi2 = f0->GetChisquare();       // カイ二乗値
+  int ndf = f0->GetNDF();                 // 自由度 (Number of Degrees of Freedom)
+  double chi2_ndf = chi2 / ndf;                // カイ二乗/自由度  
+  std::cout << "Chi2: " << chi2 << std::endl;
+  std::cout << "NDF: " << ndf << std::endl;
+  std::cout << "Chi2/NDF: " << chi2_ndf << std::endl;
+  
+
+  
+
+    //  /*
+  const int nPoints1 = 15;
+  double x1[nPoints1] = {7.0, 10.6, 14.1, 17.5, 21.0, 24.5, 28.5, 31.7, 35.0, 
+		       38.4, 42.3, 48.8, 55.4, 62.3, 68.8};
+  double y1[nPoints1] = {2.384E+01, 5.185E+00, 1.111E+00, 1.657E+00, 4.779E+00,
+		       6.654E+00, 4.984E+00, 2.362E+00, 8.831E-01, 4.339E-01,
+		       1.077E+00, 2.228E+00, 1.182E+00, 9.388E-01, 1.342E+00};
+  //  */
+    
+  TGraph *g1 = new TGraph(nPoints1, x1, y1);
+  g1->SetMarkerStyle(4);
+  g1->SetMarkerSize(1);
+  //  g1->Draw("P same");
+  
+}
+

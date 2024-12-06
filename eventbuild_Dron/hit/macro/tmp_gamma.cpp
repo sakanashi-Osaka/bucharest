@@ -88,7 +88,8 @@ int main(int argc, char *argv[]){
   double pHe2[16][16]={};
   double pHe3[16][16]={};
   double pHe4[16][16]={};
-  ifstream ifs1(Form("calib_Amax/4He/test%d.txt",atoi(argv[1])));
+  //  ifstream ifs1(Form("calib_Amax/4He/test%d.txt",atoi(argv[1])));
+  ifstream ifs1(Form("calib_Amax/4He/Dron/test%d.txt",atoi(argv[1])));
   for(int i=0; i<16; i++){
     for(int j=0; j<16; j++){
       ifs1 >> pHe0[i][j] >> pHe1[i][j] >> pHe2[i][j] >> pHe3[i][j] >> pHe4[i][j];
@@ -339,7 +340,7 @@ int main(int argc, char *argv[]){
     //    if(6 < tmp_ex && tmp_ex<9){  // selected leading alpha //run*.root
     //    if(6 < tmp_ex && tmp_ex<9){  // selected leading alpha //test*.root
     //    if(6 < tmp_ex && tmp_ex<9){  // selected leading alpha //gomi*.root
-    if(3 < tmp_ex && tmp_ex<6){  // selected leading alpha //gamma*.root
+    if(-1 < tmp_ex && tmp_ex<6){  // selected leading alpha //gamma*.root
       Ex4He = tmp_ex;
       K4He = tmp_ene; 
       chf4He = tmp_chf;

@@ -1,4 +1,4 @@
-Time: Fri Aug 23 10:24:56 2024
+Time: Tue Dec  3 15:27:01 2024
 Output: gomi
 Number of States: 3
 Mass Number: 4

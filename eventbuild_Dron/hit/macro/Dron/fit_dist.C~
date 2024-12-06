@@ -1,0 +1,67 @@
+#include <TGraphErrors.h>
+#include <TF1.h>
+#include <TCanvas.h>
+#include <iostream>
+
+void fit_dist() {
+    // ファイルから TGraphErrors を読み込む
+    TFile *file = new TFile("gomi_with_errors444.root", "READ");
+    TGraphErrors *graph = (TGraphErrors *)file->Get("cross_section_cm_with_errors");
+
+    if (!graph) {
+        std::cerr << "TGraphErrors 'cross_section_cm_with_errors' not found!" << std::endl;
+        return;
+    }
+
+    // フィット範囲を指定
+    double xMin = 57.0, xMax = 73.0;
+    double yMin = 1.0, yMax = 8.0;
+
+    // フィット用データを選択
+    TGraphErrors *filteredGraph = new TGraphErrors();
+    int selectedPoint = 0;
+
+    for (int i = 0; i < graph->GetN(); ++i) {
+        double x, y;
+        graph->GetPoint(i, x, y);
+        double ex = graph->GetErrorX(i);
+        double ey = graph->GetErrorY(i);
+
+        if (x > xMin && x < xMax && y > yMin && y < yMax) {
+            filteredGraph->SetPoint(selectedPoint, x, y);
+            filteredGraph->SetPointError(selectedPoint, ex, ey);
+            selectedPoint++;
+        }
+    }
+
+    // フィット関数 (3次関数)
+    //    TF1 *fitFunc = new TF1("fitFunc", "[0] + [1]*(x-[2])*(x-[3])*(x-[4])*(x-[5])", xMin, xMax);
+    //    fitFunc->SetParameters(3,-0.5,55,60,65,70); // 初期パラメータ
+    TF1 *fitFunc = new TF1("fitFunc", "[0] + [1]*(x-[2])*(x-[3])*(x-[4])*(x-[5])", xMin, xMax);
+    fitFunc->SetParameters(4,0.02,,55,60,66,74); // 初期パラメータ
+    fitFunc->FixParameter(0,4);
+    fitFunc->FixParameter(1,0.02);
+    fitFunc->FixParameter(3,60);
+    fitFunc->FixParameter(4,66);
+    fitFunc->FixParameter(5,72);
+    
+
+    // フィッティング
+    filteredGraph->Fit(fitFunc, "","",xMin, xMax); // "Q"は詳細な出力を抑制
+
+    // キャンバスにプロット
+    TCanvas *c = new TCanvas("c", "Fit Result", 800, 600);
+    filteredGraph->SetTitle("Filtered Data with Fit;X-axis;Y-axis");
+    filteredGraph->SetMarkerStyle(20);
+    filteredGraph->SetMarkerSize(1.0);
+    filteredGraph->SetMarkerColor(kBlue);
+    filteredGraph->Draw("AP");
+
+    fitFunc->SetLineColor(kRed);
+    fitFunc->Draw("SAME");
+
+
+    // ファイルを閉じる
+    file->Close();
+    delete file;
+}

@@ -1,0 +1,17 @@
+Time: Tue Dec  3 15:33:42 2024
+Output: gomi_dl40
+Number of States: 3
+Mass Number: 4
+Incident energy:    25.0 MeV (  6.2 MeV/u)
+  beam position: x= 0.200 mm, y= 2.490 mm
+  Energy spread:  0.025 MeV
+  Angular spread:  0.010 rad
+  Lateral spread:  0.600 mm
+Target thickness:  50.0 mg/cm2
+Si
+  Angle:   0.00 deg
+  Distance:   40.0 mm
+  Resolution:  0.030 MeV
+Excitation energy (0):   7.650 MeV
+Excitation energy (1):   4.440 MeV
+Excitation energy (2):   0.000 MeV

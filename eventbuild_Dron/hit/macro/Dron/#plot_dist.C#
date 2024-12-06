@@ -1,0 +1,107 @@
+double tmp(double thetacm_i=40., double thetacm_f=75., int n_div=350, int i_div=0){
+  double p0 = -241.512; //fitted using eventbuild_cor/hit/count/hist.C                                                                   
+  double p1 = 3.3118;
+  double p2 = 112.729;
+  double p3 = 54.2054;
+  double p4 = 8.41897;
+  double p5 = 130.893;
+  double p6 = 36.5291;
+  double p7 = 5.08719;
+
+  double x = thetacm_i + (thetacm_f-thetacm_i)/n_div * (double)i_div;
+  double num;
+  num = p0 + p1*x + p2*exp(-pow(x-p3,2)/(2*pow(p4,2))) + p5*exp(-pow(x-p6,2)/(2*pow(p7,2)));
+
+  return num;
+}
+
+
+
+void plot_dist(){
+  TString fileName = "gomi.root";
+  TFile *file = TFile::Open(fileName);
+  TString histName = "cross_section_cm_with_errors";
+  TGraph *g = (TGraph*)file->Get(histName);
+
+
+  double xMin = 40.0, xMax = 75.0; // xの範囲
+  double yMin = 0, yMax = 100.0; // yの範囲
+
+  // 新しいTGraphを作成
+  TGraph *g0 = new TGraph();
+  int nPoints = g->GetN(); // 元のTGraphのデータ点数
+  int newIndex = 0;
+  
+  for (int i = 0; i < nPoints; ++i) {
+    double x, y;
+    g->GetPoint(i, x, y);
+    if (x >= xMin && x <= xMax && y >= yMin && y <= yMax) {
+      g0->SetPoint(newIndex++, x, y);
+    }
+  }
+  
+  g0->GetXaxis()->SetLimits(0,100);
+  g0->GetYaxis()->SetLimits(0,100);
+  g0->GetXaxis()->SetRangeUser(30,70);
+  g0->GetYaxis()->SetRangeUser(0,10);
+  g0->Draw("AP");
+
+  
+  TF1 *f0 = new TF1("f0",
+		   "[0] + [1]*x + [2]*exp(-pow(x-[3],2)/(2*pow([4],2))) + [5]*exp(-pow(x-[6],2)/(2*pow([7],2)))",
+		   40, 75); // xの範囲を適宜変更
+
+  f0->SetParameters(-241.512/160, 3.3118/160, 112.729/160, 54.2054, 8.41897, 130.893/160, 36.5291, 5.08719);
+  f0->SetParLimits(0,-241.512/160);
+  f0->SetParLimits(1,3.3118/160);
+  f0->SetParLimits(2,112.729/160);
+  f0->SetParLimits(3,54.2054);
+  f0->SetParLimits(4,8.41897);
+  f0->SetParLimits(5,130.893/160);
+  g0->Fit("f0","","",40,75);
+  
+
+
+
+  // for g.s.
+  /*
+  const int nPoints1 = 22;
+  double x1[nPoints1] = {15.0, 18.7, 25.1, 28.6, 31.5, 35.1, 38.3, 41.2, 44.7, 47.9,
+			 51.2, 54.3, 57.2, 60.6, 63.9, 66.6, 69.8, 72.8, 75.1, 78.7,
+			 81.4, 126.0};
+  double y1[nPoints1] = {1.596E+03, 2.030E+02, 1.539E+02, 2.532E+02, 2.321E+02, 1.531E+02, 
+			 6.869E+01, 4.316E+01, 3.569E+01, 3.706E+01, 4.388E+01, 3.379E+01,
+			 2.406E+01, 1.522E+01, 7.614E+00, 2.702E+00, 4.536E-01, 7.170E-01,
+			 2.583E+00, 4.826E+00, 5.409E+00, 1.246E+04};
+  */
+  
+  // for 4.44
+  /*
+  const int nPoints1 = 15;
+  double x1[nPoints1] = {5.7, 9.4, 13.3, 16.5, 19.5, 23.1, 26.4, 29.9, 33.4, 36.7, 
+			 39.9, 46.2, 53.2, 59.3, 65.7};
+  double y1[nPoints1] = {3.179E+01, 2.132E+01, 1.289E+01, 8.037E+00, 8.803E+00, 
+			 8.684E+00, 9.938E+00, 8.709E+00, 6.828E+00, 8.605E+00,
+			 1.240E+01, 1.487E+01, 1.468E+01, 6.924E+00, 1.480E+01};
+  */
+
+  //  /*
+  const int nPoints1 = 15;
+  double x1[nPoints1] = {7.0, 10.6, 14.1, 17.5, 21.0, 24.5, 28.5, 31.7, 35.0, 
+		       38.4, 42.3, 48.8, 55.4, 62.3, 68.8};
+  double y1[nPoints1] = {2.384E+01, 5.185E+00, 1.111E+00, 1.657E+00, 4.779E+00,
+		       6.654E+00, 4.984E+00, 2.362E+00, 8.831E-01, 4.339E-01,
+		       1.077E+00, 2.228E+00, 1.182E+00, 9.388E-01, 1.342E+00};
+  //  */
+    
+  TGraph *g1 = new TGraph(nPoints1, x1, y1);
+  g1->SetMarkerStyle(4);
+  g1->SetMarkerSize(1);
+  g1->Draw("P same");
+
+
+
+  
+
+}
+
